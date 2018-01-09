@@ -28,19 +28,19 @@ function load() {
             alert("您输入的ID有误！");
         }else{
             var item = resource[TrueID];
-            alert(TrueID);
-            alert(command);
-            alert(item.command);
+            //alert(TrueID);
+            //alert(command);
+            //alert(item.command);
             if(command==item.command){
                 var url = resource[TrueID].url;
-                alert(url);
+                //alert(url);
                 var iframe = document.getElementById("image");
                 var inputbox = document.getElementById("something");
                 inputbox.remove();
                 iframe.src=url;
                 $('#play').append("正在播放："+ resource[TrueID].title);
             }else{
-                alert(item.command);
+                //alert(item.command);
                 alert("您输入的口令有误！");
             }
         }
