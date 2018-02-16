@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[小梦岛祝您新年大吉]]></title>
     <url>%2F2018%2F02%2F16%2F%E5%B0%8F%E6%A2%A6%E5%B2%9B%E7%A5%9D%E6%82%A8%E6%96%B0%E5%B9%B4%E5%A4%A7%E5%90%89%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","video":{"url":"/videos/dogs.mp4","pic":"/videos/vid_pic/2018.png"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()]]></content>
   </entry>
   <entry>
     <title><![CDATA[English essay]]></title>
