@@ -106,24 +106,25 @@
 
 
 
-  <meta name="description" content="从这篇文章开始，我们开始学习算法这门课">
+  <meta name="description" content="在科学实验和工程设计中，往往需要利用一些离散点上的信息（或称为实验数据）$（x_i，y_i）$去寻找、确定$x$与$y$之间函数关系的某种近似表达式。从几何角度来看，就是利用给定的$m$个数据点$（x_i, y_i）= (1, 2, …, m)$，求曲线$y = f (x)$的一条近似曲线$y = φ(x)$。因此，这是一个曲线拟合问题。">
+<meta name="keywords" content="数值分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法（一）">
-<meta property="og:url" content="http://royians.cn/2018/03/14/算法（一）/index.html">
+<meta property="og:title" content="最小二乘法">
+<meta property="og:url" content="http://royians.cn/2018/05/01/最小二乘法/index.html">
 <meta property="og:site_name" content="小梦岛">
-<meta property="og:description" content="从这篇文章开始，我们开始学习算法这门课">
+<meta property="og:description" content="在科学实验和工程设计中，往往需要利用一些离散点上的信息（或称为实验数据）$（x_i，y_i）$去寻找、确定$x$与$y$之间函数关系的某种近似表达式。从几何角度来看，就是利用给定的$m$个数据点$（x_i, y_i）= (1, 2, …, m)$，求曲线$y = f (x)$的一条近似曲线$y = φ(x)$。因此，这是一个曲线拟合问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-14T11:50:52.347Z">
+<meta property="og:updated_time" content="2018-05-17T13:06:47.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法（一）">
-<meta name="twitter:description" content="从这篇文章开始，我们开始学习算法这门课">
+<meta name="twitter:title" content="最小二乘法">
+<meta name="twitter:description" content="在科学实验和工程设计中，往往需要利用一些离散点上的信息（或称为实验数据）$（x_i，y_i）$去寻找、确定$x$与$y$之间函数关系的某种近似表达式。从几何角度来看，就是利用给定的$m$个数据点$（x_i, y_i）= (1, 2, …, m)$，求曲线$y = f (x)$的一条近似曲线$y = φ(x)$。因此，这是一个曲线拟合问题。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://royians.cn/2018/03/14/算法（一）/"/>
+  <link rel="canonical" href="http://royians.cn/2018/05/01/最小二乘法/"/>
 
 
 
@@ -133,7 +134,7 @@
   };
 </script>
 
-  <title>算法（一） | 小梦岛</title>
+  <title>最小二乘法 | 小梦岛</title>
   
 
 
@@ -329,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://royians.cn/2018/03/14/算法（一）/">
+    <link itemprop="mainEntityOfPage" href="http://royians.cn/2018/05/01/最小二乘法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Joshua Royians">
@@ -346,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">算法（一）
+          <h1 class="post-title" itemprop="name headline">最小二乘法
               
             
           </h1>
@@ -371,12 +372,24 @@
                 
               
 
-              <time title="创建时间：2018-03-14 19:18:39 / 修改时间：19:50:52" itemprop="dateCreated datePublished" datetime="2018-03-14T19:18:39+08:00">2018-03-14</time>
+              <time title="创建时间：2018-05-01 19:45:02" itemprop="dateCreated datePublished" datetime="2018-05-01T19:45:02+08:00">2018-05-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-17 21:06:47" itemprop="dateModified" datetime="2018-05-17T21:06:47+08:00">2018-05-17</time>
               
             
           </span>
@@ -389,7 +402,7 @@
 
           
           
-             <span id="/2018/03/14/算法（一）/" class="leancloud_visitors" data-flag-title="算法（一）">
+             <span id="/2018/05/01/最小二乘法/" class="leancloud_visitors" data-flag-title="最小二乘法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,8 +419,6 @@
           
 
           
-              <div class="post-description">从这篇文章开始，我们开始学习算法这门课</div>
-          
 
         </div>
       </header>
@@ -422,32 +433,15 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h3 id="算法简介："><a href="#算法简介：" class="headerlink" title="算法简介："></a>算法简介：</h3><ul>
-<li>什么是算法？算法是定义良好的用来解决问题的步骤</li>
-<li>算法是必不可少的</li>
-<li>使用算法的原因：效率、抽象和重用性。</li>
-</ul>
-<h3 id="算法设计的一般方法："><a href="#算法设计的一般方法：" class="headerlink" title="算法设计的一般方法："></a>算法设计的一般方法：</h3><ul>
-<li>随机法—&gt;依赖于随机数的统计特性—&gt;e.g.快速排序</li>
-<li>分治法—&gt;分解、求解与合并—&gt;e.g.归并排序</li>
-<li>动态规划—&gt;在动态规划中，不像分治法，子问题之间并不是独立的，可能有关联。</li>
-<li>贪心法—&gt;贪心法在求解问题时总能做出在当前的最佳选择。（某种意义上的局部最优解）—&gt;e.g.霍夫曼编码</li>
-<li>近似法—&gt;近似法并不计算出最优解，相反她只计算出“足够好”的解，通常用来解决计算成本高又因其十分有价值不愿放弃的问题。</li>
-<li>软件工程：<ul>
-<li>模块化</li>
-<li>可读性</li>
-<li>简洁性</li>
-<li>一致性</li>
-</ul>
-</li>
-</ul>
-<h1 id="两个例子：调度问题与投资问题-考虑什么叫算法设计"><a href="#两个例子：调度问题与投资问题-考虑什么叫算法设计" class="headerlink" title="两个例子：调度问题与投资问题 考虑什么叫算法设计?"></a>两个例子：调度问题与投资问题 <font size="2pt">考虑什么叫算法设计?</font></h1><h2 id="调度问题"><a href="#调度问题" class="headerlink" title="调度问题"></a>调度问题</h2><blockquote>
-<p>&emsp;&emsp;Q：有n项任务,每项任务加工时间已知。从0时刻开始陆续安排到一台机器上加工。每个任务的完成时间是从0时刻开始到任务加工截止的时间。求总完成时间（所有任务完成时间之和）最短的安排方案。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><blockquote>
+<p>在科学实验和工程设计中，往往需要利用一些离散点上的信息（或称为实验数据）<br>$（x_i，y_i）$去寻找、确定$x$与$y$之间函数关系的某种近似表达式。从几何角度来看，就是利用给定的$m$个数据点$（x_i, y_i）= (1, 2, …, m)$，求曲线$y = f (x)$的一条近似曲线$y = φ(x)$。因此，这是一个曲线拟合问题。</p>
 </blockquote>
-<p>&emsp;&emsp; <strong>实例</strong>：<br>&emsp;&emsp;&emsp;&emsp;任务集 <code>S={1,2,3,4,5}</code><br>&emsp;&emsp;&emsp;&emsp;加工时间：<code>t1=3</code> , <code>t2=8</code> , <code>t3=5</code> , <code>t4=10</code> , <code>t5=15</code></p>
-<h3 id="贪心法的解"><a href="#贪心法的解" class="headerlink" title="贪心法的解"></a>贪心法的解</h3><p>&emsp;&emsp;<strong>算法：</strong>按加工时间（3,8,5,10,15）从小到大安排</p>
-<p>&emsp;&emsp;<strong>解：</strong><br>&emsp;&emsp;按算法，则顺序为：1，3，2，4，5。<br>&emsp;&emsp;总完成时间：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = 3+ 3+5+ 3+5+8+ 3+5+8+10+ 3+5+8+10+15</span><br><span class="line">  = 3x5+ 5x4+ 8x3+ 10x2+ 15</span><br><span class="line">  = 94</span><br></pre></td></tr></table></figure></p>
-<h3 id="问题建模"><a href="#问题建模" class="headerlink" title="问题建模"></a>问题建模</h3><p>&emsp;&emsp;<strong>输入：</strong><br>&emsp;&emsp;&emsp;&emsp;任务集：<code>S={1,2,...,n}</code>，<br>&emsp;&emsp;&emsp;&emsp;第j项任务加工时间:</p>
+<a id="more"></a>
+<p>&emsp;&emsp;插值法在一定程度上可以解决该问题，但是会有很大误差，不能反映原始问题的变化规律，缺乏实用价值。因此，我们可以使用叫做最小二乘法的曲线拟合方法。</p>
+<h1 id="编程过程"><a href="#编程过程" class="headerlink" title="编程过程"></a>编程过程</h1><p>&emsp;&emsp;编程的关键在于构建最小二乘法的正规方程组（法方程组），我们先来看看正规方程组：<br>$$<br>\left[<br>\begin{matrix}<br>m+1 &amp; \sum\limits_{i=0}^mx_i &amp; \cdots &amp; \sum\limits_{i=0}^mx_i^n \\<br>\sum\limits_{i=0}^mx_i &amp; \sum\limits_{i=0}^mx_i^2 &amp; \cdots &amp; \sum\limits_{i=0}^mx_i^{n+1} \\<br>\vdots &amp; \vdots &amp; &amp; \vdots \\<br>\sum\limits_{i=0}^mx_i^n &amp; \sum\limits_{i=0}^mx_i^{n+1} &amp; \cdots &amp; \sum\limits_{i=0}^mx_i^{2n}<br>\end{matrix}<br>\right]<br>\left[<br>    \begin{matrix}<br>    a_0 \\<br>    a_1 \\<br>    \vdots \\<br>    a_n<br>    \end{matrix}<br>\right] =<br>\left[<br>    \begin{matrix}<br>    \sum\limits_{i=0}^my_i \\<br>    \sum\limits_{i=0}^mx_iy_i \\<br>    \vdots \\<br>    \sum\limits_{i=0}^mx_i^ny_i<br>    \end{matrix}<br>\right]<br>$$<br>&emsp;&emsp;根据观察，我们仅需要存储$[\sum\limits_{i=0}^mx_i, \sum\limits_{i=0}^mx_i^2, …, \sum\limits_{i=0}^mx_i^{2n}]、[\sum\limits_{i=0}^my_i, \sum\limits_{i=0}^mx_iy_i, …, \sum\limits_{i=0}^mx_i^ny_i]$即可，因此写出构建矩阵的函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 计算sum_x, sum_x^2, sum_x^3, ..., sum_x^n</span></span><br><span class="line"><span class="string">@parameter: xi 所有插值节点的横坐标</span></span><br><span class="line"><span class="string">@parameter: times 拟合次数</span></span><br><span class="line"><span class="string">@notice: sum_xims数组第一个应改为M+1即所有插值节点的个数</span></span><br><span class="line"><span class="string">@return: 求出的sum_xims数组</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_xim</span><span class="params">(xi, times)</span>:</span></span><br><span class="line">    sum_xims = [len(xi)]</span><br><span class="line">    <span class="comment"># print(sum_xims)</span></span><br><span class="line">    sum_xi = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> mm <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">2</span>*times+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(xi)):</span><br><span class="line">            sum_xi += xi[i]**mm</span><br><span class="line">        sum_xims.append(sum_xi)</span><br><span class="line">        sum_xi = <span class="number">0</span></span><br><span class="line">    <span class="comment"># print(sum_xims)</span></span><br><span class="line">    <span class="keyword">return</span> sum_xims</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 计算sum_y, sum_[x*y], sum_[x^2*y], ..., sum_[x^mm*y]</span></span><br><span class="line"><span class="string">@parameter: xi 所有插值节点的横坐标</span></span><br><span class="line"><span class="string">@parameter: yi 所有插值节点的纵坐标</span></span><br><span class="line"><span class="string">@parameter: times 拟合次数</span></span><br><span class="line"><span class="string">@return: 求出的sum_yims数组</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_yim</span><span class="params">(xi, yi, times)</span>:</span></span><br><span class="line">    sum_yims = []</span><br><span class="line">    sum_yi = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> mm <span class="keyword">in</span> range(<span class="number">0</span>, times+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(yi)):</span><br><span class="line">            sum_yi += xi[i]**mm * yi[i]</span><br><span class="line">        sum_yims.append(sum_yi)</span><br><span class="line">        sum_yi = <span class="number">0</span></span><br><span class="line">    <span class="comment"># print(sum_yims)</span></span><br><span class="line">    <span class="keyword">return</span> sum_yims</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 将求出的sum_xims数组转换成公式中的系数矩阵</span></span><br><span class="line"><span class="string">@parameter: sum_x sum_xim()函数中求出的sum_xims数组</span></span><br><span class="line"><span class="string">@parameter: k 迭代次数</span></span><br><span class="line"><span class="string">@return: 生成的系数矩阵</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generating_matrix</span><span class="params">(sum_x, k)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, k+<span class="number">1</span>):</span><br><span class="line">        result.append(sum_x[j:j+k+<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;代码的剩余部分就很好写了，构建好后，我们使用LU分解法解这个方程。我们给出其代码：</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> LU分解</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@todo: 最小二乘法，使用LU分解法计算a0, a1, ..., an</span></span><br><span class="line"><span class="string">@parameter: xi 所有插值节点的横坐标</span></span><br><span class="line"><span class="string">@parameter: fi 所有插值节点的纵坐标</span></span><br><span class="line"><span class="string">@return: lsm()函数</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">least_square_method</span><span class="params">(xi=None, fi=None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> fi <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        fi = []</span><br><span class="line">    <span class="keyword">if</span> xi <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        xi = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lsm</span><span class="params">(x)</span>:</span></span><br><span class="line">        A = generating_matrix(sum_xim(xi, x), x)</span><br><span class="line">        B = sum_yim(xi, fi, x)</span><br><span class="line">        <span class="comment"># print(A, B)</span></span><br><span class="line">        result = LU分解.methodLU(A, B, len(A))</span><br><span class="line">        r = square_error(xi, fi, result, x)</span><br><span class="line">        print_it(result, r, x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> lsm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_num</span><span class="params">(s)</span>:</span>  <span class="comment"># 判断输入的字符是否为一个数</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        float(s)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 计算sum_x, sum_x^2, sum_x^3, ..., sum_x^n</span></span><br><span class="line"><span class="string">@parameter: xi 所有插值节点的横坐标</span></span><br><span class="line"><span class="string">@parameter: times 拟合次数</span></span><br><span class="line"><span class="string">@notice: sum_xims数组第一个应改为M+1即所有插值节点的个数</span></span><br><span class="line"><span class="string">@return: 求出的sum_xims数组</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_xim</span><span class="params">(xi, times)</span>:</span></span><br><span class="line">    sum_xims = [len(xi)]</span><br><span class="line">    <span class="comment"># print(sum_xims)</span></span><br><span class="line">    sum_xi = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> mm <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">2</span>*times+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(xi)):</span><br><span class="line">            sum_xi += xi[i]**mm</span><br><span class="line">        sum_xims.append(sum_xi)</span><br><span class="line">        sum_xi = <span class="number">0</span></span><br><span class="line">    <span class="comment"># print(sum_xims)</span></span><br><span class="line">    <span class="keyword">return</span> sum_xims</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 计算sum_y, sum_[x*y], sum_[x^2*y], ..., sum_[x^mm*y]</span></span><br><span class="line"><span class="string">@parameter: xi 所有插值节点的横坐标</span></span><br><span class="line"><span class="string">@parameter: yi 所有插值节点的纵坐标</span></span><br><span class="line"><span class="string">@parameter: times 拟合次数</span></span><br><span class="line"><span class="string">@return: 求出的sum_yims数组</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_yim</span><span class="params">(xi, yi, times)</span>:</span></span><br><span class="line">    sum_yims = []</span><br><span class="line">    sum_yi = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> mm <span class="keyword">in</span> range(<span class="number">0</span>, times+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(yi)):</span><br><span class="line">            sum_yi += xi[i]**mm * yi[i]</span><br><span class="line">        sum_yims.append(sum_yi)</span><br><span class="line">        sum_yi = <span class="number">0</span></span><br><span class="line">    <span class="comment"># print(sum_yims)</span></span><br><span class="line">    <span class="keyword">return</span> sum_yims</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 将求出的sum_xims数组转换成公式中的系数矩阵</span></span><br><span class="line"><span class="string">@parameter: sum_x sum_xim()函数中求出的sum_xims数组</span></span><br><span class="line"><span class="string">@parameter: k 迭代次数</span></span><br><span class="line"><span class="string">@return: 生成的系数矩阵</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generating_matrix</span><span class="params">(sum_x, k)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, k+<span class="number">1</span>):</span><br><span class="line">        result.append(sum_x[j:j+k+<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@brief: 求出最小二乘法的平方误差</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square_error</span><span class="params">(xi, yi, ak, times)</span>:</span></span><br><span class="line">    sum_yi_in_se = <span class="number">0</span></span><br><span class="line">    sum_xy = <span class="number">0</span></span><br><span class="line">    sum_akxy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(xi)):</span><br><span class="line">        sum_yi_in_se += yi[i] ** <span class="number">2</span></span><br><span class="line">        <span class="comment"># print("yi", yi[i])</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">0</span>, times+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, len(xi)):</span><br><span class="line">            sum_xy += xi[j]**k*yi[j]</span><br><span class="line">            <span class="comment"># print("xi[j]+k+yi[j]", xi[j], k, yi[j])</span></span><br><span class="line">        sum_akxy += ak[k]*sum_xy</span><br><span class="line">        <span class="comment"># print("ak", ak[k])</span></span><br><span class="line">        sum_xy = <span class="number">0</span></span><br><span class="line">    r = sum_yi_in_se - sum_akxy</span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_it</span><span class="params">(ans, se, times)</span>:</span></span><br><span class="line">    print(<span class="string">"P_"</span>, end=<span class="string">""</span>)</span><br><span class="line">    print(times, end=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"(x) = "</span>, end=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(ans)):</span><br><span class="line">        print(ans[i], <span class="string">"*x^"</span>, end=<span class="string">""</span>)</span><br><span class="line">        print(i, <span class="string">"+"</span>, end=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"0\n平方误差为："</span>, se)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    xs = []</span><br><span class="line">    fxs = []</span><br><span class="line">    print(<span class="string">"请依次输入x和f(x)，按任意其他字符结束："</span>)</span><br><span class="line">    m = input()</span><br><span class="line">    n = input()</span><br><span class="line">    <span class="keyword">while</span> is_num(m) <span class="keyword">and</span> is_num(n):</span><br><span class="line">        xs.append(float(m))</span><br><span class="line">        fxs.append(float(n))</span><br><span class="line">        m = input()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_num(m):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        n = input()</span><br><span class="line">    F = least_square_method(xs, fxs)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        number = int(input(<span class="string">"请输入要求拟合的次数："</span>))</span><br><span class="line">        <span class="keyword">if</span> number &gt; <span class="number">0</span>:</span><br><span class="line">            F(number)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"您输入的值有误"</span>)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        print(<span class="string">"您输入的值有误"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h1><p>&emsp;&emsp;这整次数值实验对我的帮助很大。这也是我第一次使用Python编写实验。这次实验，不仅让我能够更加熟练的运用Python，而且让我较深入地了解了数值分析这门课程，让我感受到了数值分析的有趣，魅力。<br>&emsp;&emsp;由于课时的原因，我们并不能上完整本书，但是我会在课余时间继续学习这门课程，相信他会给我的学习、工作带来很大裨益！<br>&emsp;&emsp;感谢老师给我们上课，老师课堂风格十分让我喜欢，感谢您！</p>
 
       
     </div>
@@ -502,7 +496,7 @@
     <strong>本文作者： </strong>Joshua Royians</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://royians.cn/2018/03/14/算法（一）/" title="算法（一）">http://royians.cn/2018/03/14/算法（一）/</a>
+    <a href="http://royians.cn/2018/05/01/最小二乘法/" title="最小二乘法">http://royians.cn/2018/05/01/最小二乘法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -513,6 +507,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数值分析/" rel="tag"># 数值分析</a>
+          
+        </div>
+      
 
       
       
@@ -522,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/16/小梦岛祝您新年大吉/" rel="next" title="小梦岛祝您新年大吉">
-                <i class="fa fa-chevron-left"></i> 小梦岛祝您新年大吉
+              <a href="/2018/05/01/牛顿插值法/" rel="next" title="牛顿插值法">
+                <i class="fa fa-chevron-left"></i> 牛顿插值法
               </a>
             
           </div>
@@ -531,10 +531,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/14/Python入门（一）/" rel="prev" title="Python入门（一）">
-                Python入门（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法简介："><span class="nav-number">1.0.1.</span> <span class="nav-text">算法简介：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法设计的一般方法："><span class="nav-number">1.0.2.</span> <span class="nav-text">算法设计的一般方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两个例子：调度问题与投资问题-考虑什么叫算法设计"><span class="nav-number">2.</span> <span class="nav-text">两个例子：调度问题与投资问题 考虑什么叫算法设计?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调度问题"><span class="nav-number">2.1.</span> <span class="nav-text">调度问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪心法的解"><span class="nav-number">2.1.1.</span> <span class="nav-text">贪心法的解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题建模"><span class="nav-number">2.1.2.</span> <span class="nav-text">问题建模</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编程过程"><span class="nav-number">1.</span> <span class="nav-text">编程过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">1.1.</span> <span class="nav-text">完整代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#心得体会"><span class="nav-number">2.</span> <span class="nav-text">心得体会</span></a></li></ol></div>
             
 
           </div>
@@ -1304,6 +1300,29 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
