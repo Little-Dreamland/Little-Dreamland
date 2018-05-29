@@ -106,24 +106,28 @@
 
 
 
-  <meta name="description" content="ok">
+  <meta name="description" content="&amp;emsp;&amp;emsp;某医院想开发一个以计算机为中心的患者监护系统，这篇文章介绍患者监护系统的详细设计。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="视频点播">
-<meta property="og:url" content="http://royians.cn/2018/01/09/视频点播/index.html">
+<meta property="og:title" content="患者监护系统的详细设计">
+<meta property="og:url" content="http://royians.cn/2018/05/27/患者监护系统的详细设计/index.html">
 <meta property="og:site_name" content="小梦岛">
-<meta property="og:description" content="ok">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;某医院想开发一个以计算机为中心的患者监护系统，这篇文章介绍患者监护系统的详细设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-11T02:06:48.656Z">
+<meta property="og:image" content="http://royians.cn/1/7.png">
+<meta property="og:image" content="http://royians.cn/1/8.png">
+<meta property="og:image" content="http://royians.cn/1/9.png">
+<meta property="og:updated_time" content="2018-05-28T03:13:08.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="视频点播">
-<meta name="twitter:description" content="ok">
+<meta name="twitter:title" content="患者监护系统的详细设计">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;某医院想开发一个以计算机为中心的患者监护系统，这篇文章介绍患者监护系统的详细设计。">
+<meta name="twitter:image" content="http://royians.cn/1/7.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://royians.cn/2018/01/09/视频点播/"/>
+  <link rel="canonical" href="http://royians.cn/2018/05/27/患者监护系统的详细设计/"/>
 
 
 
@@ -133,7 +137,7 @@
   };
 </script>
 
-  <title>视频点播 | 小梦岛</title>
+  <title>患者监护系统的详细设计 | 小梦岛</title>
   
 
 
@@ -338,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://royians.cn/2018/01/09/视频点播/">
+    <link itemprop="mainEntityOfPage" href="http://royians.cn/2018/05/27/患者监护系统的详细设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Joshua Royians">
@@ -355,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">视频点播
+          <h1 class="post-title" itemprop="name headline">患者监护系统的详细设计
               
             
           </h1>
@@ -380,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2018-01-09 22:00:08" itemprop="dateCreated datePublished" datetime="2018-01-09T22:00:08+08:00">2018-01-09</time>
+              <time title="创建时间：2018-05-27 22:41:48" itemprop="dateCreated datePublished" datetime="2018-05-27T22:41:48+08:00">2018-05-27</time>
             
 
             
@@ -397,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-01-11 10:06:48" itemprop="dateModified" datetime="2018-01-11T10:06:48+08:00">2018-01-11</time>
+                <time title="修改时间：2018-05-28 11:13:08" itemprop="dateModified" datetime="2018-05-28T11:13:08+08:00">2018-05-28</time>
               
             
           </span>
@@ -410,7 +414,7 @@
 
           
           
-             <span id="/2018/01/09/视频点播/" class="leancloud_visitors" data-flag-title="视频点播">
+             <span id="/2018/05/27/患者监护系统的详细设计/" class="leancloud_visitors" data-flag-title="患者监护系统的详细设计">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -441,15 +445,39 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>ok<br><a id="more"></a></p>
-<p><script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script></p>
-<p><script src="/js/BDY.js"></script></p>
-<p><script src="/assets/js/DPlayer.min.js"></script><link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"></p>
-<input type="number" id="number">
+        <script src="\assets\js\APlayer.min.js"> </script><blockquote>
+<p>&emsp;&emsp;某医院想开发一个以计算机为中心的患者监护系统，这篇文章介绍患者监护系统的详细设计。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="患者监护系统的详细设计"><a href="#患者监护系统的详细设计" class="headerlink" title="患者监护系统的详细设计"></a>患者监护系统的详细设计</h1><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><h3 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1. 编写目的"></a>1.1. 编写目的</h3><p>&emsp;&emsp;经过对PMS的需求分析与总体设计，使用程序流程图、N-S图、PAD图和PDL语言为工具，对PMS系统进行详细设计。本文档的预期读者为项目经理与开发人员。</p>
+<h3 id="1-2-项目背景"><a href="#1-2-项目背景" class="headerlink" title="1.2. 项目背景"></a>1.2. 项目背景</h3><ul>
+<li>项目名称：患者监护系统</li>
+<li>委托单位：xx医院</li>
+<li>开发单位：xx公司</li>
+<li>主管部门：xx部门</li>
+<li>目标用户：医生护士及其他工作人员<h3 id="1-3-定义"><a href="#1-3-定义" class="headerlink" title="1.3. 定义"></a>1.3. 定义</h3>&emsp;&emsp;（参照需求分析报告）<h3 id="1-4-参考资料"><a href="#1-4-参考资料" class="headerlink" title="1.4. 参考资料"></a>1.4. 参考资料</h3>&emsp;&emsp;略<h2 id="2-程序描述"><a href="#2-程序描述" class="headerlink" title="2. 程序描述"></a>2. 程序描述</h2><h3 id="2-1-功能"><a href="#2-1-功能" class="headerlink" title="2.1. 功能"></a>2.1. 功能</h3></li>
+<li>（1） 子模块一：用户登入系统并查看基本信息。</li>
+<li>（2） 子模块二：患者信息管理，能对患者信息进行增删改查看操作。</li>
+<li>（3） 子模块三：生理状况监护，能对异常信息及时地发出警报，定时生成患者日志。</li>
+<li>（4） 子模块四：病情报告，生成并展示某患者的病情报告。<h3 id="2-2-性能"><a href="#2-2-性能" class="headerlink" title="2.2. 性能"></a>2.2. 性能</h3></li>
+<li>（1） 子模块一：管理员可以对登陆注册用户进行管理。</li>
+<li>（2） 子模块二：应能及时反馈存储情况，数据稳定存储。</li>
+<li>（3） 子模块三：及时分析处理信息并反馈。</li>
+<li>（4） 子模块四：能够按照用户意愿自由生成报告。<h3 id="2-3-输入和输出项目"><a href="#2-3-输入和输出项目" class="headerlink" title="2.3. 输入和输出项目"></a>2.3. 输入和输出项目</h3>&emsp;&emsp;。。。。<h3 id="2-4-算法"><a href="#2-4-算法" class="headerlink" title="2.4. 算法"></a>2.4. 算法</h3>&emsp;&emsp;。。。。<h3 id="2-5-程序逻辑"><a href="#2-5-程序逻辑" class="headerlink" title="2.5. 程序逻辑"></a>2.5. 程序逻辑</h3>&emsp;&emsp;【【【【【【【插入模块一的程序流程图】】】】】】】<br><img src="/1/7.png" alt="img"><blockquote>
+<p>功能：用户登入系统<br>输入：用户名、密码、验证码<br>判断：用户名、密码、验证码是否正确，若忘记密码，辅助验证信息是否输入正确。<br>输出：无输出</p>
+</blockquote>
+</li>
+</ul>
+<p>&emsp;&emsp;【【【【【【【插入模块二的N-S图】】】】】】】<br><img src="/1/8.png" alt="img"></p>
+<blockquote>
+<p>功能：判断日志是否需要更新<br>  输入：时钟信息、请求信息<br>  判断：到时间需要修改，用户有请求时需要修改<br>  输出：患者日志</p>
+</blockquote>
+<p>&emsp;&emsp;【【【【【【【插入模块三的PAD图】】】】】】】<br><img src="/1/9.png" alt="img"></p>
+<blockquote>
+<p>功能：判断生理信号是否需要警报<br>  输入：生理信号、安全范围<br>  判断：生理信号超出安全范围则发出警报<br>  输出：无输出</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">procedure  患者信息录入(形式参数);</span><br><span class="line">    显示信息录入登入界面;</span><br><span class="line">put(&quot;请输入患者信息修改口令：&quot;);</span><br><span class="line">get(password);</span><br><span class="line">if password != 患者信息修改口令</span><br><span class="line">    提示警告信息（是否忘记密码）;</span><br><span class="line">        退出运行</span><br><span class="line">endif;</span><br><span class="line">    显示信息录入主界面;</span><br><span class="line">while(true)</span><br><span class="line">    接收用户命令ORDER，进行增删改操作</span><br><span class="line">if ORDER = &quot;exit&quot;</span><br><span class="line">break;</span><br><span class="line">endif;</span><br><span class="line">endwhile;</span><br><span class="line">return</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
-<div id="dplayer"></div>
-
-<button onclick="load()" ;="">Submit</button>
       
     </div>
 
@@ -503,7 +531,7 @@
     <strong>本文作者： </strong>Joshua Royians</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://royians.cn/2018/01/09/视频点播/" title="视频点播">http://royians.cn/2018/01/09/视频点播/</a>
+    <a href="http://royians.cn/2018/05/27/患者监护系统的详细设计/" title="患者监护系统的详细设计">http://royians.cn/2018/05/27/患者监护系统的详细设计/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -523,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/06/普通新闻/" rel="next" title="普通新闻">
-                <i class="fa fa-chevron-left"></i> 普通新闻
+              <a href="/2018/05/27/患者监护系统的总体设计/" rel="next" title="患者监护系统的总体设计">
+                <i class="fa fa-chevron-left"></i> 患者监护系统的总体设计
               </a>
             
           </div>
@@ -533,8 +561,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/10/使用MultCloud实现云盘互转/" rel="prev" title="体验MultCloud实现云盘互转">
-                体验MultCloud实现云盘互转 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/28/患者监护系统的软件测试/" rel="prev" title="患者监护系统的软件测试">
+                患者监护系统的软件测试 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -584,8 +612,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -675,6 +712,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#患者监护系统的详细设计"><span class="nav-number">1.</span> <span class="nav-text">患者监护系统的详细设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-引言"><span class="nav-number">1.1.</span> <span class="nav-text">1. 引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-编写目的"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1. 编写目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-项目背景"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2. 项目背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-定义"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3. 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-参考资料"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4. 参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-程序描述"><span class="nav-number">1.2.</span> <span class="nav-text">2. 程序描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-功能"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1. 功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-性能"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2. 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-输入和输出项目"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3. 输入和输出项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-算法"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4. 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-程序逻辑"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5. 程序逻辑</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
