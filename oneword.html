@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <div id = "oneword">
+
+        </div>
+    </body>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $.get("https://api.imjad.cn/hitokoto/",function(data){
+        //alert(data);
+        var ht = data;
+        document.getElementById("oneword").innerHTML = ht;
+    });
+    </script>
+</html>
