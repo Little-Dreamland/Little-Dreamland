@@ -106,17 +106,17 @@
 
 
 
-  <meta name="description" content="搜索视频   window.onload = function() { var dels = document.getElementById(&quot;deleteit&quot;); dels.parentNode.removeChild(dels); }    var __encode =&apos;sojson.com&apos;, _0xb483=[&quot;\x5F\x64\x65\x63\x6F\x64\x65&quot;,&quot;\x6">
+  <meta name="description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 con">
 <meta property="og:type" content="website">
 <meta property="og:title" content="视频畅享">
 <meta property="og:url" content="http://royians.cn/spid/index.html">
 <meta property="og:site_name" content="小梦岛">
-<meta property="og:description" content="搜索视频   window.onload = function() { var dels = document.getElementById(&quot;deleteit&quot;); dels.parentNode.removeChild(dels); }    var __encode =&apos;sojson.com&apos;, _0xb483=[&quot;\x5F\x64\x65\x63\x6F\x64\x65&quot;,&quot;\x6">
+<meta property="og:description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 con">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T03:32:43.798Z">
+<meta property="og:updated_time" content="2018-08-24T04:12:42.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视频畅享">
-<meta name="twitter:description" content="搜索视频   window.onload = function() { var dels = document.getElementById(&quot;deleteit&quot;); dels.parentNode.removeChild(dels); }    var __encode =&apos;sojson.com&apos;, _0xb483=[&quot;\x5F\x64\x65\x63\x6F\x64\x65&quot;,&quot;\x6">
+<meta name="twitter:description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 con">
 
 
 
@@ -366,10 +366,27 @@
 
 <div align="center"><button type="button" class="btn" onclick="window.location.href='http://t.cn/RkOvNuT';">搜索视频</button></div>
 
+<blockquote><br><p id="yiyan"></p><br></blockquote>
+
+<script>
+var yiyans;
+$.ajax({
+            type: 'GET',
+            url:'https://api.imjad.cn/hitokoto/',
+            dataType: 'text',
+            success: function( result ) {
+                console.log(result);
+                yiyans = result;
+            }
+        });
+var yy = document.getElementById("yiyan");
+yy.innerHTML = yiyans;
+</script>
+
 <script>
 window.onload = function() {
-var dels = document.getElementById("deleteit");
-dels.parentNode.removeChild(dels);
+    var dels = document.getElementById("deleteit");
+    dels.parentNode.removeChild(dels);
 }
 </script>
 
