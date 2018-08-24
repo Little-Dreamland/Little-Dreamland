@@ -106,17 +106,17 @@
 
 
 
-  <meta name="description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 cons">
+  <meta name="description" content="搜索视频    $.get(&quot;https://api.imjad.cn/hitokoto/&quot;,function(data,status){     var yiyans=&quot;Enjoy Yourself&quot;;     yiyans = data;     var yy = document.getElementById(&quot;yiyan&quot;);     yy.innerHTML = yiyans;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="视频畅享">
 <meta property="og:url" content="http://royians.cn/spid/index.html">
 <meta property="og:site_name" content="小梦岛">
-<meta property="og:description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 cons">
+<meta property="og:description" content="搜索视频    $.get(&quot;https://api.imjad.cn/hitokoto/&quot;,function(data,status){     var yiyans=&quot;Enjoy Yourself&quot;;     yiyans = data;     var yy = document.getElementById(&quot;yiyan&quot;);     yy.innerHTML = yiyans;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T04:51:29.991Z">
+<meta property="og:updated_time" content="2018-08-24T05:15:20.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视频畅享">
-<meta name="twitter:description" content="搜索视频     var yiyans; $.ajax({             type: &apos;GET&apos;,             url:&apos;https://api.imjad.cn/hitokoto/&apos;,             dataType: &apos;text&apos;,             success: function( result ) {                 cons">
+<meta name="twitter:description" content="搜索视频    $.get(&quot;https://api.imjad.cn/hitokoto/&quot;,function(data,status){     var yiyans=&quot;Enjoy Yourself&quot;;     yiyans = data;     var yy = document.getElementById(&quot;yiyan&quot;);     yy.innerHTML = yiyans;">
 
 
 
@@ -361,33 +361,23 @@
       <div class="post-body">
         
         
-          <script src="\assets\js\APlayer.min.js"> </script><div id="mytitle"></div><br><div id="dplayer13" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div>
+          <script src="\assets\js\APlayer.min.js"> </script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+<div id="mytitle"></div>
+<div id="dplayer13" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div>
 
 <div align="center"><button type="button" class="btn" onclick="window.location.href='http://t.cn/RkOvNuT';">搜索视频</button></div>
-
-<p><blockquote id="yiyan"></blockquote></p>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<br>
+<blockquote align="center" id="yiyan"></blockquote>
 <script>
-var yiyans;
-$.ajax({
-            type: 'GET',
-            url:'https://api.imjad.cn/hitokoto/',
-            dataType: 'text',
-            success: function( result ) {
-                console.log(result);
-                yiyans = result;
-            }
-        });
-var yy = document.getElementById("yiyan");
-yy.innerTEXT = yiyans;
+$.get("https://api.imjad.cn/hitokoto/",function(data,status){
+    var yiyans="Enjoy Yourself";
+    yiyans = data;
+    var yy = document.getElementById("yiyan");
+    yy.innerHTML = yiyans;
+  });
 </script>
 
-<script>
-window.onload = function() {
-    var dels = document.getElementById("deleteit");
-    dels.parentNode.removeChild(dels);
-}
-</script>
+
 
 <script>
 window.onload = function() {
@@ -442,10 +432,10 @@ window.onload = function() {
             });
             window.dplayers || (window.dplayers = []);
             window.dplayers.push(player);
+            var dels = document.getElementById("deleteit");
+            dels.parentNode.removeChild(dels);
         })()
     }
-var dels = document.getElementById("deleteit");
-dels.parentNode.removeChild(dels);
 }
 </script>
 
