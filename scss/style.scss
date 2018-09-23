@@ -1,0 +1,188 @@
+$green: #00e700;
+$greenbright: #d3ffd3;
+$red: #e70000;
+
+html, body, canvas {
+    font-family:monospace;
+    background:#000;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+body {
+    > div, canvas {
+        position:absolute;
+        top:0;bottom:0;left:0;right:0;
+    }
+}
+
+canvas {
+    z-index:10;
+    opacity:0.8;
+}
+
+.flex {
+    display:flex !important;
+}
+
+.effects {
+    z-index:100;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAQAAAD41K0JAAAADklEQVQI12Ng+A+EQAQADfsC/pD7Z48AAAAASUVORK5CYII=);
+    background-repeat:repeat;
+    opacity:0.1;
+    pointer-events:none;
+}
+
+.overlays {
+    z-index:50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .loading, .error, .msgbox {
+        width:400px;
+        height:140px;
+        border:7px solid;
+        display:none;
+        justify-content: center;
+        align-items: center;
+        font-family:"Ubuntu Mono";
+        font-weight:600;
+        font-size:55px;
+        letter-spacing: 5px;
+
+        animation:msgopen ease-in-out 1;
+        animation-duration:0.4s;
+        animation-fill-mode:forwards;
+    }
+    .loading {
+        color:rgba($green,1);
+        border-color:rgba($green,0.8);
+        background:rgba(0, 66, 0, 0.85);
+        text-shadow:0 0 10px rgba($green,1);
+        box-shadow:0 0 20px rgba($green,0.7);
+        span {
+            animation:loadingblink 1.5s linear infinite;
+        }
+    }
+    .error {
+        color:rgba($red,1);
+        border-color:rgba($red,0.8);
+        background:rgba(66, 0, 0, 0.85);
+        text-shadow:0 0 10px rgba($red,1);
+        box-shadow:0 0 20px rgba($red,0.7);
+        span {
+            animation:errorblink 2s linear infinite;
+        }
+    }
+    .msgbox {
+        color:rgba($greenbright,1);
+        border-color:rgba($greenbright,0.8);
+        background:rgba(45, 81, 45, 0.85);//rgba(0, 66, 0, 0.85);
+        text-shadow:0 0 10px rgba($greenbright,0.8);
+        box-shadow:0 0 20px rgba($greenbright,0.5);
+
+        width: 500px;
+        height: auto;
+        min-height:50px;
+        padding: 20px 25px;
+        //word-wrap:break-word;
+
+        font-weight:400;
+        font-size:24px;
+        line-height:40px;
+        letter-spacing:initial;
+        overflow:hidden;
+        span {
+            word-wrap:break-word;
+            position:relative;
+            /*&::before {
+                content:'> ';
+            }
+            &::after {
+                content:'_';
+                animation:hardblink 1s linear infinite;
+            }
+					*/
+            
+        }
+    }
+}
+
+//animations
+@keyframes loadingblink {
+    0% {
+        color:rgba($green,0.6);
+        text-shadow:0 0 6px rgba($green,0.6);
+    }
+    50% {
+        color:rgba($green,1);
+        text-shadow:0 0 10px rgba($green,1);
+    }
+    100% {
+        color:rgba($green,0.6);
+        text-shadow:0 0 6px rgba($green,0.6);
+    }
+}
+
+@keyframes errorblink {
+    0% {
+        color:rgba($red,0.8);
+        text-shadow:0 0 8px rgba($red,0.8);
+    }
+    50% {
+        color:rgba($red,1);
+        text-shadow:0 0 10px rgba($red,1);
+    }
+    100% {
+        color:rgba($red,0.8);
+        text-shadow:0 0 8px rgba($red,0.8);
+    }
+}
+
+@keyframes msgopen {
+    0% {
+        transform:scale(0,0);
+    }
+    1% {
+        transform:scale(0,0.01);
+    }
+    60% {
+        transform:scale(1,0.01);
+    }
+    100% {
+        transform:scale(1,1);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@keyframes hardblink {
+    0% {
+        opacity:0;
+    }
+    49% {
+        opacity:0;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+//other
+::selection {
+    background:rgba(255,255,255,0.05);
+}
