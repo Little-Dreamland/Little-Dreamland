@@ -1,0 +1,627 @@
+.blog-post-comments {
+    margin-top: 4rem;
+}
+.blog-post-comments .v * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 2;
+    color: #c9cacc;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.blog-post-comments .v hr {
+    margin: .825rem 0;
+    border-color: #f6f6f6;
+    border-style: dashed
+}
+
+.blog-post-comments .v.hide-avatar .vimg {
+    display: none
+}
+
+.blog-post-comments .v a {
+    background-image: none;
+    position: relative;
+    cursor: pointer;
+    color: #1abc9c;
+    display: inline-block
+}
+
+.blog-post-comments .v a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #1abc9c;
+    -webkit-transition: width .3s ease;
+    transition: width .3s ease
+}
+
+.blog-post-comments .v a:hover {
+    background-image: none;
+    color: #1abc9c;
+      background-color: transparent;
+}
+
+.blog-post-comments .v a:hover:before {
+    width: 100%;
+    left: 0;
+    right: auto
+}
+
+.blog-post-comments .v code,.blog-post-comments .v pre {
+  background-color: transparent;
+    color: #c9cacc;
+    padding: .2em .4em;
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    font-family: "Source Code Pro", "Meslo LG", monospace;
+}
+
+.blog-post-comments .v pre {
+    padding: 10px;
+    overflow: auto;
+    line-height: 1.45
+}
+
+.blog-post-comments .v pre code {
+    padding: 0;
+    background: 0 0;
+    white-space: pre-wrap;
+    word-break: keep-all
+}
+
+.blog-post-comments .v blockquote {
+    color: #666;
+    margin: .5rem 0;
+    padding: 0 0 0 1rem;
+    border-left: 8px solid hsla(0,0%,93%,.5)
+}
+
+.blog-post-comments .v .vinput {
+    border: none;
+    resize: none;
+    outline: 0;
+    padding: 10px 5px;
+    max-width: 100%;
+    font-size: .775rem
+}
+
+.blog-post-comments .v input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px
+}
+
+.blog-post-comments .v input[type=radio] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px
+}
+
+.blog-post-comments .v .vwrap {
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px
+}
+
+.blog-post-comments .v .vwrap input {
+    background: 0 0
+}
+
+.blog-post-comments .v .vwrap .vedit {
+    position: relative;
+    padding-top: 10px
+}
+
+.blog-post-comments .v .vwrap .vedit .vctrl {
+    text-align: right;
+    font-size: 12px
+}
+
+.blog-post-comments .v .vwrap .vedit .vctrl span {
+    padding: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.blog-post-comments .v .vwrap .vedit .vemojis {
+    display: none;
+    font-size: 18px;
+    text-align: justify;
+    max-height: 145px;
+    overflow: auto;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 0 1px #f0f0f0;
+    box-shadow: 0 0 1px #f0f0f0
+}
+
+.blog-post-comments .v .vwrap .vedit .vemojis i {
+    font-style: normal;
+    padding: 7px 0;
+    width: 38px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.blog-post-comments .v .vwrap .vedit .vpreview {
+    padding: 7px;
+    -webkit-box-shadow: 0 0 1px #f0f0f0;
+    box-shadow: 0 0 1px #f0f0f0
+}
+
+.blog-post-comments .v .vwrap .vedit .vpreview frame,.blog-post-comments .v .vwrap .vedit .vpreview iframe,.blog-post-comments .v .vwrap .vedit .vpreview img {
+    max-width: 100%;
+    border: none
+}
+
+.blog-post-comments .v .vwrap .vheader .vinput {
+    width: 33.33%;
+    border-bottom: 1px dashed #dedede
+}
+
+.blog-post-comments .v .vwrap .vheader.item2 .vinput {
+    width: 50%
+}
+
+.blog-post-comments .v .vwrap .vheader.item1 .vinput {
+    width: 100%
+}
+
+.blog-post-comments .v .vwrap .vheader .vinput:focus {
+    border-bottom-color: #2bbc8a
+}
+
+@media screen and (max-width:520px) {
+    .blog-post-comments .v .vwrap .vheader .vinput,.blog-post-comments .v .vwrap .vheader.item2 .vinput {
+        width: 100%
+    }
+}
+
+.blog-post-comments .v .vwrap .vcontrol {
+    font-size: 0;
+    padding-top: 15px
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col {
+    display: inline-block;
+    font-size: .725rem;
+    vertical-align: middle;
+    color: #ccc
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.text-right {
+    text-align: right
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col svg {
+    margin-right: 2px;
+    overflow: hidden;
+    fill: currentColor;
+    vertical-align: middle
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.col-20 {
+    width: 20%
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.col-40 {
+    width: 40%
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.col-60 {
+    width: 60%
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.col-80 {
+    width: 80%
+}
+
+.blog-post-comments .v .vwrap .vcontrol .col.split {
+    width: 50%
+}
+
+.blog-post-comments .v .vwrap .vmark {
+    position: absolute;
+    background: rgba(0,0,0,.65);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+
+.blog-post-comments .v .vwrap .vmark .valert {
+    padding-top: 3rem
+}
+
+.blog-post-comments .v .vwrap .vmark .valert .vtext {
+    color: #fff;
+    padding: 1rem 0
+}
+
+.blog-post-comments .v .vwrap .vmark .valert .vcode {
+    width: 4.6875rem;
+    border-radius: .3125rem;
+    padding: .5rem;
+    background: #dedede
+}
+
+.blog-post-comments .v .vwrap .vmark .valert .vcode:focus {
+    border-color: #3090e4;
+    background-color: #fff
+}
+
+@media screen and (max-width:720px) {
+    .blog-post-comments .v .vwrap .vmark .valert {
+        padding-top: 5.5rem
+    }
+
+    .blog-post-comments .v .vwrap .vmark .valert .vtext {
+        color: #fff;
+        padding: 1rem 0
+    }
+}
+
+.blog-post-comments .v .power {
+    color: #999;
+    padding: .5rem 0
+}
+
+.blog-post-comments .v .power,.blog-post-comments .v .power a {
+    display:;
+    font-size: .75rem;
+}
+
+.blog-post-comments .v .vinfo {
+    font-size: 0;
+    padding: 5px
+}
+
+.blog-post-comments .v .vinfo .col {
+    font-size: .875rem;
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle
+}
+
+.blog-post-comments .v .vinfo .vcount .vnum {
+    font-weight: 600;
+    font-size: 1.25rem
+}
+
+.blog-post-comments .v a {
+    text-decoration: none;
+    color: #c9cacc
+}
+
+.blog-post-comments .v a:hover {
+    color: #1abc9c
+}
+
+.blog-post-comments .v ol,.blog-post-comments .v ul {
+    padding: 0;
+    margin-left: 1.25rem
+}
+
+.blog-post-comments .v .txt-center {
+    text-align: center
+}
+
+.blog-post-comments .v .txt-right {
+    text-align: right
+}
+
+.blog-post-comments .v .pd5 {
+    padding: 5px
+}
+
+.blog-post-comments .v .pd10 {
+    padding: 10px
+}
+
+.blog-post-comments .v .veditor {
+    width: 100%;
+    min-height: 8.75rem;
+    font-size: .875rem;
+    background: 0 0;
+    resize: vertical;
+    -webkit-transition: all .25s ease;
+    transition: all .25s ease
+}
+
+.blog-post-comments .v .vbtn {
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+    text-align: center;
+    color: #edededb7;
+    border: 1px solid #ededed;
+    border-radius: .3rem;
+    display: inline-block;
+    background: #1d1f21;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: .5rem 1.25rem;
+    font-size: .875rem;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 0
+}
+
+.blog-post-comments .v .vbtn+.vbtn {
+    margin-left: 1.25rem
+}
+
+.blog-post-comments .v .vbtn:active,.blog-post-comments .v .vbtn:hover {
+    color: #1abc9c;
+    border-color: #1abc9c
+}
+
+.blog-post-comments .v .vempty {
+    padding: 1.25rem;
+    text-align: center;
+    color: #999
+}
+
+.blog-post-comments .v .vlist {
+    width: 100%
+}
+
+.blog-post-comments .v .vlist .vcard {
+    padding-top: 1.5rem;
+    position: relative;
+    display: block
+}
+
+.blog-post-comments .v .vlist .vcard:after {
+    content: "";
+    clear: both;
+    display: block
+}
+
+.blog-post-comments .v .vlist .vcard .vimg {
+    width: 3.125rem;
+    height: 3.125rem;
+    float: left;
+    border-radius: 50%;
+    margin-right: .7525rem;
+    border: 1px solid #f5f5f5;
+    padding: .125rem
+}
+
+@media screen and (max-width:720px) {
+    .blog-post-comments .v .vlist .vcard .vimg {
+        width: 2.5rem;
+        height: 2.5rem
+    }
+}
+
+.blog-post-comments .v .vlist .vcard .vhead {
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.blog-post-comments .v .vlist .vcard .vhead .vnick {
+    position: relative;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-right: .875rem;
+    cursor: pointer;
+    color: #1abc9c;
+    text-decoration: none;
+    display: inline-block
+}
+
+.blog-post-comments .v .vlist .vcard .vhead .vnick:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #1abc9c;
+    -webkit-transition: width .3s ease;
+    transition: width .3s ease
+}
+
+.blog-post-comments .v .vlist .vcard .vhead .vnick:hover {
+    color: #fff
+}
+
+.blog-post-comments .v .vlist .vcard .vhead .vnick:hover:before {
+    width: 100%;
+    left: 0;
+    right: auto
+}
+
+.blog-post-comments .v .vlist .vcard .vhead .vsys {
+  background: transparent;
+    display: inline-block;
+    padding: .2rem .5rem;
+    color: #b3b1b1;
+    font-size: .75rem;
+    border-radius: .2rem;
+    margin-right: .3rem
+}
+
+@media screen and (max-width:520px) {
+    .blog-post-comments .v .vlist .vcard .vhead .vsys {
+        display: none
+    }
+}
+
+.blog-post-comments .v .vlist .vcard .vh {
+    overflow: hidden;
+    padding-bottom: .5rem;
+      border-bottom: 0;
+}
+
+.blog-post-comments .v .vlist .vcard .vh .vtime {
+    color: #b3b3b3;
+    font-size: .75rem;
+    margin-right: .875rem
+}
+
+.blog-post-comments .v .vlist .vcard .vh .vmeta {
+    line-height: 1;
+    position: relative
+}
+
+.blog-post-comments .v .vlist .vcard .vh .vmeta .vat {
+    font-size: .8125rem;
+    color: #1abc9c;
+    cursor: pointer;
+    float: right
+}
+
+.blog-post-comments .v .vlist .vcard .vcontent {
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: justify;
+    color: #4a4a4a;
+    font-size: .875rem;
+    line-height: 2;
+    position: relative;
+    margin-bottom: .75rem;
+    padding-top: .625rem
+}
+
+.blog-post-comments .v .vlist .vcard .vcontent frame,.blog-post-comments .v .vlist .vcard .vcontent iframe,.blog-post-comments .v .vlist .vcard .vcontent img {
+    max-width: 100%;
+    border: none
+}
+
+.blog-post-comments .v .vlist .vcard .vcontent.expand {
+    cursor: pointer;
+    max-height: 11.25rem;
+    overflow: hidden
+}
+
+.blog-post-comments .v .vlist .vcard .vcontent.expand:before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 3.15rem;
+    pointer-events: none;
+    background: -webkit-gradient(linear,left top,left bottom,from(hsla(210,6%,12%,0)),to(#1d1f21));
+    background: linear-gradient(180deg,hsla(210,6%,12%,0),#1d1f21)
+}
+
+.blog-post-comments .v .vlist .vcard .vcontent.expand:after {
+    display: block;
+    content: "点击展开评论";
+    text-align: center;
+    color: #828586;
+    position: absolute;
+    width: 100%;
+    height: 3.15rem;
+    line-height: 3.15rem;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: #1d1f21
+}
+
+.blog-post-comments .v .vlist .vcard .vquote {
+    color: #666;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 1px dashed hsla(0,0%,93%,.5)
+}
+
+.blog-post-comments .v .vlist .vcard .vquote .vimg {
+    width: 2.225rem;
+    height: 2.225rem
+}
+
+.blog-post-comments .v .vpage .vmore {
+    margin: 1rem 0
+}
+
+.blog-post-comments .v .clear {
+    content: "";
+    display: block;
+    clear: both
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@-webkit-keyframes pulse {
+    50% {
+        background: #dcdcdc
+    }
+}
+
+@keyframes pulse {
+    50% {
+        background: #dcdcdc
+    }
+}
+
+.blog-post-comments .v .vloading {
+    position: relative;
+    padding: 20px;
+    display: block;
+    height: 80px
+}
+
+.blog-post-comments .v .vloading:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 20px;
+    left: 50%;
+    margin-left: -20px;
+    width: 40px;
+    height: 40px;
+    border: 6px double #a0a0a0;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear
+}

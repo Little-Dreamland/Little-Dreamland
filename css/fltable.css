@@ -1,0 +1,143 @@
+/**
+ * =============================================================================
+ * ************   Table 表格   ************
+ * =============================================================================
+ */
+ .mdui-table {
+  position: relative;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-bottom: none;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.mdui-table tbody tr {
+  position: relative;
+  -webkit-transition: background-color .28s cubic-bezier(.4, 0, .2, 1);
+          transition: background-color .28s cubic-bezier(.4, 0, .2, 1);
+}
+.mdui-table th,
+.mdui-table td {
+  position: relative;
+  /* -webkit-box-sizing: border-box; */
+  box-sizing: border-box;
+  /* padding: 12px 28px; */
+  /* text-align: left; */
+  vertical-align: middle;
+  /* border-bottom: 1px solid rgba(0, 0, 0, .12); */
+}/*
+.mdui-table th:last-child,
+.mdui-table td:last-child {
+  padding-right: 24px;
+}*/
+.mdui-table th:first-child {
+  /* padding-right: 0; */
+  /* padding-left: 24px; */
+}
+.mdui-table td:first-child {
+  padding-right: 0;
+  padding-left: 24px;
+}
+.mdui-table th:nth-child(2),
+.mdui-table td:nth-child(2) {
+  /* padding-left: 24px; */
+}
+.mdui-table th {
+  overflow: hidden;
+  /* font-size: 13px; */
+  /* font-weight: 700; */
+  line-height: 32px;
+  /* color: rgba(0, 0, 0, .54); */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mdui-table td {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, .87);
+}
+/* 每一行前面的复选框 */
+.mdui-table-cell-checkbox {
+  padding-top: 0 !important;
+  padding-bottom: 0!important;
+  padding-left: 24px !important;
+}
+.mdui-table-cell-checkbox .mdui-checkbox {
+  margin-top: 7px;
+}
+.mdui-table-cell-checkbox + td,
+.mdui-table-cell-checkbox + th {
+  padding-left: 6px !important;
+}
+th.mdui-table-cell-checkbox .mdui-checkbox {
+  margin-top: 11px;
+}
+/* 鼠标悬浮时行背景加深 */
+.mdui-table-hoverable tbody tr:hover {
+  background-color: #eee;
+}
+/* 表格放到该元素内，使表格产生滚动条时只在该元素内滚动 */
+.mdui-table-fluid {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-bottom: none;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+.mdui-table-fluid .mdui-table {
+  margin: 0;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/* 数字列，右对齐 */
+.mdui-table-col-numeric {
+  text-align: right !important;
+}
+/* 行处于选中状态 */
+.mdui-table-row-selected {
+  background-color: #f5f5f5;
+}
+/**
+ * =============================================================================
+ * ************   Table dark   ************
+ * =============================================================================
+ */
+.mdui-theme-layout-dark {
+  border-radius: 5px;
+}
+
+.mdui-theme-layout-dark .mdui-table {
+  background-color: transparent;
+  border-bottom: none;
+}
+.mdui-theme-layout-dark .mdui-table th {
+  padding: 12px 0px;
+  text-align: center;
+  color: rgba(255, 255, 255, .7);
+}
+.mdui-theme-layout-dark .mdui-table td {
+  text-align: center;
+  padding: 12px 0px;
+  color: #fff;
+}
+.mdui-theme-layout-dark .mdui-table-hoverable tbody tr:hover {
+  background-color: #6161611e;
+}
+.mdui-theme-layout-dark .mdui-table-fluid {
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-bottom: none;
+}
+.mdui-theme-layout-dark .mdui-table-fluid .mdui-table {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.mdui-theme-layout-dark .mdui-table-row-selected {
+  background-color: #424242;
+}

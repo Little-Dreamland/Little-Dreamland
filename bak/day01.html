@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#1d1f21">
+
+    <link rel="stylesheet" type="text/css" href="/css/fltable.css">
+    <link rel="stylesheet" type="text/css" href="/lib/loading/loading.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <script type="text/javascript" src="/lib/loading/main.js"></script>
+  
+    <meta name="description" content="从今天开始我们学习Java基础篇的相关知识。  面向对象什么是面向对象面向对象、面向过程&amp;emsp;&amp;emsp;什么是面向过程？什么又是面向对象呢？这个问题在我们刚上大学的时候就接触过了。POP(Process-oriented Programming)，面向过程，就是一种以时间为中心的编程思想，分析出解决问题的步骤，然后用函数把这些步骤实现，并按顺序调用。也就是说，在进行面向过程编程的时候，我">
+<meta name="keywords" content="张颖捷 博客 IT ROYIANS 小梦岛">
+<meta property="og:type" content="website">
+<meta property="og:title" content="【基础】Java工程师成神之路第一天">
+<meta property="og:url" content="http://www.royians.cn/bak/day01.html">
+<meta property="og:site_name" content="Vidorra">
+<meta property="og:description" content="从今天开始我们学习Java基础篇的相关知识。  面向对象什么是面向对象面向对象、面向过程&amp;emsp;&amp;emsp;什么是面向过程？什么又是面向对象呢？这个问题在我们刚上大学的时候就接触过了。POP(Process-oriented Programming)，面向过程，就是一种以时间为中心的编程思想，分析出解决问题的步骤，然后用函数把这些步骤实现，并按顺序调用。也就是说，在进行面向过程编程的时候，我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-12T03:49:42.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【基础】Java工程师成神之路第一天">
+<meta name="twitter:description" content="从今天开始我们学习Java基础篇的相关知识。  面向对象什么是面向对象面向对象、面向过程&amp;emsp;&amp;emsp;什么是面向过程？什么又是面向对象呢？这个问题在我们刚上大学的时候就接触过了。POP(Process-oriented Programming)，面向过程，就是一种以时间为中心的编程思想，分析出解决问题的步骤，然后用函数把这些步骤实现，并按顺序调用。也就是说，在进行面向过程编程的时候，我">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【基础】Java工程师成神之路第一天</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/comment.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+
+ <!-- MathJax -->
+ 
+</head>
+
+<body class="max-width mx-auto px3 ltr" id="bd">
+
+      <div id="loading">
+        <div class="ldct">
+        <div class="loading-spinner"></div>
+        <div id="ld">LOADING...</div>
+      </div>
+      </div>
+
+        
+    
+    <div class="content index my4">
+        
+          <header id="header">
+  <a href="/">
+  
+    
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
+    
+  
+    <div id="title">
+      <h1>Vidorra</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">首页</a></li>
+       
+        <li><a href="/about/">关于</a></li>
+       
+        <li><a href="/archives/">归档</a></li>
+       
+        <li><a href="/Search/">搜索</a></li>
+       
+        <li><a href="javascript:translatePage();">简/繁</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>从今天开始我们学习Java基础篇的相关知识。</p>
+</blockquote>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象"></a>什么是面向对象</h2><h3 id="面向对象、面向过程"><a href="#面向对象、面向过程" class="headerlink" title="面向对象、面向过程"></a>面向对象、面向过程</h3><p>&emsp;&emsp;什么是面向过程？什么又是面向对象呢？这个问题在我们刚上大学的时候就接触过了。POP(Process-oriented Programming)，面向过程，就是一种以时间为中心的编程思想，分析出解决问题的步骤，然后用函数把这些步骤实现，并按顺序调用。也就是说，在进行面向过程编程的时候，我们不需要考虑那么多，上来先定义一个函数，然后使用各种诸如if-else、for-each等方法进行代码执行。<br>&emsp;&emsp;最典型的用法就是实现一个简单的算法，比如实现冒泡排序。<br>&emsp;&emsp;OOP(Object-oriented Programming)是指在软件开发过程中，宏观上，用面向对象来把我十五间复杂的关系，分析系统。微观上，仍然使用面向过程。面向对象是以对象为中心的编程思想。是一种<strong>将事务高度抽象化的编程模式</strong>。</p>
+<p>&emsp;&emsp;将问题分解成一个一个步骤，对每个步骤进行相应抽象，形成对象，通过不同对象之间的调用，组合解决问题。</p>
+<p>&emsp;&emsp;也就是说，在进行面向对象编程的时候，要把属性、行为等封装成对象，然后基于这些对象及对象的能力进行业务逻辑的实现。</p>
+<p>&emsp;&emsp;比如：造车，要把车的各种属性定义出来，然后抽象成一个Car类。</p>
+<p>&emsp;&emsp;<strong>e.g.</strong>:象棋设计</p>
+<ul>
+<li>面向对象：创建黑白双方的对象负责演算，棋盘的对象负责画布，规则的对象负责判断，例子可以看出，面向对象更重视不重复造轮子，即创建一次，重复使用。</li>
+<li>面向过程：开始-黑走-棋盘-判断-白走-棋盘-判断-循环。只需要关注每一步如何实现即可。</li>
+</ul>
+<p>&emsp;&emsp;优劣对比：</p>
+<ul>
+<li>面向对象：占用资源相对高，速度相对慢</li>
+<li>面向过程：占用资源相对低，速度相对快</li>
+</ul>
+<p>&emsp;&emsp;面向过程让计算机有步骤地顺次做件事情，是种过程化的叙事思维。但是在大型软件开发过程中，发现用面向过程语言开发，软件维护、软件复用存在着巨大的困难，代码开发变成了记流水账，久而久之就成为“面条” 代码，模块之间互相辑合，流程互相穿插，往往牵发而动全身。面向对象提出一种计算机世界里解决复杂软件工程的方法论，拆解问题复杂度，从人类思维角度提出解决问题的步骤和方案。</p>
+<p>&emsp;&emsp;比如“开门”这个动作，面向过程是 open(Door door) 作对象的参数传入方法的，方法内定义开门的具体步骤实现。而在面向对象的世界里，首先定义一个对象 “Door” ，然后抽象出门的属性和相关操作，属性包括门的尺寸、颜色、开启方式（往外开还是往内开）、防盗功能等，门这个对象的操作必然包括 open() 和 close() 两个必备的行为。面向过程的结构相对松散， 强调如何流程化地解决问题；面向对象的思维更加内聚，强调高内聚、低耦合，先抽象模型，定义共性行为，再解决实际问题。</p>
+<p>&emsp;&emsp;但是，编程语言仅是一个工具，就像练武之人的剑，武功高者草木皆剑，武功差者即使莫那剑在身也依然平庸。所以，能否将工具的价值发挥得淋漓尽致，最终还是取决于开发工程师本身。优秀的开发工程师用面向过程的语言也能把程序写得非常内聚，可扩展性好，具备一定的复用性；而平庸程序员用面向对象语言一样能把程序写得松散随意、毫无抽象与建模、模块间耦合严重、维护性差。</p>
+<h3 id="面向对象的三大基本特征和五大基本原则"><a href="#面向对象的三大基本特征和五大基本原则" class="headerlink" title="面向对象的三大基本特征和五大基本原则"></a>面向对象的三大基本特征和五大基本原则</h3><p>&emsp;&emsp;传统意义上，面向对象有三大特性：封装、继承、多态。在<a href>《阿里Java开发手册》</a>中，将“抽象”也作为面向对象的特性之一，支持“四大特征”的说法。手册解释道：</p>
+<blockquote>
+<p>抽象是程序员的核心素养之一，体现出程序员对业务的建模能力，以及对架构的宏观掌控力。虽然面向过程也需要进行一定的抽象能力，但是相对来说，面向对象思维，以对象模型为核心，丰富模型的内涵，扩展模型的外延，通过模型的行为组合去共同解决某一类问题，抽象能力显得尤为重要。</p>
+</blockquote>
+<p>&emsp;&emsp;所谓封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是对象和类概念的主要特性。简单地说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。</p>
+<p>&emsp;&emsp;继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。通过继承创建的新类被称为“子类”或“派生类”，被继承的类被称为“基类”、“父类”或“超类”。继承的过程，就是从一般到特殊的过程。要实现继承，可以通过“继承”和“组合”来实现。继承概念的实现方式有两类：实现继承和接口继承。实现继承是指直接使用基类的属性和方法而无需额外的编码能力；接口继承是指仅使用属性和方法的名称，但是子类必须提供实现的能力。</p>
+<p>&emsp;&emsp;所谓多态就是指一个类实例的相同方法在不同情形下有不同的表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。</p>
+<p>&emsp;&emsp;最常见的多态就是将子类传入父类参数中，运行时调用父类方法时通过传入的子类决定具体的内部结构或行为。</p>
+<p>&emsp;&emsp;抽象是面向对象思想最基础的能力之一，正确而严谨的业务抽象和建模分析能力是后续的封装、继承、多态的基础，是软件大厦的及时。在面向对象思维中，抽象分为归纳和演绎。前者是从具体到本质，从个性到共性，将一类对象的共同特征进行归一化的逻辑思维过程；后者是从本质到具体，从共性到个性，逐步形象化的过程。在归纳的过程中，需要抽象出对象的属性和行为的共性，难度大于演绎。演绎是在已有问题解决方案的基础上，正确地找到合适的使用场景。演绎错误在使用集合时比较常见，比如针对查多改少的业务场景，使用链表是非常不合理的；底层框架技术选型时如果偶错误，则可能导致技术架构完全不适应业务的快速发展。</p>
+<p>&emsp;&emsp;以上即是面向对象的三大基本特征。接下来我们讲五大原则：</p>
+<p>&emsp;&emsp;<strong>单一职责原则：</strong></p>
+<p>&emsp;&emsp;其核心思想为：一个类，最好只做一件事，只有一个引起它的变化。单一职责原则可以看作是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。职责过多，可能引起它变化的原因就越多这将导致职责依赖，相互之间就产生影响，从而大大损伤其内聚性和耦合度。通常意义下的单一职责，就是指只有一种单一功能，不要为类实现过多的功能点，以保证实体只有一个引起它变化的原因。专注，是一个人优良的品质；同样地，单一也是一个类的优良设计。交杂不清的职责将会使得代码看起来特别别扭，牵一发而动全身，又是美感和必然导致丑陋的系统错误的风险。</p>
+<p>&emsp;&emsp;<strong>开放封闭原则：</strong></p>
+<p>&emsp;&emsp;其核心思想是：软件实体应该是可扩展的，而不可修改的。也就是，对扩展开放，对修改是封闭的。开放封闭原则主要体现在两个方面：</p>
+<ul>
+<li>对扩展开放。意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。</li>
+<li>对修改封闭。意味着类一旦设计完成，就可以独立完成其工作，而不需要对其进行任何修改。</li>
+</ul>
+<p>&emsp;&emsp;实现开放封闭原则的核心思想就是对抽象编程，而不是对具体编程。因为抽象相对稳定。让类依赖于固定的抽象，所以修改就是封闭的；而通过面向对象的继承和多态机制，又可以实现对抽象类的继承，通过覆写其方法来改变固有的行为，实现新的拓展方法，所以就是开放的。“需求总是变化”，没有不变的软件，所以就需要用等比开放原则来封闭变化满足需求，同时还能保持软件内部的封装体系稳定，不被需求的变化影响。</p>
+<p>&emsp;&emsp;<strong>Liskov替换原则：</strong></p>
+<p>&emsp;&emsp;里氏替换原则的核心思想是：子类必须能够替换其基类。这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。在父类和子类的具体行为中，必须严格把握继承层次中的关系和特征，将基类替换为子类，程序的行为不会发生任何变化。同时，这一约束反过来则是不成立的，子类可以替换积累，但是基类不一定能替换子类。里氏替换原则，主要着眼于对抽象和多态建立在继承的基础上，因此只有遵了里氏替换原则，才能保证继承服用是可靠的。实现的方法是面向接口编程：将公共部分抽象为基类接口或抽象类，通过<code>Extract Abstract Class</code>，在子类中通过覆写父类的方法实现新的方式支持同样的职责。里氏替换原则是关于继承机制的设计原则，违反里氏替换原则就必然导致违反开放-封闭原则。里氏替换原则能够保证系统具有良好的拓展性，同时实现基于多态的抽象机制，能够减少代码冗余，避免运行期的类型判别。</p>
+<p>&emsp;&emsp;<strong>依赖倒置原则：</strong></p>
+<p>&emsp;&emsp;其核心思想是：依赖于抽象。具体而言就是高层模块不依赖于底层模块，二者都同时依赖于抽象；抽象不依赖于具体，具体依赖于抽象。我们知道，类一定会存在类与类、模块与模块之间。当两个模块之间存在紧密的耦合关系时，最好的方法就是分离接口和实现：在依赖之间定义一个抽象的接口，以此来邮箱控制耦合关系，达到依赖于抽象的设计目标。抽象的稳定性决定了系统的稳定性，因为抽象是不变的，依赖于抽象是一个通用的原则，而某些时候依赖于细节则是在所难免的，必须权衡在抽象和具体之间的取舍，方法不是一成不变的。依赖于抽象，就是对接口编程，不要对实现编程。</p>
+<p>&emsp;&emsp;<strong>接口隔离原则：</strong></p>
+<p>&emsp;&emsp;其核心思想是：使用多个小的专门的接口，而不要使用一个大的总接口。具体而言，接口隔离原则体现在：接口应该是内聚的，应该避免“胖”的接口。一个类对另外一个类的依赖应该建立在最小的接口上，不要强迫依赖不用的方法，这是一种接口污染。接口有效地将细节和抽象隔离，体现了对抽象编程的一切好处，接口隔离强调接口的单一性。而“胖”接口存在明显的弊端，会导致实现的类型并非需要所有的接口定义，这在设计上这是浪费，而且在实施上这会带来潜在的问题，对“胖”接口的修改将导致一连串的客户端程序需要修改，有时候这是一种灾难。在这种情况下将“胖”接口分解为多个特点的定制化方法，使得客户端仅仅依赖于它们的实际调用的方法，从而解除了客户端不会依赖于他们不用的方法。分离的手段主要有以下两种：</p>
+<ul>
+<li>委托分离。通过增加一个新的类型来委托客户的请求，隔离客户和接口的直接以来，但是会增加系统的开销。</li>
+<li>多重继承分离。通过接口多继承来实现客户的需求，这种方法是较好的。</li>
+</ul>
+<p>&emsp;&emsp;以上就是五个基本的面向对象设计原则，他们就像面向对象程序设计中的金科玉律，遵守他们可以使我们的代码更加鲜活，易于复用，易于拓展，灵活优雅。不同的设计模式对应不同的需求，而设计原则则代表永恒的灵魂，需要在实践中时时刻刻的遵守。就如ARTHUR J.RIEL在那本《OOD启示录》中所说的：</p>
+<blockquote>
+<p>你并不必严格遵守这些原则，违背他们也不会被初一宗教刑罚。但是你应当把这些原则看作警铃，若违背了其中一条，那么警铃就会响起</p>
+</blockquote>
+<h2 id="平台无关性"><a href="#平台无关性" class="headerlink" title="平台无关性"></a>平台无关性</h2><h3 id="Java如何实现的平台无关性的"><a href="#Java如何实现的平台无关性的" class="headerlink" title="Java如何实现的平台无关性的"></a>Java如何实现的平台无关性的</h3><p>&emsp;&emsp;Java是一门跨平台的语言，Java是平台无关性的，这也是Java语言可以迅速崛起并风光无限的一个重要的原因。</p>
+<p>&emsp;&emsp;<strong>什么是平台无关性：</strong></p>
+<p>&emsp;&emsp;平台无关性就是一种语言在计算机上运行不受平台的约束，一次编译，到处运行（Write once， run anywhere）。</p>
+<p>&emsp;&emsp;也就是说，用java创建的可执行二进制程序，能够不加改变的运行于多个平台。</p>
+<p>&emsp;&emsp;<strong>平台无关性的好处：</strong></p>
+<p>&emsp;&emsp;作为一门平台无关性语言，无论是在自身发展，还是对开发者的友好度上都是很突出的。</p>
+<p>&emsp;&emsp;因为其平台无关性，所以Java程序可以运行在各种各样的设备上，尤其是一些嵌入式设备，如打印机、扫描仪、传真机等。随着5G时代的来临，也会有更多的终端接入网络，相信平台无关性的Java也能做一些贡献。</p>
+<p>&emsp;&emsp;对于Java开发者来说，Java减少了开发和部署到多个平台的成本和时间。真正的做到一次编译，到处运行。</p>
+<p>&emsp;&emsp;<strong>平台无关性的实现：</strong></p>
+<p>&emsp;&emsp;对于java平台无关性的支持，就像对安全性和网络移动性的支持一样，是分布在整个Java体系结构中的。其中扮演着重要的角色的有Java语言规范、class文件、Java虚拟机（JVM）等。</p>
+<p>&emsp;&emsp;<strong>编译原理基础：</strong></p>
+<p>&emsp;&emsp;在计算机世界中，计算机只认识0和1，所以，真正被计算机执行的其实是由0和1组成的二进制文件。</p>
+<p>&emsp;&emsp;但是，我们日程使用的C、C++、Java、Python等都属于高级语言，而非二进制语。所以，想要让计算机认识我们写出来的Java代码，就需要把它编译成二进制文件，负责这个过程的处理工具就叫做编译器。</p>
+<p>&emsp;&emsp;在Java平台中，想要把Java文件编译成二进制文件，与要经过两步编译，前端编译和后端编译。</p>
+<p>&emsp;&emsp;<strong>前端编译</strong>主要指与元语言有关但与目标机无关的部分，Java中，我们所熟知的<code>javac</code>的编译就是前端编译。除了这种以外，我们使用的很多IDE，如Eclipse、IDEA等，都内置了前端编译器。主要功能就是把<code>.java</code>代码转换成<code>.class</code>代码。</p>
+<p>&emsp;&emsp;这里提到的<code>.class</code>代码，其实就是class文件。</p>
+<p>&emsp;&emsp;后端编译主要是将中间代码再翻译成机器语言。Java中，这一步骤就是JVM来执行的。</p>
+<p>&emsp;&emsp;<strong>Java虚拟机</strong></p>
+<p>&emsp;&emsp;所谓平台无关性，就是说能够做到可以在多个平台上都能无缝对接。但是，对于不同的平台，硬件和操作系统肯定都是不一样的。</p>
+<p>&emsp;&emsp;对于不同的硬件和操作系统，最主要及区别就是指令不同。比如同样执行a+b，A操作系统对应的二进制指令可能是10001000，而B操作系统对应的指令可能是11101110.那么想做跨平台，最重要的就是可以根据对应的硬件和操作系统生成对应的二进制指令。</p>
+<p>&emsp;&emsp;而这一工作，主要由JVM完成。虽然Java语言是平台无关的，但JVM却是平台有关的，不同操作系统需要安装对应的Java虚拟机。</p>
+<p>&emsp;&emsp;有了Java虚拟机，想要执行a+b的操作，A操作系统和B操作系统上面的虚拟机，就会把指令翻译成机器对应的二进制码。</p>
+<p>&emsp;&emsp;所以，Java之所以可以做到跨平台，是因为Java虚拟机充当了桥梁。它扮演运行时Java程序与其下的硬件和操作系统之间的缓冲角色。</p>
+<p>&emsp;&emsp;<strong>字节码</strong></p>
+<p>&emsp;&emsp;各种不同平台的虚拟机都使用统一的程序存储格式——字节码。是构成平台无关性的另一个基石。Java虚拟机只与由字节码组成的class文件进行交互。</p>
+<p>&emsp;&emsp;我们说的Java原因呢可以一次编译，到处运行，这里的Write其实指的就是生成class文件的过程。</p>
+<p>&emsp;&emsp;因为Java class文件可以在任何平台创建，也可以被任何平台的Java虚拟机装载并执行，所以才有了Java平台的无关性。</p>
+<p>&emsp;&emsp;<strong>Java语言规范</strong></p>
+<p>&emsp;&emsp;已经有了统一的class文件，以及可以在不同平台上将class文件翻译成对应的二进制文件的Java虚拟机，Java就可以彻底实现跨平台了吗？</p>
+<p>&emsp;&emsp;其实不然，Java语言在快平台方面也是做了一些努力的，这些努力被定义在Java语言规范中。</p>
+<p>&emsp;&emsp;比如，Java中的基本数据类型的值域和行为都是由其自己定义的，而在C/C++中，基本数据类型是由他的占位宽度决定的。</p>
+
+  </div>
+</article>
+
+    </div>
+    
+    <p class="content"><i class="fas fa-rocket" style="color:#2bbc8a"></i>&emsp;<a href="https://www.vultr.com/?ref=7534795">[AD] Vultr, Easily Deploy Cloud Servers, Bare Metal, and Storage worldwide!</a></p>
+<footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Alex Zhang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+         
+          <li><a href="javascript:translatePage();">简/繁</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <!-- styles -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<!--<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">-->
+
+    <!-- jquery -->
+
+          <script src="/lib/jquery/jquery.min.js"></script>
+            <script>
+            $("#loading").click(function() {
+	$("#loading").fadeOut(500);}
+	)
+            </script>          
+  
+    <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+  
+  
+  <!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-112028390-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Valine Comments -->
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+     <script type="text/javascript">
+        var notify = 'false' == true ? true : false;
+        var verify = 'false' == true ? true : false;
+        var GUEST_INFO = ['nick','mail'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        new Valine({
+            av: AV,
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+           
+           path: "",
+        
+            appId: "KNcQSontV3macob1AuySeLCI-gzGzoHsz",
+            appKey: "XQoDM9LJmKlkjPMJ7WGn2qbU",
+            avatar:"retro",
+            placeholder: "ฅ( ̳• ◡ • ̳)ฅ 来评论呀",
+            guest_info:guest_info,
+            pageSize:"4",
+            visitor:true
+        })
+    </script>
+     
+<!-- Disqus Comments -->
+
+  
+      <script>
+         $.ajax({
+ 	type: "put",
+ 	url: "https://kncqsont.api.lncld.net/1.1/classes/Counter/5bbe9b7f0b6160006f958989",
+ 	contentType: 'application/json',
+ 	data: JSON.stringify({
+ 		"time": {
+ 			"__op": "Increment",
+ 			"amount": 1
+ 		}
+ 	}),
+ 	beforeSend: function(request) {
+ 		request.setRequestHeader("X-LC-Id", "KNcQSontV3macob1AuySeLCI-gzGzoHsz");
+ 		request.setRequestHeader("X-LC-Session", "0aoh02mm15w9x0t8josr90dum");
+ 		request.setRequestHeader("X-LC-Sign", "f3a89e1f7285e166b0eed314d2841534,1539237971642");
+ 	},
+ 	success: function(data, status) {}
+ });
+    </script>
+ 
+
+ <!-- Custom JS -->
+ <script>
+   /*var style=document.getElementsByTagName("style");
+style[0].innerHTML=".v *{-webkit-box-sizing:border-box;box-sizing:border-box;line-height:2;color:#c9cacc;-webkit-transition:all .3s ease;transition:all .3s ease}.v hr{margin:.825rem 0;border-color:#f6f6f6;border-style:dashed}.v.hide-avatar .vimg{display:none}.v a{background-image:none;position:relative;cursor:pointer;color:#1abc9c;display:inline-block}.v a:before{content:\"\";position:absolute;width:0;right:0;bottom:0;height:1px;background:#1abc9c;-webkit-transition:width .3s ease;transition:width .3s ease}.v a:hover{background-image:none;color:#1abc9c}.v a:hover:before{width:100%;left:0;right:auto}.v code,.v pre{color:#c9cacc;padding:.2em .4em;border-radius:3px;font-size:85%;margin:0;font-family:Source Code Pro,courier new,Input Mono,PT Mono,SFMono-Regular,Consolas,Monaco,Menlo,PingFang SC,Liberation Mono,Microsoft YaHei,Courier，monospace}.v pre{padding:10px;overflow:auto;line-height:1.45}.v pre code{padding:0;background:0 0;white-space:pre-wrap;word-break:keep-all}.v blockquote{color:#666;margin:.5rem 0;padding:0 0 0 1rem;border-left:8px solid hsla(0,0%,93%,.5)}.v .vinput{border:none;resize:none;outline:0;padding:10px 5px;max-width:100%;font-size:.775rem}.v input[type=checkbox],.v input[type=radio]{display:inline-block;vertical-align:middle;margin-top:-2px}.v .vwrap{border:1px solid #f0f0f0;border-radius:4px;margin-bottom:10px;overflow:hidden;position:relative;padding:10px}.v .vwrap input{background:0 0}.v .vwrap .vedit{position:relative;padding-top:10px}.v .vwrap .vedit .vctrl{text-align:right;font-size:12px}.v .vwrap .vedit .vctrl span{padding:10px;display:inline-block;vertical-align:middle;cursor:pointer}.v .vwrap .vedit .vemojis{display:none;font-size:18px;text-align:justify;max-height:145px;overflow:auto;margin-bottom:10px;-webkit-box-shadow:0 0 1px #f0f0f0;box-shadow:0 0 1px #f0f0f0}.v .vwrap .vedit .vemojis i{font-style:normal;padding:7px 0;width:38px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle}.v .vwrap .vedit .vpreview{padding:7px;-webkit-box-shadow:0 0 1px #f0f0f0;box-shadow:0 0 1px #f0f0f0}.v .vwrap .vedit .vpreview frame,.v .vwrap .vedit .vpreview iframe,.v .vwrap .vedit .vpreview img{max-width:100%;border:none}.v .vwrap .vheader .vinput{width:33.33%;border-bottom:1px dashed #dedede}.v .vwrap .vheader.item2 .vinput{width:50%}.v .vwrap .vheader.item1 .vinput{width:100%}.v .vwrap .vheader .vinput:focus{border-bottom-color:#2bbc8a}@media screen and (max-width:520px){.v .vwrap .vheader .vinput,.v .vwrap .vheader.item2 .vinput{width:100%}}.v .vwrap .vcontrol{font-size:0;padding-top:15px}.v .vwrap .vcontrol .col{display:inline-block;font-size:.725rem;vertical-align:middle;color:#ccc}.v .vwrap .vcontrol .col.text-right{text-align:right}.v .vwrap .vcontrol .col svg{margin-right:2px;overflow:hidden;fill:currentColor;vertical-align:middle}.v .vwrap .vcontrol .col.col-20{width:20%}.v .vwrap .vcontrol .col.col-40{width:40%}.v .vwrap .vcontrol .col.col-60{width:60%}.v .vwrap .vcontrol .col.col-80{width:80%}.v .vwrap .vcontrol .col.split{width:50%}.v .vwrap .vmark{position:absolute;background:rgba(0,0,0,.65);width:100%;height:100%;left:0;top:0}.v .vwrap .vmark .valert{padding-top:3rem}.v .vwrap .vmark .valert .vtext{color:#fff;padding:1rem 0}.v .vwrap .vmark .valert .vcode{width:4.6875rem;border-radius:.3125rem;padding:.5rem;background:#dedede}.v .vwrap .vmark .valert .vcode:focus{border-color:#3090e4;background-color:#fff}@media screen and (max-width:720px){.v .vwrap .vmark .valert{padding-top:5.5rem}.v .vwrap .vmark .valert .vtext{color:#fff;padding:1rem 0}}.v .power{color:#999;padding:.5rem 0}.v .power,.v .power a{font-size:.75rem}.v .vinfo{font-size:0;padding:5px}.v .vinfo .col{font-size:.875rem;display:inline-block;width:50%;vertical-align:middle}.v .vinfo .vcount .vnum{font-weight:600;font-size:1.25rem}.v a{text-decoration:none;color:#c9cacc}.v a:hover{color:#1abc9c}.v ol,.v ul{padding:0;margin-left:1.25rem}.v .txt-center{text-align:center}.v .txt-right{text-align:right}.v .pd5{padding:5px}.v .pd10{padding:10px}.v .veditor{width:100%;min-height:8.75rem;font-size:.875rem;background:0 0;resize:vertical;-webkit-transition:all .25s ease;transition:all .25s ease}.v .vbtn{-webkit-transition-duration:.4s;transition-duration:.4s;text-align:center;color:#edededb7;border:1px solid #ededed;border-radius:.3rem;display:inline-block;background:#1d1f21;margin-bottom:0;font-weight:400;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;white-space:nowrap;padding:.5rem 1.25rem;font-size:.875rem;line-height:1.42857143;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:0}.v .vbtn+.vbtn{margin-left:1.25rem}.v .vbtn:active,.v .vbtn:hover{color:#1abc9c;border-color:#1abc9c}.v .vempty{padding:1.25rem;text-align:center;color:#999}.v .vlist{width:100%}.v .vlist .vcard{padding-top:1.5rem;position:relative;display:block}.v .vlist .vcard:after{content:\"\";clear:both;display:block}.v .vlist .vcard .vimg{width:3.125rem;height:3.125rem;float:left;border-radius:50%;margin-right:.7525rem;border:1px solid #f5f5f5;padding:.125rem}@media screen and (max-width:720px){.v .vlist .vcard .vimg{width:2.5rem;height:2.5rem}}.v .vlist .vcard .vhead{line-height:1.5;margin-top:0}.v .vlist .vcard .vhead .vnick{position:relative;font-size:.875rem;font-weight:500;margin-right:.875rem;cursor:pointer;color:#1abc9c;text-decoration:none;display:inline-block}.v .vlist .vcard .vhead .vnick:before{content:\"\";position:absolute;width:0;right:0;bottom:0;height:1px;background:#1abc9c;-webkit-transition:width .3s ease;transition:width .3s ease}.v .vlist .vcard .vhead .vnick:hover{color:#fff}.v .vlist .vcard .vhead .vnick:hover:before{width:100%;left:0;right:auto}.v .vlist .vcard .vhead .vsys{display:inline-block;padding:.2rem .5rem;color:#b3b1b1;font-size:.75rem;border-radius:.2rem;margin-right:.3rem}@media screen and (max-width:520px){.v .vlist .vcard .vhead .vsys{display:none}}.v .vlist .vcard .vh{overflow:hidden;padding-bottom:.5rem}.v .vlist .vcard .vh .vtime{color:#b3b3b3;font-size:.75rem;margin-right:.875rem}.v .vlist .vcard .vh .vmeta{line-height:1;position:relative}.v .vlist .vcard .vh .vmeta .vat{font-size:.8125rem;color:#1abc9c;cursor:pointer;float:right}.v .vlist .vcard .vcontent{word-wrap:break-word;word-break:break-all;text-align:justify;color:#4a4a4a;font-size:.875rem;line-height:2;position:relative;margin-bottom:.75rem;padding-top:.625rem}.v .vlist .vcard .vcontent frame,.v .vlist .vcard .vcontent iframe,.v .vlist .vcard .vcontent img{max-width:100%;border:none}.v .vlist .vcard .vcontent.expand{cursor:pointer;max-height:11.25rem;overflow:hidden}.v .vlist .vcard .vcontent.expand:before{display:block;content:\"\";position:absolute;width:100%;left:0;top:0;bottom:3.15rem;pointer-events:none;background:-webkit-gradient(linear,left top,left bottom,from(hsla(210,6%,12%,0)),to(#1d1f21));background:linear-gradient(180deg,hsla(210,6%,12%,0),#1d1f21)}.v .vlist .vcard .vcontent.expand:after{display:block;content:\"点击展开评论\";text-align:center;color:#828586;position:absolute;width:100%;height:3.15rem;line-height:3.15rem;left:0;bottom:0;pointer-events:none;background:#1d1f21}.v .vlist .vcard .vquote{color:#666;margin-top:1rem;padding-left:1rem;border-left:1px dashed hsla(0,0%,93%,.5)}.v .vlist .vcard .vquote .vimg{width:2.225rem;height:2.225rem}.v .vpage .vmore{margin:1rem 0}.v .clear{content:\"\";display:block;clear:both}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@-webkit-keyframes pulse{50%{background:#dcdcdc}}@keyframes pulse{50%{background:#dcdcdc}}.v .vloading{position:relative;padding:20px;display:block;height:80px}.v .vloading:before{-webkit-box-sizing:border-box;box-sizing:border-box;content:\"\";position:absolute;display:inline-block;top:20px;left:50%;margin-left:-20px;width:40px;height:40px;border:6px double #a0a0a0;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}";
+*/
+let currentEncoding = targetEncoding = true;
+    let stopDOM = ["BR","TIME","IMG","CANVAS","SCRIPT"];
+    if (localStorage.getItem("targetEncoding") === "false") {
+        targetEncoding = false;
+        translateBody();
+    }
+    function translateBody(obj) {
+        let objs = (obj ? obj : document.body).childNodes;
+        for (let i = 0; i < objs.length; i++) {
+            if (objs[i].nodeType === 3 && /[\u4e00-\u9fa5]/g.test(objs[i].textContent)) {
+                objs[i].textContent = Exchange(objs[i].textContent);
+            } else if (objs[i].nodeType === 1 && !stopDOM.includes(objs[i].tagName)) {
+                translateBody(objs[i]);
+            }
+        }
+    }
+    function Exchange(text) {
+        let result = '', j,
+            s = "万与丑专业丛东丝丢两严丧个丬丰临为丽举么义乌乐乔习乡书买乱争于亏云亘亚产亩亲亵亸亿仅从仑仓仪们价众优伙会伛伞伟传伤伥伦伧伪伫体余佣佥侠侣侥侦侧侨侩侪侬俣俦俨俩俪俭债倾偬偻偾偿傥傧储傩儿兑兖党兰关兴兹养兽冁内冈册写军农冢冯冲决况冻净凄凉凌减凑凛几凤凫凭凯击凼凿刍划刘则刚创删别刬刭刽刿剀剂剐剑剥剧劝办务劢动励劲劳势勋勐勚匀匦匮区医华协单卖卢卤卧卫却卺厂厅历厉压厌厍厕厢厣厦厨厩厮县参叆叇双发变叙叠叶号叹叽吁后吓吕吗吣吨听启吴呒呓呕呖呗员呙呛呜咏咔咙咛咝咤咴咸哌响哑哒哓哔哕哗哙哜哝哟唛唝唠唡唢唣唤唿啧啬啭啮啰啴啸喷喽喾嗫呵嗳嘘嘤嘱噜噼嚣嚯团园囱围囵国图圆圣圹场坂坏块坚坛坜坝坞坟坠垄垅垆垒垦垧垩垫垭垯垱垲垴埘埙埚埝埯堑堕塆墙壮声壳壶壸处备复够头夸夹夺奁奂奋奖奥妆妇妈妩妪妫姗姜娄娅娆娇娈娱娲娴婳婴婵婶媪嫒嫔嫱嬷孙学孪宁宝实宠审宪宫宽宾寝对寻导寿将尔尘尧尴尸尽层屃屉届属屡屦屿岁岂岖岗岘岙岚岛岭岳岽岿峃峄峡峣峤峥峦崂崃崄崭嵘嵚嵛嵝嵴巅巩巯币帅师帏帐帘帜带帧帮帱帻帼幂幞干并广庄庆庐庑库应庙庞废庼廪开异弃张弥弪弯弹强归当录彟彦彻径徕御忆忏忧忾怀态怂怃怄怅怆怜总怼怿恋恳恶恸恹恺恻恼恽悦悫悬悭悯惊惧惨惩惫惬惭惮惯愍愠愤愦愿慑慭憷懑懒懔戆戋戏戗战戬户扎扑扦执扩扪扫扬扰抚抛抟抠抡抢护报担拟拢拣拥拦拧拨择挂挚挛挜挝挞挟挠挡挢挣挤挥挦捞损捡换捣据捻掳掴掷掸掺掼揸揽揿搀搁搂搅携摄摅摆摇摈摊撄撑撵撷撸撺擞攒敌敛数斋斓斗斩断无旧时旷旸昙昼昽显晋晒晓晔晕晖暂暧札术朴机杀杂权条来杨杩杰极构枞枢枣枥枧枨枪枫枭柜柠柽栀栅标栈栉栊栋栌栎栏树栖样栾桊桠桡桢档桤桥桦桧桨桩梦梼梾检棂椁椟椠椤椭楼榄榇榈榉槚槛槟槠横樯樱橥橱橹橼檐檩欢欤欧歼殁殇残殒殓殚殡殴毁毂毕毙毡毵氇气氢氩氲汇汉污汤汹沓沟没沣沤沥沦沧沨沩沪沵泞泪泶泷泸泺泻泼泽泾洁洒洼浃浅浆浇浈浉浊测浍济浏浐浑浒浓浔浕涂涌涛涝涞涟涠涡涢涣涤润涧涨涩淀渊渌渍渎渐渑渔渖渗温游湾湿溃溅溆溇滗滚滞滟滠满滢滤滥滦滨滩滪漤潆潇潋潍潜潴澜濑濒灏灭灯灵灾灿炀炉炖炜炝点炼炽烁烂烃烛烟烦烧烨烩烫烬热焕焖焘煅煳熘爱爷牍牦牵牺犊犟状犷犸犹狈狍狝狞独狭狮狯狰狱狲猃猎猕猡猪猫猬献獭玑玙玚玛玮环现玱玺珉珏珐珑珰珲琎琏琐琼瑶瑷璇璎瓒瓮瓯电画畅畲畴疖疗疟疠疡疬疮疯疱疴痈痉痒痖痨痪痫痴瘅瘆瘗瘘瘪瘫瘾瘿癞癣癫癯皑皱皲盏盐监盖盗盘眍眦眬着睁睐睑瞒瞩矫矶矾矿砀码砖砗砚砜砺砻砾础硁硅硕硖硗硙硚确硷碍碛碜碱碹磙礼祎祢祯祷祸禀禄禅离秃秆种积称秽秾稆税稣稳穑穷窃窍窑窜窝窥窦窭竖竞笃笋笔笕笺笼笾筑筚筛筜筝筹签简箓箦箧箨箩箪箫篑篓篮篱簖籁籴类籼粜粝粤粪粮糁糇紧絷纟纠纡红纣纤纥约级纨纩纪纫纬纭纮纯纰纱纲纳纴纵纶纷纸纹纺纻纼纽纾线绀绁绂练组绅细织终绉绊绋绌绍绎经绐绑绒结绔绕绖绗绘给绚绛络绝绞统绠绡绢绣绤绥绦继绨绩绪绫绬续绮绯绰绱绲绳维绵绶绷绸绹绺绻综绽绾绿缀缁缂缃缄缅缆缇缈缉缊缋缌缍缎缏缐缑缒缓缔缕编缗缘缙缚缛缜缝缞缟缠缡缢缣缤缥缦缧缨缩缪缫缬缭缮缯缰缱缲缳缴缵罂网罗罚罢罴羁羟羡翘翙翚耢耧耸耻聂聋职聍联聩聪肃肠肤肷肾肿胀胁胆胜胧胨胪胫胶脉脍脏脐脑脓脔脚脱脶脸腊腌腘腭腻腼腽腾膑臜舆舣舰舱舻艰艳艹艺节芈芗芜芦苁苇苈苋苌苍苎苏苘苹茎茏茑茔茕茧荆荐荙荚荛荜荞荟荠荡荣荤荥荦荧荨荩荪荫荬荭荮药莅莜莱莲莳莴莶获莸莹莺莼萚萝萤营萦萧萨葱蒇蒉蒋蒌蓝蓟蓠蓣蓥蓦蔷蔹蔺蔼蕲蕴薮藁藓虏虑虚虫虬虮虽虾虿蚀蚁蚂蚕蚝蚬蛊蛎蛏蛮蛰蛱蛲蛳蛴蜕蜗蜡蝇蝈蝉蝎蝼蝾螀螨蟏衅衔补衬衮袄袅袆袜袭袯装裆裈裢裣裤裥褛褴襁襕见观觃规觅视觇览觉觊觋觌觍觎觏觐觑觞触觯詟誉誊讠计订讣认讥讦讧讨让讪讫训议讯记讱讲讳讴讵讶讷许讹论讻讼讽设访诀证诂诃评诅识诇诈诉诊诋诌词诎诏诐译诒诓诔试诖诗诘诙诚诛诜话诞诟诠诡询诣诤该详诧诨诩诪诫诬语诮误诰诱诲诳说诵诶请诸诹诺读诼诽课诿谀谁谂调谄谅谆谇谈谊谋谌谍谎谏谐谑谒谓谔谕谖谗谘谙谚谛谜谝谞谟谠谡谢谣谤谥谦谧谨谩谪谫谬谭谮谯谰谱谲谳谴谵谶谷豮贝贞负贠贡财责贤败账货质贩贪贫贬购贮贯贰贱贲贳贴贵贶贷贸费贺贻贼贽贾贿赀赁赂赃资赅赆赇赈赉赊赋赌赍赎赏赐赑赒赓赔赕赖赗赘赙赚赛赜赝赞赟赠赡赢赣赪赵赶趋趱趸跃跄跖跞践跶跷跸跹跻踊踌踪踬踯蹑蹒蹰蹿躏躜躯车轧轨轩轪轫转轭轮软轰轱轲轳轴轵轶轷轸轹轺轻轼载轾轿辀辁辂较辄辅辆辇辈辉辊辋辌辍辎辏辐辑辒输辔辕辖辗辘辙辚辞辩辫边辽达迁过迈运还这进远违连迟迩迳迹适选逊递逦逻遗遥邓邝邬邮邹邺邻郁郄郏郐郑郓郦郧郸酝酦酱酽酾酿释里鉅鉴銮錾钆钇针钉钊钋钌钍钎钏钐钑钒钓钔钕钖钗钘钙钚钛钝钞钟钠钡钢钣钤钥钦钧钨钩钪钫钬钭钮钯钰钱钲钳钴钵钶钷钸钹钺钻钼钽钾钿铀铁铂铃铄铅铆铈铉铊铋铍铎铏铐铑铒铕铗铘铙铚铛铜铝铞铟铠铡铢铣铤铥铦铧铨铪铫铬铭铮铯铰铱铲铳铴铵银铷铸铹铺铻铼铽链铿销锁锂锃锄锅锆锇锈锉锊锋锌锍锎锏锐锑锒锓锔锕锖锗错锚锜锞锟锠锡锢锣锤锥锦锨锩锫锬锭键锯锰锱锲锳锴锵锶锷锸锹锺锻锼锽锾锿镀镁镂镃镆镇镈镉镊镌镍镎镏镐镑镒镕镖镗镙镚镛镜镝镞镟镠镡镢镣镤镥镦镧镨镩镪镫镬镭镮镯镰镱镲镳镴镶长门闩闪闫闬闭问闯闰闱闲闳间闵闶闷闸闹闺闻闼闽闾闿阀阁阂阃阄阅阆阇阈阉阊阋阌阍阎阏阐阑阒阓阔阕阖阗阘阙阚阛队阳阴阵阶际陆陇陈陉陕陧陨险随隐隶隽难雏雠雳雾霁霉霭靓静靥鞑鞒鞯鞴韦韧韨韩韪韫韬韵页顶顷顸项顺须顼顽顾顿颀颁颂颃预颅领颇颈颉颊颋颌颍颎颏颐频颒颓颔颕颖颗题颙颚颛颜额颞颟颠颡颢颣颤颥颦颧风飏飐飑飒飓飔飕飖飗飘飙飚飞飨餍饤饥饦饧饨饩饪饫饬饭饮饯饰饱饲饳饴饵饶饷饸饹饺饻饼饽饾饿馀馁馂馃馄馅馆馇馈馉馊馋馌馍馎馏馐馑馒馓馔馕马驭驮驯驰驱驲驳驴驵驶驷驸驹驺驻驼驽驾驿骀骁骂骃骄骅骆骇骈骉骊骋验骍骎骏骐骑骒骓骔骕骖骗骘骙骚骛骜骝骞骟骠骡骢骣骤骥骦骧髅髋髌鬓魇魉鱼鱽鱾鱿鲀鲁鲂鲄鲅鲆鲇鲈鲉鲊鲋鲌鲍鲎鲏鲐鲑鲒鲓鲔鲕鲖鲗鲘鲙鲚鲛鲜鲝鲞鲟鲠鲡鲢鲣鲤鲥鲦鲧鲨鲩鲪鲫鲬鲭鲮鲯鲰鲱鲲鲳鲴鲵鲶鲷鲸鲹鲺鲻鲼鲽鲾鲿鳀鳁鳂鳃鳄鳅鳆鳇鳈鳉鳊鳋鳌鳍鳎鳏鳐鳑鳒鳓鳔鳕鳖鳗鳘鳙鳛鳜鳝鳞鳟鳠鳡鳢鳣鸟鸠鸡鸢鸣鸤鸥鸦鸧鸨鸩鸪鸫鸬鸭鸮鸯鸰鸱鸲鸳鸴鸵鸶鸷鸸鸹鸺鸻鸼鸽鸾鸿鹀鹁鹂鹃鹄鹅鹆鹇鹈鹉鹊鹋鹌鹍鹎鹏鹐鹑鹒鹓鹔鹕鹖鹗鹘鹚鹛鹜鹝鹞鹟鹠鹡鹢鹣鹤鹥鹦鹧鹨鹩鹪鹫鹬鹭鹯鹰鹱鹲鹳鹴鹾麦麸黄黉黡黩黪黾",
+            t = "萬與醜專業叢東絲丟兩嚴喪個爿豐臨為麗舉麼義烏樂喬習鄉書買亂爭於虧雲亙亞產畝親褻嚲億僅從侖倉儀們價眾優夥會傴傘偉傳傷倀倫傖偽佇體餘傭僉俠侶僥偵側僑儈儕儂俁儔儼倆儷儉債傾傯僂僨償儻儐儲儺兒兌兗黨蘭關興茲養獸囅內岡冊寫軍農塚馮衝決況凍淨淒涼淩減湊凜幾鳳鳧憑凱擊氹鑿芻劃劉則剛創刪別剗剄劊劌剴劑剮劍剝劇勸辦務勱動勵勁勞勢勳猛勩勻匭匱區醫華協單賣盧鹵臥衛卻巹廠廳曆厲壓厭厙廁廂厴廈廚廄廝縣參靉靆雙發變敘疊葉號歎嘰籲後嚇呂嗎唚噸聽啟吳嘸囈嘔嚦唄員咼嗆嗚詠哢嚨嚀噝吒噅鹹呱響啞噠嘵嗶噦嘩噲嚌噥喲嘜嗊嘮啢嗩唕喚呼嘖嗇囀齧囉嘽嘯噴嘍嚳囁嗬噯噓嚶囑嚕劈囂謔團園囪圍圇國圖圓聖壙場阪壞塊堅壇壢壩塢墳墜壟壟壚壘墾坰堊墊埡墶壋塏堖塒塤堝墊垵塹墮壪牆壯聲殼壺壼處備複夠頭誇夾奪奩奐奮獎奧妝婦媽嫵嫗媯姍薑婁婭嬈嬌孌娛媧嫻嫿嬰嬋嬸媼嬡嬪嬙嬤孫學孿寧寶實寵審憲宮寬賓寢對尋導壽將爾塵堯尷屍盡層屭屜屆屬屢屨嶼歲豈嶇崗峴嶴嵐島嶺嶽崠巋嶨嶧峽嶢嶠崢巒嶗崍嶮嶄嶸嶔崳嶁脊巔鞏巰幣帥師幃帳簾幟帶幀幫幬幘幗冪襆幹並廣莊慶廬廡庫應廟龐廢廎廩開異棄張彌弳彎彈強歸當錄彠彥徹徑徠禦憶懺憂愾懷態慫憮慪悵愴憐總懟懌戀懇惡慟懨愷惻惱惲悅愨懸慳憫驚懼慘懲憊愜慚憚慣湣慍憤憒願懾憖怵懣懶懍戇戔戲戧戰戩戶紮撲扡執擴捫掃揚擾撫拋摶摳掄搶護報擔擬攏揀擁攔擰撥擇掛摯攣掗撾撻挾撓擋撟掙擠揮撏撈損撿換搗據撚擄摑擲撣摻摜摣攬撳攙擱摟攪攜攝攄擺搖擯攤攖撐攆擷擼攛擻攢敵斂數齋斕鬥斬斷無舊時曠暘曇晝曨顯晉曬曉曄暈暉暫曖劄術樸機殺雜權條來楊榪傑極構樅樞棗櫪梘棖槍楓梟櫃檸檉梔柵標棧櫛櫳棟櫨櫟欄樹棲樣欒棬椏橈楨檔榿橋樺檜槳樁夢檮棶檢欞槨櫝槧欏橢樓欖櫬櫚櫸檟檻檳櫧橫檣櫻櫫櫥櫓櫞簷檁歡歟歐殲歿殤殘殞殮殫殯毆毀轂畢斃氈毿氌氣氫氬氳彙漢汙湯洶遝溝沒灃漚瀝淪滄渢溈滬濔濘淚澩瀧瀘濼瀉潑澤涇潔灑窪浹淺漿澆湞溮濁測澮濟瀏滻渾滸濃潯濜塗湧濤澇淶漣潿渦溳渙滌潤澗漲澀澱淵淥漬瀆漸澠漁瀋滲溫遊灣濕潰濺漵漊潷滾滯灩灄滿瀅濾濫灤濱灘澦濫瀠瀟瀲濰潛瀦瀾瀨瀕灝滅燈靈災燦煬爐燉煒熗點煉熾爍爛烴燭煙煩燒燁燴燙燼熱煥燜燾煆糊溜愛爺牘犛牽犧犢強狀獷獁猶狽麅獮獰獨狹獅獪猙獄猻獫獵獼玀豬貓蝟獻獺璣璵瑒瑪瑋環現瑲璽瑉玨琺瓏璫琿璡璉瑣瓊瑤璦璿瓔瓚甕甌電畫暢佘疇癤療瘧癘瘍鬁瘡瘋皰屙癰痙癢瘂癆瘓癇癡癉瘮瘞瘺癟癱癮癭癩癬癲臒皚皺皸盞鹽監蓋盜盤瞘眥矓著睜睞瞼瞞矚矯磯礬礦碭碼磚硨硯碸礪礱礫礎硜矽碩硤磽磑礄確鹼礙磧磣堿镟滾禮禕禰禎禱禍稟祿禪離禿稈種積稱穢穠穭稅穌穩穡窮竊竅窯竄窩窺竇窶豎競篤筍筆筧箋籠籩築篳篩簹箏籌簽簡籙簀篋籜籮簞簫簣簍籃籬籪籟糴類秈糶糲粵糞糧糝餱緊縶糸糾紆紅紂纖紇約級紈纊紀紉緯紜紘純紕紗綱納紝縱綸紛紙紋紡紵紖紐紓線紺絏紱練組紳細織終縐絆紼絀紹繹經紿綁絨結絝繞絰絎繪給絢絳絡絕絞統綆綃絹繡綌綏絛繼綈績緒綾緓續綺緋綽緔緄繩維綿綬繃綢綯綹綣綜綻綰綠綴緇緙緗緘緬纜緹緲緝縕繢緦綞緞緶線緱縋緩締縷編緡緣縉縛縟縝縫縗縞纏縭縊縑繽縹縵縲纓縮繆繅纈繚繕繒韁繾繰繯繳纘罌網羅罰罷羆羈羥羨翹翽翬耮耬聳恥聶聾職聹聯聵聰肅腸膚膁腎腫脹脅膽勝朧腖臚脛膠脈膾髒臍腦膿臠腳脫腡臉臘醃膕齶膩靦膃騰臏臢輿艤艦艙艫艱豔艸藝節羋薌蕪蘆蓯葦藶莧萇蒼苧蘇檾蘋莖蘢蔦塋煢繭荊薦薘莢蕘蓽蕎薈薺蕩榮葷滎犖熒蕁藎蓀蔭蕒葒葤藥蒞蓧萊蓮蒔萵薟獲蕕瑩鶯蓴蘀蘿螢營縈蕭薩蔥蕆蕢蔣蔞藍薊蘺蕷鎣驀薔蘞藺藹蘄蘊藪槁蘚虜慮虛蟲虯蟣雖蝦蠆蝕蟻螞蠶蠔蜆蠱蠣蟶蠻蟄蛺蟯螄蠐蛻蝸蠟蠅蟈蟬蠍螻蠑螿蟎蠨釁銜補襯袞襖嫋褘襪襲襏裝襠褌褳襝褲襇褸襤繈襴見觀覎規覓視覘覽覺覬覡覿覥覦覯覲覷觴觸觶讋譽謄訁計訂訃認譏訐訌討讓訕訖訓議訊記訒講諱謳詎訝訥許訛論訩訟諷設訪訣證詁訶評詛識詗詐訴診詆謅詞詘詔詖譯詒誆誄試詿詩詰詼誠誅詵話誕詬詮詭詢詣諍該詳詫諢詡譸誡誣語誚誤誥誘誨誑說誦誒請諸諏諾讀諑誹課諉諛誰諗調諂諒諄誶談誼謀諶諜謊諫諧謔謁謂諤諭諼讒諮諳諺諦謎諞諝謨讜謖謝謠謗諡謙謐謹謾謫譾謬譚譖譙讕譜譎讞譴譫讖穀豶貝貞負貟貢財責賢敗賬貨質販貪貧貶購貯貫貳賤賁貰貼貴貺貸貿費賀貽賊贄賈賄貲賃賂贓資賅贐賕賑賚賒賦賭齎贖賞賜贔賙賡賠賧賴賵贅賻賺賽賾贗讚贇贈贍贏贛赬趙趕趨趲躉躍蹌蹠躒踐躂蹺蹕躚躋踴躊蹤躓躑躡蹣躕躥躪躦軀車軋軌軒軑軔轉軛輪軟轟軲軻轤軸軹軼軤軫轢軺輕軾載輊轎輈輇輅較輒輔輛輦輩輝輥輞輬輟輜輳輻輯轀輸轡轅轄輾轆轍轔辭辯辮邊遼達遷過邁運還這進遠違連遲邇逕跡適選遜遞邐邏遺遙鄧鄺鄔郵鄒鄴鄰鬱郤郟鄶鄭鄆酈鄖鄲醞醱醬釅釃釀釋裏钜鑒鑾鏨釓釔針釘釗釙釕釷釺釧釤鈒釩釣鍆釹鍚釵鈃鈣鈈鈦鈍鈔鍾鈉鋇鋼鈑鈐鑰欽鈞鎢鉤鈧鈁鈥鈄鈕鈀鈺錢鉦鉗鈷缽鈳鉕鈽鈸鉞鑽鉬鉭鉀鈿鈾鐵鉑鈴鑠鉛鉚鈰鉉鉈鉍鈹鐸鉶銬銠鉺銪鋏鋣鐃銍鐺銅鋁銱銦鎧鍘銖銑鋌銩銛鏵銓鉿銚鉻銘錚銫鉸銥鏟銃鐋銨銀銣鑄鐒鋪鋙錸鋱鏈鏗銷鎖鋰鋥鋤鍋鋯鋨鏽銼鋝鋒鋅鋶鐦鐧銳銻鋃鋟鋦錒錆鍺錯錨錡錁錕錩錫錮鑼錘錐錦鍁錈錇錟錠鍵鋸錳錙鍥鍈鍇鏘鍶鍔鍤鍬鍾鍛鎪鍠鍰鎄鍍鎂鏤鎡鏌鎮鎛鎘鑷鐫鎳鎿鎦鎬鎊鎰鎔鏢鏜鏍鏰鏞鏡鏑鏃鏇鏐鐔钁鐐鏷鑥鐓鑭鐠鑹鏹鐙鑊鐳鐶鐲鐮鐿鑔鑣鑞鑲長門閂閃閆閈閉問闖閏闈閑閎間閔閌悶閘鬧閨聞闥閩閭闓閥閣閡閫鬮閱閬闍閾閹閶鬩閿閽閻閼闡闌闃闠闊闋闔闐闒闕闞闤隊陽陰陣階際陸隴陳陘陝隉隕險隨隱隸雋難雛讎靂霧霽黴靄靚靜靨韃鞽韉韝韋韌韍韓韙韞韜韻頁頂頃頇項順須頊頑顧頓頎頒頌頏預顱領頗頸頡頰頲頜潁熲頦頤頻頮頹頷頴穎顆題顒顎顓顏額顳顢顛顙顥纇顫顬顰顴風颺颭颮颯颶颸颼颻飀飄飆飆飛饗饜飣饑飥餳飩餼飪飫飭飯飲餞飾飽飼飿飴餌饒餉餄餎餃餏餅餑餖餓餘餒餕餜餛餡館餷饋餶餿饞饁饃餺餾饈饉饅饊饌饢馬馭馱馴馳驅馹駁驢駔駛駟駙駒騶駐駝駑駕驛駘驍罵駰驕驊駱駭駢驫驪騁驗騂駸駿騏騎騍騅騌驌驂騙騭騤騷騖驁騮騫騸驃騾驄驏驟驥驦驤髏髖髕鬢魘魎魚魛魢魷魨魯魴魺鮁鮃鯰鱸鮋鮓鮒鮊鮑鱟鮍鮐鮭鮚鮳鮪鮞鮦鰂鮜鱠鱭鮫鮮鮺鯗鱘鯁鱺鰱鰹鯉鰣鰷鯀鯊鯇鮶鯽鯒鯖鯪鯕鯫鯡鯤鯧鯝鯢鯰鯛鯨鯵鯴鯔鱝鰈鰏鱨鯷鰮鰃鰓鱷鰍鰒鰉鰁鱂鯿鰠鼇鰭鰨鰥鰩鰟鰜鰳鰾鱈鱉鰻鰵鱅鰼鱖鱔鱗鱒鱯鱤鱧鱣鳥鳩雞鳶鳴鳲鷗鴉鶬鴇鴆鴣鶇鸕鴨鴞鴦鴒鴟鴝鴛鴬鴕鷥鷙鴯鴰鵂鴴鵃鴿鸞鴻鵐鵓鸝鵑鵠鵝鵒鷳鵜鵡鵲鶓鵪鶤鵯鵬鵮鶉鶊鵷鷫鶘鶡鶚鶻鶿鶥鶩鷊鷂鶲鶹鶺鷁鶼鶴鷖鸚鷓鷚鷯鷦鷲鷸鷺鸇鷹鸌鸏鸛鸘鹺麥麩黃黌黶黷黲黽";
+        if (!currentEncoding) {
+            j = s; s = t; t = j;
+            document.getElementById("bd").style.fontFamily="'Ubuntu','Source Code Pro', monospace";
+        } else {
+            document.getElementById("bd").style.fontFamily="'Ubuntu','Source Code Pro', 'Meslo LG', monospace";
+        }
+        for (let i = 0; i < text.length; i++) {
+            j = s.indexOf(text[i]);
+            result += j === -1 ? text[i] : t[j];
+        }
+        return result;
+    }
+    function translatePage() {
+        currentEncoding = targetEncoding;
+        targetEncoding = !targetEncoding;
+        localStorage.setItem("targetEncoding", targetEncoding);
+        translateBody();
+    }
+
+
+
+
+   </script>
+    <link rel="stylesheet" href="/css/comment.css">
+          <script>
+            if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    document.getElementsByTagName("body")[0].style.backgroundImage='url("https://royians.cn/images/bg-mob.png")';
+}
+          </script>
+      <script defer="defer" async="async">
+  window.onload=function(){
+  if(typeof(localStorage.flag) == "undefined"){
+    localStorage.setItem("targetEncoding", "false");
+    translatePage();
+    localStorage.setItem("flag", "true");
+    }
+    if (currentEncoding) {
+          translateBody();
+        }
+  }
+</script>
+      </body>
+
+      
+</html>

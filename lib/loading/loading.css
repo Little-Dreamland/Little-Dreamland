@@ -1,0 +1,105 @@
+#loading{
+	background-color: #1d1f21;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 5000001;
+	margin-top: 0px;
+	top: 0px;
+	left: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+}
+
+@-webkit-keyframes rotate-forever {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @-moz-keyframes rotate-forever {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes rotate-forever {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+.loading-spinner {
+        -webkit-animation-duration: 0.75s;
+        -moz-animation-duration: 0.75s;
+        animation-duration: 0.75s;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: rotate-forever;
+        -moz-animation-name: rotate-forever;
+        animation-name: rotate-forever;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-timing-function: linear;
+        animation-timing-function: linear;
+        height: 30px;
+        width: 30px;
+        border: 8px solid #2bbc8a;
+        border-right-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+}
+      
+      
+.center-in-center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+.ldct{
+        width: 100px;
+        height: 60px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -30px;
+        margin-left: -50px;
+        text-align: center;
+}
