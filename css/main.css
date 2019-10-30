@@ -1138,11 +1138,6 @@ pre .javascript .function {
   border-bottom-color: #eee;
   color: #eee;
 }
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-inner {
   color: #999;
   padding: 20px 10px;
@@ -1201,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c1e565;
+  background: #a2ec9e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1329,7 +1324,6 @@ pre .javascript .function {
   .sidebar-toggle {
     left: 20px;
     opacity: 0.8;
-    display: none;
   }
 }
 .sidebar-toggle:hover .toggle-line {
@@ -1451,9 +1445,10 @@ pre .javascript .function {
   }
 }
 .with-love {
-  color: #808080;
+  color: #F44336;
   display: inline-block;
   margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .powered-by,
 .theme-info {
@@ -2147,6 +2142,25 @@ ul.breadcrumb li + li:last-child {
 }
 .tag-cloud a:hover {
   color: #222 !important;
+}
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
 }
 @media (max-width: 767px) {
   .header-inner,
