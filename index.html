@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/2019/09/04/作业-Day2/">
+    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/2019/10/30/我又搬移博客了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -211,7 +211,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/04/作业-Day2/" class="post-title-link" itemprop="url">作业-Day2</a>
+            <a href="/2019/10/30/我又搬移博客了/" class="post-title-link" itemprop="url">我又搬移博客了</a>
         </h1>
 
         <div class="post-meta">
@@ -220,16 +220,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-09-04 12:12:00" itemprop="dateCreated datePublished" datetime="2019-09-04T12:12:00+08:00">2019-09-04</time>
+              <time title="创建时间：2019-10-30 08:58:38 / 修改时间：09:08:39" itemprop="dateCreated datePublished" datetime="2019-10-30T08:58:38+08:00">2019-10-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-14 17:06:36" itemprop="dateModified" datetime="2019-09-14T17:06:36+08:00">2019-09-14</time>
-              </span>
 
           
   
@@ -240,8 +234,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/09/04/作业-Day2/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/04/作业-Day2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/10/30/我又搬移博客了/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/30/我又搬移博客了/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -256,282 +250,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>今天是2019年09月04日，本篇博文主要为完成今日的培训作业。有关今天学习的内容，请查看<a href="#Note">这里</a>。</p>
-</blockquote>
-<h1 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h1><h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p><strong>Q：显示家目录中所有以.txt结尾的文件：</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al *.txt</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Q：新建文件link1.txt、link2.txt、k.txt、ab.txt，执行ls *[link]* 和 ls *link*分别会有哪些文件被查出：</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ touch link1.txt link2.txt k.txt ab.txt</span><br><span class="line"></span><br><span class="line">$ ls *[link]* -&gt; link1.txt link2.txt k.txt</span><br><span class="line">$ ls *link* -&gt; link1.txt link2.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：查看2008年8月份的日历:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cal 8 2008</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：将当前时间输出到time.txt:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date &gt; time.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：在Unix中<code>?</code>的作用:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<p>&emsp;&emsp;匹配一个字符（表示单个字符）</p>
-<p><strong>Q：<code>;</code>和<code>|</code>的异同:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<p>&emsp;&emsp;分号和管道符都是连接命令，可以连接多个命令，但是分号的各个命令之间没有关系，管道符前一个命令的输出要作为后一个命令的输入。</p>
-<p><strong>Q：查看文件<code>/etc/passwd</code>的内容，并将这些内容追加到上述文件的末尾</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd &gt;&gt; time.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="文本操作"><a href="#文本操作" class="headerlink" title="文本操作"></a>文本操作</h2><p><strong>Q：新建c.txt具有a.txt、b.txt的内容：</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat a.txt b.txt &gt;&gt; c.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：清空c.txt文件的内容 :</strong>  </p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /dev/null &gt; c.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：cat和more的异同:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<p>&emsp;&emsp;同：都可以读取文件内容<br>&emsp;&emsp;异：cat直接显示全部内容，more可以分屏显示。</p>
-<p><strong>Q：将2008年的日历输出到<code>a.txt</code>；将<code>a.txt</code>内容显示在屏幕上，并同时显示行号:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cal 2008 &gt; a.txt</span><br><span class="line">$ cat -n a.txt</span><br></pre></td></tr></table></figure>
-
-<p><strong>Q：将<code>a.txt</code>、<code>b.txt</code>的内容合并，输出到<code>c.txt</code>中:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat a.txt b.txt &gt;&gt; c.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h2><p><strong>Q：vi有哪三种模式及如何进行相互切换:</strong></p>
-<p>&emsp;&emsp;<strong>A：</strong></p>
-<p><img src="https://i.loli.net/2019/09/14/MlNIHRgrOedAumf.png" alt="img"></p>
-<p>&emsp;&emsp;vi有命令行模式、文本输入模式和末行模式三种模式，切换方法：<br>&emsp;&emsp;如果要从命令模式转换到编辑模式，可以输入命令<code>a</code>、<code>o</code>或者<code>i</code>。<br>&emsp;&emsp;如果需要从文本模式返回，则按下<code>Esc</code>键即可。<br>&emsp;&emsp;在命令模式下输入<code>:</code>即可切换到末行模式，然后输入命令。</p>
-<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>&emsp;&emsp;请查看笔记文件夹。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+          <p>没错，我又搬移博客了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/30/我又搬移博客了/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/2019/09/03/作业-Day1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/03/作业-Day1/" class="post-title-link" itemprop="url">作业 Day1</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-03 14:18:06" itemprop="dateCreated datePublished" datetime="2019-09-03T14:18:06+08:00">2019-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-16 11:22:53" itemprop="dateModified" datetime="2019-09-16T11:22:53+08:00">2019-09-16</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/09/03/作业-Day1/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/03/作业-Day1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>今天是2019年09月03日，本篇博文主要为完成今日的培训作业。有关今天学习的内容，请查看<a href="#Note">这里</a>。</p>
-</blockquote>
-<h1 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h1><p><strong>Q：操作系统的三大组成成分及各自作用</strong></p>
-<p>&emsp;&emsp;A：操作系统的三大组成成分。如图所示，分为Kernel、Shell和File System。<br><img src="https://i.loli.net/2019/09/03/6grL3jw1isPFxnV.jpg"></p>
-<ul>
-<li>Kernel: <ul>
-<li>管理设备、内存和进程</li>
-<li>系统程序与硬件之间的中转控制</li>
-<li>管理系统分区</li>
-<li>管理守护进程</li>
-<li>管理文件系统</li>
-</ul>
-</li>
-<li>Shell:<ul>
-<li>用户和内核之间的接口</li>
-<li>解释器：接受用户命令，交给内核执行</li>
-</ul>
-</li>
-<li>File System: <ul>
-<li>管理各种文件</li>
-</ul>
-</li>
-</ul>
-<p><strong>Q: 普通用户和超级用户的使用和切换</strong></p>
-<p>&emsp;&emsp;A: 普通用户和超级用户之间的切换可以使用su命令，命令格式是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su [-fmp] [-c command] [-s shell] [--help] [--version] [-] [USER [ARG]]</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/qgPxJszLS98wRyA.jpg">
-&emsp;&emsp;主要需要我们注意的是：在其后加了`-`后，大部分环境变数，都变为该使用者的身份。
-
-<p><strong>Q: 基本指令的使用</strong></p>
-<p>&emsp;&emsp;A:</p>
-<ul>
-<li><p>清屏</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: clear</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打印当前路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: pwd</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: cd xxx</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看当前目录下的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: ls</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看当前目录下的所有文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: ls -a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看当前目录下所有文件的详细信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr~$: ls -l -a</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong>Q: 文件类型有几种  分别是什么</strong></p>
-<p>&emsp;&emsp;文件类型有七种：</p>
-<table>
-<thead>
-<tr>
-<th>文件属性</th>
-<th>文件类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>常规文件，即file</td>
-</tr>
-<tr>
-<td>d</td>
-<td>目录文件</td>
-</tr>
-<tr>
-<td>b</td>
-<td>block device 即块设备文件，如硬盘;支持以block为单位进行随机访问</td>
-</tr>
-<tr>
-<td>c</td>
-<td>character device 即字符设备文件，如键盘支持以character为单位进行线性访问</td>
-</tr>
-<tr>
-<td>l</td>
-<td>symbolic link 即符号链接文件，又称软链接文件</td>
-</tr>
-<tr>
-<td>p</td>
-<td>pipe 即命名管道文件</td>
-</tr>
-<tr>
-<td>s</td>
-<td>socket 即套接字文件，用于实现两个进程进行通信</td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Q: 新建文件a.txt，并用权限模式、权限值两种方式修改权限为rwx rwx –x</strong></p>
-<p>&emsp;&emsp;A: 操作步骤如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">touch a.txt</span><br><span class="line">chmod u=rwx a.txt</span><br><span class="line">chmod g=rwx a.txt</span><br><span class="line">chmod o=x a.txt</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch a.txt</span><br><span class="line">chmod 771 a.txt</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/1HbMBzIKlwvPLEa.jpg">
-
-<p><strong>Q: 在用户的家目录中创建多级目录a/b/c/d/e</strong></p>
-<p>&emsp;&emsp;A: 操作步骤如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p a/b/c/d/e</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/jgxrcLSfwdkJvzy.jpg">
-
-<p><strong>Q: 绝对路径和相对路径的解释</strong></p>
-<p>&emsp;&emsp;A: Linux的绝对路径是从根目录<code>/</code>开始算起的，而相对路径则是从当前目录说起，即<code>./</code></p>
-<ul>
-<li>相对路径的几种表示方法：<ul>
-<li>当前目录 <code>.</code></li>
-<li>父目录 <code>..</code></li>
-<li>某用户的根目录 <code>~user</code></li>
-<li>自己的根目录 <code>~</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>Q: 查看当前目录下所有文件包括隐藏文件的详细列表信息</strong></p>
-<p>&emsp;&emsp;A: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a -l</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/tMGxQOIT2hFkpEf.jpg">
-
-<p><strong>Q: 完成如下任务</strong></p>
-<blockquote>
-<p>在“~/js1915/Linux”目录创建两个文件file1,file2<br>  创建两个目录 d1,d2<br>  将文件 file1 移动到 d1 目录下<br>  将文件 file2 复制到 d1,d2 目录下<br>  删除 桌面下的 file2<br>  删除 目录 d2<br>  将目录 d1 修改为 de1</p>
-</blockquote>
-<p>&emsp;&emsp;A: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr:~/jd1915/Linux$ touch file1</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ touch file2</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ mkdir d1 d2</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ mv file1 d1</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ cp file2 d1</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ cp file2 d2</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ rm file2</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ rm -r d2</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ mv d1 de1</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/KuoiYnvVCzwfBaQ.jpg">
-
-<p><strong>Q: 创建一个文件test,设置test的权限，使自己有读和写的权限，组用户有读的权限,其他用户没有任何权限，用数字模式实现上述设置，并查看设置结果。</strong></p>
-<p>&emsp;&emsp;A: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zyj@vultr:~/jd1915/Linux$ touch test</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ chmod 640 test</span><br><span class="line">zyj@vultr:~/jd1915/Linux$ ls -l test</span><br></pre></td></tr></table></figure>
-
-<img class="mdui-img-fluid" src="https://i.loli.net/2019/09/03/REt7U6GsohI4Mby.jpg">
-
-<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>&emsp;&emsp;请查看笔记文件夹。</p>
-
       
     </div>
 
@@ -593,12 +320,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
