@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
-<meta name="keywords" content="Java,多线程">
+  <meta name="description" content="这篇文章被加密了, 请输入密码查看.">
+<meta name="keywords" content="Java,未完成,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 线程池">
 <meta property="og:url" content="http://www.royians.cn/posts/20191031/bc557e1a/index.html">
 <meta property="og:site_name" content="Vidorra">
-<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta property="og:description" content="这篇文章被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T01:28:35.000Z">
+<meta property="og:updated_time" content="2019-10-31T14:45:22.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 线程池">
-<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="twitter:description" content="这篇文章被加密了, 请输入密码查看.">
 
 <link rel="canonical" href="http://www.royians.cn/posts/20191031/bc557e1a/">
 
@@ -172,7 +172,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -240,8 +240,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-10-31 09:28:35" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 09:28:35 / 修改时间：22:45:22" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,26 +281,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>多线程是Java中比较难的一个东西，因此需要自己去多多摸索。<br>今天就来了解一下多线程中线程池相关的知识。</p>
-<a id="more"></a>
-
-<h2 id="线程池概述"><a href="#线程池概述" class="headerlink" title="线程池概述"></a>线程池概述</h2><p>在《<a href="https://github.com/alibaba/p3c" title="阿里巴巴开发手册 Github 仓库" target="_blank" rel="noopener">阿里巴巴开发手册</a>》中有这样一条：</p>
-<blockquote>
-<p>【强制】线程资源必须通过线程池提供，不允许在应用中自行显式创建线程。<br>说明：使用线程池的好处是减少在创建和销毁线程上所花的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者 “过度切换”的问题。</p>
-</blockquote>
-<p>首先了解一下什么是线程池</p>
-
+        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="94bd6916deb8850c4a97cba6944e7a3941d8461ff3fb038e7f937f513227575b">76c5aa203315a5a0e1157cf479ee948741daa52a09bc389238c312fcb75915b85a1e6882ffdbeb9171644a663a58a6da1d3541b9b4bde6f9d922ddeb6f46dcfbbe4afb852115d3969ce84d4d4e35b1eae42bde2f7f1176826c787c3b836d8d5f3b8f9073cf625568e039a4cf1a044c4f2f7ddba543d956c2e5bd2a3d789e0f0dd8391abc745ad1cb51d72b76231e11e1acba32f111a395cb75d364a56b258e38d569a5a9a42f7aaeb93f8bd7d35b4cfabe68e2387608da42f217a9fe09aa81343f9c93c867991758d942b0073c75efb5f14cd173434ce6922f64d69019f8b5e775fb3340dc79d8f98728efe49ebac537cdbfea656d2dfbb88822b8c87b9cfb3c1cd6c1e957f66bc077430bd8fea62995845fbf6a24747d74e393d75dc2588c65e2f79fb82a6251b72c22e067e1de7f4bcfb97f25e900aaa8921c23d8f3c8da26c762ea34d5f659fd78f16fd7f140489905edee1d366e89f927f233d782418e8b55326f1a7e07add7f6a03177e101a36e3dd7767a9d6beba4b23fe1426a780014395c921d5294bcac61177b509c886bcfc61c1abdb77d1faa694b6fdb27e4eec6d51912fd84c4c705082781b81e66c3721eb8df8dddc7960a3b3ac58615f37ffacafaa518f98e32051c4bd928dc91c903d2129b5f40f5345d37cd138e668b5781e0e6425f7c5e63c48d5e97b9a78ed16471258890b34e9efd071b132907bc9045288abcd03375ffb971114f0b7d0dd56b37f0f552bb176a6170255013402a92a8deae7167544842a3345c0fb97bda1ce1c35b7156d2217ac498dcaf76f26b755f45351f01d8728d0d9799c2b087a934f00270e899ff4bcd1aeec832eedd437edce4033099fd2e229ee162b7b7d49b2b2fcfe7707adca33c6bfd76c6901c8ad311641b6e7818bcedd6999a0d638e4e0d92a19b6113970fe480fff6a45705d2478e65372783c5a301e746c130ad1adb0ad74c50550ad2ebc07a294e81bc07f2685a5668ce911d61a6ba3bef968a71a467eabaf159b56edaeca9ae077b6d2b33aa22d8ec1dfa5d667d92f3635d1838e2ec6277eee8cfff5ef8c05bd2aa09fdf873df3925e70c728d43afa28a0319be468ef4c7facbb0678a64b88efa7fbe90f5a93c98258d349e1946048ba5a8855f062c221c9ddf4c4dba947e2b591f12b4d305400f7107bb1fdd406754b680471a27328bec99ca84cc1a160518684b678162aac9ac506ace50f551388dd55ac4eed1aad65a40b1e1c9531512f7c727c04a9c2c11f0c805fd3b02bf8f3e27130f48ad6754e3fed71277ca25a04c6f698091835887f24b892d844922a7c7cc68a844ce740a</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </div>
 
     
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\20190909\6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
+    </li>
+  </ul>
 
 
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/未完成/" rel="tag"># 未完成</a>
               <a href="/tags/多线程/" rel="tag"># 多线程</a>
           </div>
 
@@ -354,7 +354,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -383,7 +382,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
