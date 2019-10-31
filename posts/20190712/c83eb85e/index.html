@@ -50,33 +50,38 @@
   };
 </script>
 
-  <meta name="description" content="张颖捷个人博客站">
-<meta name="keywords" content="张颖捷 博客 IT ROYIANS 小梦岛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vidorra">
-<meta property="og:url" content="http://www.royians.cn/index.html">
+  <meta name="description" content="昨天我们了解了一下Go语言，文章的最后给出了一个程序，那么正如我们需要安装JDK编译Java程序并运行一样，Go语言同样需要配置相关环境。">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go_02 Golangの安装编译运行">
+<meta property="og:url" content="http://www.royians.cn/posts/20190712/c83eb85e/index.html">
 <meta property="og:site_name" content="Vidorra">
-<meta property="og:description" content="张颖捷个人博客站">
+<meta property="og:description" content="昨天我们了解了一下Go语言，文章的最后给出了一个程序，那么正如我们需要安装JDK编译Java程序并运行一样，Go语言同样需要配置相关环境。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/10/31/9FWPAHkb34x56zL.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/31/h7OQyGzBqpZ8jSM.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/31/Ws2rDPpxlVjYGdB.png">
+<meta property="og:updated_time" content="2019-07-12T00:12:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vidorra">
-<meta name="twitter:description" content="张颖捷个人博客站">
+<meta name="twitter:title" content="Go_02 Golangの安装编译运行">
+<meta name="twitter:description" content="昨天我们了解了一下Go语言，文章的最后给出了一个程序，那么正如我们需要安装JDK编译Java程序并运行一样，Go语言同样需要配置相关环境。">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/31/9FWPAHkb34x56zL.png">
 
-<link rel="canonical" href="http://www.royians.cn/">
+<link rel="canonical" href="http://www.royians.cn/posts/20190712/c83eb85e/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Vidorra</title>
+  <title>Go_02 Golangの安装编译运行 | Vidorra</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
     <script>
@@ -213,260 +218,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20191031/bc557e1a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/20191031/bc557e1a/" class="post-title-link" itemprop="url">Java 线程池</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-31 09:28:35" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java之路/" itemprop="url" rel="index">
-                    <span itemprop="name">Java之路</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/20191031/bc557e1a/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/20191031/bc557e1a/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>多线程是Java中比较难的一个东西，因此需要自己去多多摸索。<br>今天就来了解一下多线程中线程池相关的知识。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/20191031/bc557e1a/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20191030/49324a7a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/20191030/49324a7a/" class="post-title-link" itemprop="url">我又搬移博客了</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-30 08:58:38" itemprop="dateCreated datePublished" datetime="2019-10-30T08:58:38+08:00">2019-10-30</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/20191030/49324a7a/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/20191030/49324a7a/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>没错，我又搬移博客了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/20191030/49324a7a/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20190909/6ccfaf30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/20190909/6ccfaf30/" class="post-title-link" itemprop="url">【基础】Java工程师成神之路第一天</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-09 15:28:01" itemprop="dateCreated datePublished" datetime="2019-09-09T15:28:01+08:00">2019-09-09</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/20190909/6ccfaf30/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/20190909/6ccfaf30/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>从今天开始我们学习Java基础篇的相关知识。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/20190909/6ccfaf30/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20190712/c83eb85e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -480,8 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/20190712/c83eb85e/" class="post-title-link" itemprop="url">Go_02 Golangの安装编译运行</a>
+          Go_02 Golangの安装编译运行
         </h1>
 
         <div class="post-meta">
@@ -530,114 +284,98 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>昨天我们了解了一下Go语言，文章的最后给出了一个程序，那么正如我们需要安装JDK编译Java程序并运行一样，Go语言同样需要配置相关环境。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/20190712/c83eb85e/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>昨天我们了解了一下Go语言，文章的最后给出了一个程序，那么正如我们需要安装JDK编译Java程序并运行一样，Go语言同样需要配置相关环境。</p>
+<a id="more"></a>
+
+<h2 id="安装Go"><a href="#安装Go" class="headerlink" title="安装Go"></a>安装Go</h2><p>首先，先去<a href="https://golang.google.cn/" target="_blank" rel="noopener">Go语言官网⇲</a>下载安装包。</p>
+<p><img src="https://i.loli.net/2019/10/31/9FWPAHkb34x56zL.png" alt="Go语言官网"></p>
+<p>网页左边有一个Download按钮，点击即可跳转到下载页面，在这里按照你的系统下载</p>
+<p><img src="https://i.loli.net/2019/10/31/h7OQyGzBqpZ8jSM.png" alt="下载页面"></p>
+<p>你可以发现在主页右面有一个<em>Try Go</em>，在下方的文本框里可以写简单的Go程序并直接运行之。</p>
+<p>下载好程序后的安装过程就不赘述了，主要了解一下下面的配置。</p>
+<p>在 Go-1.8 版本之前呢，我们是必须设置环境变量的，但是 Go-1.8（含）版本之后，如果没有特别配置，默认使用以下路径作为GOPATH</p>
+<p>Windows：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%USERPROFILE%/go</span><br></pre></td></tr></table></figure>
+
+<p>Linux:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$HOME</span>/go</span><br></pre></td></tr></table></figure>
+
+<p>Mac:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过修改 ~/.bash_profile 来设置</span><br></pre></td></tr></table></figure>
+
+<p>配置好后，我们在终端使用以下命令查看是否正确配置了Go：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/10/31/Ws2rDPpxlVjYGdB.png" alt="go version"></p>
+<p>好了，假设我使用的是 Cent OS 7 ，接下来我们新建一个目录来存放最近要开始学习的Go源文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">mkdir go_learning</span><br><span class="line"><span class="built_in">cd</span> go_learning</span><br><span class="line">mkdir src <span class="comment"># 新建源码文件夹</span></span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">mkdir day01/main <span class="comment"># 新建一个 package</span></span><br><span class="line">touch hello_world.go</span><br></pre></td></tr></table></figure>
+
+<p>Go语言的源文件是以go为后缀名的。接下来我们用vim编辑这个文件</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package 声明语句，声明 package 为 main</span></span><br><span class="line"><span class="keyword">package</span> main <span class="comment">// 包，表明代码所在的模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导包</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span> <span class="comment">// 引入代码依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数，功能实现</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Hello world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们保存这个文件，在终端准备运行这个程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run hello_word.go</span><br></pre></td></tr></table></figure>
+
+<p>如我们所想，控制台输出了Hello world字样。</p>
+<p><code>go run</code>是直接运行，如果我们想编译这个文件的话，使用这个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build hello_world.go</span><br></pre></td></tr></table></figure>
+
+<p>运行此条命令后，一个二进制文件就生成了。</p>
+<p>可执行的限制要求：</p>
+<ul>
+<li>必须是main包</li>
+<li>必须是main方法</li>
+<li>文件名不一定是main.go</li>
+<li>文件不一定放在main文件夹下</li>
+</ul>
+<p>退出返回值：</p>
+<ul>
+<li>Go 中 main 函数<strong>不支持任何返回值</strong></li>
+<li>通过<code>os.Exit</code>来返回状态</li>
+<li>Go 中 main 函数<strong>不支持传入参数</strong></li>
+<li>通过<code>os.Args</code>获取命令行参数</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ERROR, main 不支持任何返回值</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">func main() int &#123;</span></span><br><span class="line"><span class="comment">    fmt.Println("...")</span></span><br><span class="line"><span class="comment">    return 1</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ERROR, main 不支持任何参数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">func main(arg []string) &#123;</span></span><br><span class="line"><span class="comment">    // do something</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 os.Exit 来返回状态, 通过 os.Args 获取命令行参数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(os.Args)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(os.Args) &gt; <span class="number">1</span> &#123;</span><br><span class="line">        fmt.Println(os.Args[<span class="number">1</span>])</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    os.Exit(<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\20190711\e9c2da85\" rel="bookmark">Go_01 初识Go语言</a></div>
+    </li>
+  </ul>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Go/" rel="tag"># Go</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20190711/e9c2da85/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/20190711/e9c2da85/" class="post-title-link" itemprop="url">Go_01 初识Go语言</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-11 10:32:45" itemprop="dateCreated datePublished" datetime="2019-07-11T10:32:45+08:00">2019-07-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Go之路/" itemprop="url" rel="index">
-                    <span itemprop="name">Go之路</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/20190711/e9c2da85/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/20190711/e9c2da85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>其实很早就听说了Go语言，只是在最近才真正的深入去了解，购买了《Go In Action》，下载了《Go Programming Language》，开始新的Go之路。由于我已经基本上学了一遍Go基础，所以今天是按照顺序，总结一个Go语言基础知识。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/20190711/e9c2da85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/20190711/e9c2da85/" rel="next" title="Go_01 初识Go语言">
+                  <i class="fa fa-chevron-left"></i> Go_01 初识Go语言
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/20190909/6ccfaf30/" rel="prev" title="【基础】Java工程师成神之路第一天">
+                  【基础】Java工程师成神之路第一天 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
       </footer>
+    
   </article>
   
   
@@ -645,12 +383,10 @@
 
   </div>
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -675,6 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Go"><span class="nav-number">1.</span> <span class="nav-text">安装Go</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

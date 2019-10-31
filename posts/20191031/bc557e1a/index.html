@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="张颖捷个人博客站">
-<meta name="keywords" content="张颖捷 博客 IT ROYIANS 小梦岛">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://www.royians.cn/tags/index.html">
+  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="keywords" content="Java,多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 线程池">
+<meta property="og:url" content="http://www.royians.cn/posts/20191031/bc557e1a/index.html">
 <meta property="og:site_name" content="Vidorra">
-<meta property="og:description" content="张颖捷个人博客站">
+<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T03:24:11.576Z">
+<meta property="og:updated_time" content="2019-10-31T01:28:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="张颖捷个人博客站">
+<meta name="twitter:title" content="Java 线程池">
+<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 
-<link rel="canonical" href="http://www.royians.cn/tags/">
+<link rel="canonical" href="http://www.royians.cn/posts/20191031/bc557e1a/">
 
 
 <script id="page-configurations">
@@ -71,14 +71,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>tags | Vidorra
-  </title>
+  <title>Java 线程池 | Vidorra</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
     <script>
@@ -210,57 +209,127 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20191031/bc557e1a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Zhang">
+      <meta itemprop="description" content="张颖捷个人博客站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vidorra">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java 线程池
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2019-10-31 09:28:35" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Java之路</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/20191031/bc557e1a/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/20191031/bc557e1a/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
-</div>
+        </div>
+      </header>
 
-</header>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>多线程是Java中比较难的一个东西，因此需要自己去多多摸索。<br>今天就来了解一下多线程中线程池相关的知识。</p>
+<a id="more"></a>
+
+<h2 id="线程池概述"><a href="#线程池概述" class="headerlink" title="线程池概述"></a>线程池概述</h2><p>在《<a href="https://github.com/alibaba/p3c" title="阿里巴巴开发手册 Github 仓库" target="_blank" rel="noopener">阿里巴巴开发手册</a>》中有这样一条：</p>
+<blockquote>
+<p>【强制】线程资源必须通过线程池提供，不允许在应用中自行显式创建线程。<br>说明：使用线程池的好处是减少在创建和销毁线程上所花的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者 “过度切换”的问题。</p>
+</blockquote>
+<p>首先了解一下什么是线程池</p>
+
+    </div>
+
+    
+    
+    
       
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 4 个标签
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/20191030/49324a7a/" rel="next" title="我又搬移博客了">
+                  <i class="fa fa-chevron-left"></i> 我又搬移博客了
+                </a>
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Go/" style="font-size: 30px; color: #111">Go</a> <a href="/tags/Java/" style="font-size: 12px; color: #ccc">Java</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/折腾/" style="font-size: 12px; color: #ccc">折腾</a>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
             </div>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
-    
-    
-    
   </div>
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -285,6 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
