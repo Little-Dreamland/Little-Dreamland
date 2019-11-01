@@ -158,7 +158,7 @@ body {
   background: #fff;
   color: #555;
   font-family: 'Fira Code', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 2;
 }
 @media (max-width: 991px) {
@@ -180,22 +180,22 @@ h6 {
   padding: 0;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 1.275em;
 }
 h2 {
-  font-size: 1.375em;
+  font-size: 1.15em;
 }
 h3 {
-  font-size: 1.25em;
+  font-size: 1.025em;
 }
 h4 {
-  font-size: 1.125em;
+  font-size: 0.9em;
 }
 h5 {
-  font-size: 1em;
+  font-size: 0.775em;
 }
 h6 {
-  font-size: 0.875em;
+  font-size: 0.65em;
 }
 p {
   margin: 0 0 20px 0;
@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #294d6e;
+  background: #5caf65;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

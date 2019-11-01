@@ -21,7 +21,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.4.2',
+    version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"hide","offset":12,"onmobile":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
@@ -50,22 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="其实很早就听说了Go语言，只是在最近才真正的深入去了解，购买了《Go In Action》，下载了《Go Programming Language》，开始新的Go之路。由于我已经基本上学了一遍Go基础，所以今天是按照顺序，总结一个Go语言基础知识。">
-<meta name="keywords" content="Go">
+  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="keywords" content="多线程,Java,未完成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go_01 初识Go语言">
-<meta property="og:url" content="http://www.royians.cn/posts/20190711/e9c2da85/index.html">
+<meta property="og:title" content="Java 线程池">
+<meta property="og:url" content="http://www.royians.cn/posts/20191031-bc557e1a/index.html">
 <meta property="og:site_name" content="ROYIANS">
-<meta property="og:description" content="其实很早就听说了Go语言，只是在最近才真正的深入去了解，购买了《Go In Action》，下载了《Go Programming Language》，开始新的Go之路。由于我已经基本上学了一遍Go基础，所以今天是按照顺序，总结一个Go语言基础知识。">
+<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/10/31/orBfPIDqiZ8dVAn.png">
-<meta property="og:updated_time" content="2019-07-29T02:49:50.000Z">
+<meta property="og:updated_time" content="2019-11-01T02:54:23.125Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go_01 初识Go语言">
-<meta name="twitter:description" content="其实很早就听说了Go语言，只是在最近才真正的深入去了解，购买了《Go In Action》，下载了《Go Programming Language》，开始新的Go之路。由于我已经基本上学了一遍Go基础，所以今天是按照顺序，总结一个Go语言基础知识。">
-<meta name="twitter:image" content="https://i.loli.net/2019/10/31/orBfPIDqiZ8dVAn.png">
+<meta name="twitter:title" content="Java 线程池">
+<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 
-<link rel="canonical" href="http://www.royians.cn/posts/20190711/e9c2da85/">
+<link rel="canonical" href="http://www.royians.cn/posts/20191031-bc557e1a/">
 
 
 <script id="page-configurations">
@@ -79,7 +77,7 @@
   };
 </script>
 
-  <title>Go_01 初识Go语言 | ROYIANS</title>
+  <title>Java 线程池 | ROYIANS</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
     <script>
@@ -174,17 +172,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">5</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">2</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-comments">
@@ -195,6 +193,11 @@
         <li class="menu-item menu-item-schedule">
 
     <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-visitor">
+
+    <a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客地图</a>
 
   </li>
   </ul>
@@ -220,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20190711/e9c2da85/">
+    <link itemprop="mainEntityOfPage" href="http://www.royians.cn/posts/20191031-bc557e1a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -233,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Go_01 初识Go语言
+          Java 线程池
         </h1>
 
         <div class="post-meta">
@@ -243,14 +246,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-11 10:32:45" itemprop="dateCreated datePublished" datetime="2019-07-11T10:32:45+08:00">2019-07-11</time>
+              <time title="创建时间：2019-10-31 09:28:35" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-29 10:49:50" itemprop="dateModified" datetime="2019-07-29T10:49:50+08:00">2019-07-29</time>
+                <time title="修改时间：2019-11-01 10:54:23" itemprop="dateModified" datetime="2019-11-01T10:54:23+08:00">2019-11-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,8 +261,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Go之路/" itemprop="url" rel="index">
-                    <span itemprop="name">Go之路</span>
+                  <a href="/categories/Java之路/" itemprop="url" rel="index">
+                    <span itemprop="name">Java之路</span>
                   </a>
                 </span>
             </span>
@@ -273,12 +276,27 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/20190711/e9c2da85/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/20190711/e9c2da85/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/20191031-bc557e1a/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/20191031-bc557e1a/" itemprop="commentCount"></span>
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+            <div class="post-description">多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。</div>
 
         </div>
       </header>
@@ -289,27 +307,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>其实很早就听说了Go语言，只是在最近才真正的深入去了解，购买了《Go In Action》，下载了《Go Programming Language》，开始新的Go之路。由于我已经基本上学了一遍Go基础，所以今天是按照顺序，总结一个Go语言基础知识。</p>
-<a id="more"></a>
-
-<h2 id="初识Go语言"><a href="#初识Go语言" class="headerlink" title="初识Go语言"></a>初识Go语言</h2><p>Go语言是一种高级编程语言，Go语言对传统面向对象开发进行了重新的思考，提供了更高效的复用代码手段。Go语言还能让用户更高效地利用昂贵的服务器上的所有核心，而且它编译大型项目的速度也很快。</p>
-<p>Go语言内置并发机制，所以不用被迫使用特定的线程库，就能让软件扩展，使用更多的资源。Go语言的类型系统简单且高效，不需要为面向对象开发付出额外的心智，让开发者能专注于代码复用。Go语言还自带了垃圾回收器，不需要用户自己管理内存。</p>
-<p>Go语言的<strong>开发速度</strong>：编译一个大型的Go语言项目并不需要很长时间，这是因为Go语言使用了更加智能的编译器，并且简化了解决依赖的算法，最终提供了更快的编译速度。在编译Go程序时，编译器只会关注那些直接被引用的库，而不是像Java、Python那样，要遍历依赖链中所有依赖的库。没有<a href="##" title="就像Java会在编译中生成中间文件：.class">从编译代码到执行代码的中间过程</a>,用动态语言编写的应用程序可以可以快速看到输出。但这样做的代价是：动态语言不提供静态语言提供的类型安全特性，不得不经常用大量的测试套件来避免在运行时出现类型错误这种bug。</p>
-<p>Go语言<strong>对并发的支持</strong>是这门语言的重要特性之一，在Go语言中，有一个名词，叫做<em>goroutine</em>，中文名字叫协程（不是携程😀），协程很像线程，但比协程占用的内存要小很多（远小于），使用它需要的代码更少。</p>
-<blockquote>
-<p>大家应该知道最初操作系统最细粒度的调度是内核级线程（Thread），线程其实就是一个栈加一堆资源。操作系统一会将CPU的时间片分给线程A，一会将CPU的时间片分给线程B，靠A和B的栈来保存A和B的执行状态。起初软件的并发处理并不多，线程池完全够用，但随着软件的复杂度增高，并发量越来越大，线程成了稀缺资源，所以go发明了goroutine，提高线程在异步处理中的利用率。<a href="https://www.jianshu.com/p/7ebf732b6e1f" title="作者：DifficultWork 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。" target="_blank" rel="noopener">[⇲]</a></p>
-</blockquote>
-<p>通道<strong>channel</strong>是一种内置的数据结构，可以让用户在不同的goroutine之间同步发送具有类型的消息。这让编程模式更倾向于在goroutine之间发送消息，而不是让多个goroutine争夺同一个数据的使用权。让我们看看这些特性的细节。</p>
-<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine是可以与其他协程并行执行的函数，同时也会与主程序（程序的入口）并行执行。在其他的编程语言中，你需要用线程来完成同样的事情，而在Go语言中，Go语言会使用同一个线程来执行多个协程。</p>
-<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>通道是一种数据结构，可以让协程之间进行安全的数据通信。通道可以帮用户避免其他语言里常见的<a href="##" title="在其他语言中，如果使用全局变量或者共享内存，必须使用复杂的锁规则来防止对同一个变量的不同步修改">共享内存访问的问题</a>。它提供了一种新的模式，保证并发修改时的数据安全。但是通道并不提供跨协程的数据访问保护机制。</p>
-<h3 id="Go语言的类型系统"><a href="#Go语言的类型系统" class="headerlink" title="Go语言的类型系统"></a>Go语言的类型系统</h3><p>Go语言提供了灵活的、无继承的类型系统，无需降低运行性能就能最大程度上复用代码。而且他的类型系统足以避免动态语言中那些粗心的类型错误，但是Go语言的类型系统相比传统的强类型语言又要简洁很多。Go开发者使用<strong>组合</strong>设计模式，只需要简单的将一个类型嵌入到另一个类型，就能复用其所有功能。避免了其他语言复杂的基于继承的模型。</p>
-<h4 id="类型简单"><a href="#类型简单" class="headerlink" title="类型简单"></a>类型简单</h4><p>Go语言有类似<code>int</code>和<code>string</code>这样的内置类型，也可以支持用户自定义的类型。</p>
-<h4 id="Go接口对一组行为建模"><a href="#Go接口对一组行为建模" class="headerlink" title="Go接口对一组行为建模"></a>Go接口对一组行为建模</h4><p>接口用于描述类型的行为。如果一个类型的实例实现了一个接口，意味着这个实例可以执行一组特定的行为（<strong><a href="https://en.wikipedia.org/wiki/Duck_typing" title="当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子" target="_blank" rel="noopener">鸭子类型</a></strong>）</p>
-<p><img src="https://i.loli.net/2019/10/31/orBfPIDqiZ8dVAn.png" alt="继承和组合的对比"></p>
-<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>Go语言会把无趣的内存管理交给专业的编译器去做，而让程序员更加专注于更有趣的事情。</p>
-<h3 id="Hello，World"><a href="#Hello，World" class="headerlink" title="Hello，World"></a>Hello，World</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Hello, ROYIANS"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码."  autofocus="autofocus" /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="80d3765a913b0f4389a0b38a42823ad2361c8d7f2a9517ba78c3d9212cdc8e38">b034293a42a2bcb770633db75e6120429d7cb430bded2b4c0fddf3f28e870edbff49bae79172e3257efabc919d815b0fb2a0ad38faf6c735289d0627703ab04b28287e06cbcdfb3a4b3e3e970e03e147bcd92afbd23aa7a486789db4e9d3f372a3e99bc1da485ae11b2cba97d4bf87694a2914642b1148a2aeef2e7951a6d445081c5f6af3110326043f39978161abdd077bae3c7c18ba4514632685ef6978660f17a94b6990e9bb840623a735e178dd8401fbe5d2292994f46189955120ca3d55753424fcd5edc3639ec405950f8b8c0e0e4f1e052af980027230f72afeed7d3f74bd6e2774bf53e2f818f097cbe8be9fd4657aeda6735fa267c3e024197d85f39fc6721ff807e4fc6d213db55f9f8dc1d948b757891d5dfec9ab23c61d59146a0e958d64d5658de147724ed1debea6240d5db08f2769a237c710b470722c870ec4f4d465f2f6fb324b8e14a7465c5d960483d2f159d64d5472fdf897fb50d4da8c33d781928822a5bf21566561a779529cf62381d4ba9e8421b31306bd1cd4c59a3535304d12fc60178e8bf17777ae469f01b3467dd04ec6efe25d7d5181ba124a3fc134f71b9ff91ae01338812312e4dc1c2bf80351d84ec53457988b51492e8ffc54ef8575c980991d0ad95582e9b6deb6565c8437ab1cc32959ba1a4cda4fe2b9588af129e112bb89f385de6cb7ee04c0c973c3d40b756091fea8e33b2254c0e33dd7b6f95065fb01d74b33451d4994ca728275be380258c46adcb52b5557c1a431489233bcb3d335edd0e662fc4be9089567a3b3568e8f1b1031dffbeb9aaea9f3ac7317ec319596a81c770cb2b244c1f064775385369d32ea97033d423fa21b0b435ec24712b78fe29ec54e7d437e8ec86139696ea26f5f1f233ed480ee3ecd662e488eb5fb6117700398dad11d741d316d439253fd461b21fef8568f13127d283c37f986bb599830730d9a232e82b04f49a31637d04a9140b09fa70c03b596b1147bb821462502ebb7838ba5e8db6e4ba695ecf946c7cb15fb45cf680736ffc8b39eb8f9753a46d049b8154dac360f4c317722fce3ccec5f8787faf1c7658aebf06b370c05438d6741f869216ac42394e61d3872407fceed2206fdb7270b1eeeb3b0a9165f5ecf966433cf5c5d44580f000c6587855eff7826a2f430aab278e124c9ae92acff838c4dc1eba5385965dd07cb33e4e34c9ed519dcd040bed89252790d9fb1106c454a5ce8734fa229cb52594073c68f49a03328d1b0f419e23e9a202ca62ce9848f5a29d470bbeea070e950017b24c5b907243c1c0df1e790ee61662ed0bbf727d96310e699be</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -319,7 +317,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\20190712\c83eb85e\" rel="bookmark">Go_02 Golangの安装编译运行</a></div>
+      <div class="popular-posts-title"><a href="\posts\20190909-6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
     </li>
   </ul>
 
@@ -332,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.royians.cn/posts/20190711/e9c2da85/" title="Go_01 初识Go语言">http://www.royians.cn/posts/20190711/e9c2da85/</a>
+    <a href="http://www.royians.cn/posts/20191031-bc557e1a/" title="Java 线程池">http://www.royians.cn/posts/20191031-bc557e1a/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -343,20 +341,25 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Go/" rel="tag"># Go</a>
+              <a href="/tags/多线程/" rel="tag"># 多线程</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/未完成/" rel="tag"># 未完成</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+                <a href="/posts/20191030-49324a7a/" rel="next" title="我又搬移博客了">
+                  <i class="fa fa-chevron-left"></i> 我又搬移博客了
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/posts/20190712/c83eb85e/" rel="prev" title="Go_02 Golangの安装编译运行">
-                  Go_02 Golangの安装编译运行 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/20191101-49627526/" rel="prev" title="测试博客插件">
+                  测试博客插件 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -397,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Go语言"><span class="nav-number">1.</span> <span class="nav-text">初识Go语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#goroutine"><span class="nav-number">1.1.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel"><span class="nav-number">1.2.</span> <span class="nav-text">channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go语言的类型系统"><span class="nav-number">1.3.</span> <span class="nav-text">Go语言的类型系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类型简单"><span class="nav-number">1.3.1.</span> <span class="nav-text">类型简单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Go接口对一组行为建模"><span class="nav-number">1.3.2.</span> <span class="nav-text">Go接口对一组行为建模</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存管理"><span class="nav-number">1.3.3.</span> <span class="nav-text">内存管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello，World"><span class="nav-number">1.4.</span> <span class="nav-text">Hello，World</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -413,20 +416,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -474,11 +477,21 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ROYIANS</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">45k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">40 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
   </div>
 
         
