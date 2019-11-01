@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="这篇文章被加密了, 请输入密码查看.">
-<meta name="keywords" content="Java,未完成,多线程">
+  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="keywords" content="多线程,Java,未完成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 线程池">
 <meta property="og:url" content="http://www.royians.cn/posts/20191031/bc557e1a/index.html">
-<meta property="og:site_name" content="Vidorra">
-<meta property="og:description" content="这篇文章被加密了, 请输入密码查看.">
+<meta property="og:site_name" content="ROYIANS">
+<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T14:45:22.459Z">
+<meta property="og:updated_time" content="2019-11-01T02:54:23.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 线程池">
-<meta name="twitter:description" content="这篇文章被加密了, 请输入密码查看.">
+<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
 
 <link rel="canonical" href="http://www.royians.cn/posts/20191031/bc557e1a/">
 
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>Java 线程池 | Vidorra</title>
+  <title>Java 线程池 | ROYIANS</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
     <script>
@@ -140,11 +140,11 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Vidorra</span>
+        <span class="site-title">ROYIANS</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">For my future</p>
+        <p class="site-subtitle">For my vidorra</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -223,11 +223,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="张颖捷个人博客站">
+      <meta itemprop="description" content="ROYIANS个人博客站">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vidorra">
+      <meta itemprop="name" content="ROYIANS">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -240,10 +240,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-10-31 09:28:35 / 修改时间：22:45:22" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 09:28:35" itemprop="dateCreated datePublished" datetime="2019-10-31T09:28:35+08:00">2019-10-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-01 10:54:23" itemprop="dateModified" datetime="2019-11-01T10:54:23+08:00">2019-11-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -271,6 +277,7 @@
   </span>
   
   
+            <div class="post-description">多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。</div>
 
         </div>
       </header>
@@ -281,7 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="94bd6916deb8850c4a97cba6944e7a3941d8461ff3fb038e7f937f513227575b">76c5aa203315a5a0e1157cf479ee948741daa52a09bc389238c312fcb75915b85a1e6882ffdbeb9171644a663a58a6da1d3541b9b4bde6f9d922ddeb6f46dcfbbe4afb852115d3969ce84d4d4e35b1eae42bde2f7f1176826c787c3b836d8d5f3b8f9073cf625568e039a4cf1a044c4f2f7ddba543d956c2e5bd2a3d789e0f0dd8391abc745ad1cb51d72b76231e11e1acba32f111a395cb75d364a56b258e38d569a5a9a42f7aaeb93f8bd7d35b4cfabe68e2387608da42f217a9fe09aa81343f9c93c867991758d942b0073c75efb5f14cd173434ce6922f64d69019f8b5e775fb3340dc79d8f98728efe49ebac537cdbfea656d2dfbb88822b8c87b9cfb3c1cd6c1e957f66bc077430bd8fea62995845fbf6a24747d74e393d75dc2588c65e2f79fb82a6251b72c22e067e1de7f4bcfb97f25e900aaa8921c23d8f3c8da26c762ea34d5f659fd78f16fd7f140489905edee1d366e89f927f233d782418e8b55326f1a7e07add7f6a03177e101a36e3dd7767a9d6beba4b23fe1426a780014395c921d5294bcac61177b509c886bcfc61c1abdb77d1faa694b6fdb27e4eec6d51912fd84c4c705082781b81e66c3721eb8df8dddc7960a3b3ac58615f37ffacafaa518f98e32051c4bd928dc91c903d2129b5f40f5345d37cd138e668b5781e0e6425f7c5e63c48d5e97b9a78ed16471258890b34e9efd071b132907bc9045288abcd03375ffb971114f0b7d0dd56b37f0f552bb176a6170255013402a92a8deae7167544842a3345c0fb97bda1ce1c35b7156d2217ac498dcaf76f26b755f45351f01d8728d0d9799c2b087a934f00270e899ff4bcd1aeec832eedd437edce4033099fd2e229ee162b7b7d49b2b2fcfe7707adca33c6bfd76c6901c8ad311641b6e7818bcedd6999a0d638e4e0d92a19b6113970fe480fff6a45705d2478e65372783c5a301e746c130ad1adb0ad74c50550ad2ebc07a294e81bc07f2685a5668ce911d61a6ba3bef968a71a467eabaf159b56edaeca9ae077b6d2b33aa22d8ec1dfa5d667d92f3635d1838e2ec6277eee8cfff5ef8c05bd2aa09fdf873df3925e70c728d43afa28a0319be468ef4c7facbb0678a64b88efa7fbe90f5a93c98258d349e1946048ba5a8855f062c221c9ddf4c4dba947e2b591f12b4d305400f7107bb1fdd406754b680471a27328bec99ca84cc1a160518684b678162aac9ac506ace50f551388dd55ac4eed1aad65a40b1e1c9531512f7c727c04a9c2c11f0c805fd3b02bf8f3e27130f48ad6754e3fed71277ca25a04c6f698091835887f24b892d844922a7c7cc68a844ce740a</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="80d3765a913b0f4389a0b38a42823ad2361c8d7f2a9517ba78c3d9212cdc8e38">b034293a42a2bcb770633db75e6120429d7cb430bded2b4c0fddf3f28e870edbff49bae79172e3257efabc919d815b0fb2a0ad38faf6c735289d0627703ab04b28287e06cbcdfb3a4b3e3e970e03e147bcd92afbd23aa7a486789db4e9d3f372a3e99bc1da485ae11b2cba97d4bf87694a2914642b1148a2aeef2e7951a6d445081c5f6af3110326043f39978161abdd077bae3c7c18ba4514632685ef6978660f17a94b6990e9bb840623a735e178dd8401fbe5d2292994f46189955120ca3d55753424fcd5edc3639ec405950f8b8c0e0e4f1e052af980027230f72afeed7d3f74bd6e2774bf53e2f818f097cbe8be9fd4657aeda6735fa267c3e024197d85f39fc6721ff807e4fc6d213db55f9f8dc1d948b757891d5dfec9ab23c61d59146a0e958d64d5658de147724ed1debea6240d5db08f2769a237c710b470722c870ec4f4d465f2f6fb324b8e14a7465c5d960483d2f159d64d5472fdf897fb50d4da8c33d781928822a5bf21566561a779529cf62381d4ba9e8421b31306bd1cd4c59a3535304d12fc60178e8bf17777ae469f01b3467dd04ec6efe25d7d5181ba124a3fc134f71b9ff91ae01338812312e4dc1c2bf80351d84ec53457988b51492e8ffc54ef8575c980991d0ad95582e9b6deb6565c8437ab1cc32959ba1a4cda4fe2b9588af129e112bb89f385de6cb7ee04c0c973c3d40b756091fea8e33b2254c0e33dd7b6f95065fb01d74b33451d4994ca728275be380258c46adcb52b5557c1a431489233bcb3d335edd0e662fc4be9089567a3b3568e8f1b1031dffbeb9aaea9f3ac7317ec319596a81c770cb2b244c1f064775385369d32ea97033d423fa21b0b435ec24712b78fe29ec54e7d437e8ec86139696ea26f5f1f233ed480ee3ecd662e488eb5fb6117700398dad11d741d316d439253fd461b21fef8568f13127d283c37f986bb599830730d9a232e82b04f49a31637d04a9140b09fa70c03b596b1147bb821462502ebb7838ba5e8db6e4ba695ecf946c7cb15fb45cf680736ffc8b39eb8f9753a46d049b8154dac360f4c317722fce3ccec5f8787faf1c7658aebf06b370c05438d6741f869216ac42394e61d3872407fceed2206fdb7270b1eeeb3b0a9165f5ecf966433cf5c5d44580f000c6587855eff7826a2f430aab278e124c9ae92acff838c4dc1eba5385965dd07cb33e4e34c9ed519dcd040bed89252790d9fb1106c454a5ce8734fa229cb52594073c68f49a03328d1b0f419e23e9a202ca62ce9848f5a29d470bbeea070e950017b24c5b907243c1c0df1e790ee61662ed0bbf727d96310e699be</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -295,12 +302,29 @@
     </li>
   </ul>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alex Zhang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.royians.cn/posts/20191031/bc557e1a/" title="Java 线程池">http://www.royians.cn/posts/20191031/bc557e1a/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/多线程/" rel="tag"># 多线程</a>
               <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/未完成/" rel="tag"># 未完成</a>
-              <a href="/tags/多线程/" rel="tag"># 多线程</a>
           </div>
 
         
@@ -354,6 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,7 +387,7 @@
   <img class="site-author-image" itemprop="image" alt="Alex Zhang"
     src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Alex Zhang</p>
-  <div class="site-description" itemprop="description">张颖捷个人博客站</div>
+  <div class="site-description" itemprop="description">ROYIANS个人博客站</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -397,6 +422,9 @@
       <span class="links-of-author-item">
         <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
