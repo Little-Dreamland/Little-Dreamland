@@ -50,20 +50,25 @@
   };
 </script>
 
-  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
-<meta name="keywords" content="多线程,Java,未完成">
+  <meta name="description" content="StackOverflow上看到一个以前没有意识到的问题，怎样能跳出forEach循环呢？">
+<meta name="keywords" content="张颖捷 博客 IT ROYIANS 小梦岛">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 线程池">
-<meta property="og:url" content="https://www.royians.cn/2019.10.31.bc557e1a/index.html">
+<meta property="og:title" content="Java 如何跳出forEach">
+<meta property="og:url" content="https://www.royians.cn/2019.11.04.4364ab65/index.html">
 <meta property="og:site_name" content="小梦岛">
-<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta property="og:description" content="StackOverflow上看到一个以前没有意识到的问题，怎样能跳出forEach循环呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-15T03:06:40.000Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/04/ZVgGnEmXUl58D7z.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/04/iw4xjcDmr1Ls8yk.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/04/CVgiGSeprkZWO92.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/04/su4erb2AxR9ShGg.png">
+<meta property="og:updated_time" content="2019-11-04T03:54:09.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 线程池">
-<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="twitter:title" content="Java 如何跳出forEach">
+<meta name="twitter:description" content="StackOverflow上看到一个以前没有意识到的问题，怎样能跳出forEach循环呢？">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/04/ZVgGnEmXUl58D7z.png">
 
-<link rel="canonical" href="https://www.royians.cn/2019.10.31.bc557e1a/">
+<link rel="canonical" href="https://www.royians.cn/2019.11.04.4364ab65/">
 
 
 <script id="page-configurations">
@@ -77,7 +82,7 @@
   };
 </script>
 
-  <title>Java 线程池 | 小梦岛</title>
+  <title>Java 如何跳出forEach | 小梦岛</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
     <script>
@@ -223,7 +228,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.royians.cn/2019.10.31.bc557e1a/">
+    <link itemprop="mainEntityOfPage" href="https://www.royians.cn/2019.11.04.4364ab65/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -236,21 +241,10 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java 线程池
+          Java 如何跳出forEach
         </h1>
 
         <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java之路/" itemprop="url" rel="index">
-                    <span itemprop="name">Java之路</span>
-                  </a>
-                </span>
-            </span>
 
           
   
@@ -261,13 +255,12 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019.10.31.bc557e1a/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019.10.31.bc557e1a/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019.11.04.4364ab65/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019.11.04.4364ab65/" itemprop="commentCount"></span>
     </a>
   </span>
   
   
-            <div class="post-description">多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。</div>
 
         </div>
       </header>
@@ -278,22 +271,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码."  autofocus="autofocus" /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="80d3765a913b0f4389a0b38a42823ad2361c8d7f2a9517ba78c3d9212cdc8e38">b034293a42a2bcb770633db75e6120429d7cb430bded2b4c0fddf3f28e870edbff49bae79172e3257efabc919d815b0fb2a0ad38faf6c735289d0627703ab04b28287e06cbcdfb3a4b3e3e970e03e147bcd92afbd23aa7a486789db4e9d3f372a3e99bc1da485ae11b2cba97d4bf87694a2914642b1148a2aeef2e7951a6d445081c5f6af3110326043f39978161abdd077bae3c7c18ba4514632685ef6978660f17a94b6990e9bb840623a735e178dd8401fbe5d2292994f46189955120ca3d55753424fcd5edc3639ec405950f8b8c0e0e4f1e052af980027230f72afeed7d3f74bd6e2774bf53e2f818f097cbe8be9fd4657aeda6735fa267c3e024197d85f39fc6721ff807e4fc6d213db55f9f8dc1d948b757891d5dfec9ab23c61d59146a0e958d64d5658de147724ed1debea6240d5db08f2769a237c710b470722c870ec4f4d465f2f6fb324b8e14a7465c5d960483d2f159d64d5472fdf897fb50d4da8c33d781928822a5bf21566561a779529cf62381d4ba9e8421b31306bd1cd4c59a3535304d12fc60178e8bf17777ae469f01b3467dd04ec6efe25d7d5181ba124a3fc134f71b9ff91ae01338812312e4dc1c2bf80351d84ec53457988b51492e8ffc54ef8575c980991d0ad95582e9b6deb6565c8437ab1cc32959ba1a4cda4fe2b9588af129e112bb89f385de6cb7ee04c0c973c3d40b756091fea8e33b2254c0e33dd7b6f95065fb01d74b33451d4994ca728275be380258c46adcb52b5557c1a431489233bcb3d335edd0e662fc4be9089567a3b3568e8f1b1031dffbeb9aaea9f3ac7317ec319596a81c770cb2b244c1f064775385369d32ea97033d423fa21b0b435ec24712b78fe29ec54e7d437e8ec86139696ea26f5f1f233ed480ee3ecd662e488eb5fb6117700398dad11d741d316d439253fd461b21fef8568f13127d283c37f986bb599830730d9a232e82b04f49a31637d04a9140b09fa70c03b596b1147bb821462502ebb7838ba5e8db6e4ba695ecf946c7cb15fb45cf680736ffc8b39eb8f9753a46d049b8154dac360f4c317722fce3ccec5f8787faf1c7658aebf06b370c05438d6741f869216ac42394e61d3872407fceed2206fdb7270b1eeeb3b0a9165f5ecf966433cf5c5d44580f000c6587855eff7826a2f430aab278e124c9ae92acff838c4dc1eba5385965dd07cb33e4e34c9ed519dcd040bed89252790d9fb1106c454a5ce8734fa229cb52594073c68f49a03328d1b0f419e23e9a202ca62ce9848f5a29d470bbeea070e950017b24c5b907243c1c0df1e790ee61662ed0bbf727d96310e699be</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <p>StackOverflow上看到一个<a href="https://stackoverflow.com/questions/23996454/terminate-or-break-java-8-stream-loop" target="_blank" rel="noopener">以前没有意识到的问题</a>，怎样能跳出forEach循环呢？</p>
+<a id="more"></a>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我的第一想法是，<code>break</code>不可以使用吗？<code>continue</code>呢？</p>
+<h2 id="探索"><a href="#探索" class="headerlink" title="探索"></a>探索</h2><p>于是我在IDEA中试了一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testBreak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; integers = <span class="keyword">new</span> LinkedList&lt;Integer&gt;(Collections.singleton(<span class="number">10</span>));</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            integers.add(random.nextInt(<span class="number">20</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        integers.forEach((number) -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">"Number: "</span> + number);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果编译时报错：</p>
+<p><img src="https://i.loli.net/2019/11/04/ZVgGnEmXUl58D7z.png" alt="E"></p>
+<p>接着我试了<code>continue</code>，同样报错。</p>
+<p>那怎么办了？</p>
+<p>我接着试了<code>return</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testBreak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; integers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        integers.forEach((number) -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">"Number: "</span> + number);</span><br><span class="line">            <span class="keyword">if</span> (number == <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://i.loli.net/2019/11/04/iw4xjcDmr1Ls8yk.png" alt="E"></p>
+<p>没卵用</p>
+<p>然后我发现粗心的把输出语句写在return上面了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testBreak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; integers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        integers.forEach(number -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (number == <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"Number: "</span> + number);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://i.loli.net/2019/11/04/CVgiGSeprkZWO92.png" alt="E"></p>
+<p>相当于continue</p>
+<p>continue替代者找到了，那如何实现break呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BreakException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123; &#125;</span><br><span class="line">...</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testBreak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; integers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            integers.forEach(number -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (number == <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> BreakException();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"Number: "</span> + number);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (BreakException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Break"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：<br><img src="https://i.loli.net/2019/11/04/su4erb2AxR9ShGg.png" alt="image.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>forEach()方法不支持break、continue，是因为源码中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEach</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; action)</span> </span>&#123;</span><br><span class="line">        Objects.requireNonNull(action);</span><br><span class="line">        <span class="keyword">for</span> (T t : <span class="keyword">this</span>) &#123;</span><br><span class="line">            action.accept(t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环是在方法体内的，如果在forEach的lambda表达式中使用break和continue，是没有效果的。我们找到的替代方法是使用return;达到continue的效果，使用throw异常的方式取得和break一样的效果。</p>
+<p>但是感觉有点麻烦了，不如还是直接使用增强for循环遍历。</p>
+
     </div>
 
     
     
     
       
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.09.09.6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.11.03.b625e692\" rel="bookmark">Java 与 HTTP GET</a></div>
-    </li>
-  </ul>
 
         
 
@@ -301,18 +317,18 @@
 <ul class="post-copyright">
   <li>
     <strong>创建时间：</strong>
-    2019-10-31 09:28:35
+    2019-11-04 11:26:27
   </li>
   <li>
     <strong>修改时间：</strong>
-    2019-11-15 11:06:40
+    2019-11-04 11:54:09
   </li>
   <li class="post-copyright-author">
     <strong>本文作者： </strong>Alex Zhang
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.royians.cn/2019.10.31.bc557e1a/" title="Java 线程池">https://www.royians.cn/2019.10.31.bc557e1a/</a>
+    <a href="https://www.royians.cn/2019.11.04.4364ab65/" title="Java 如何跳出forEach">https://www.royians.cn/2019.11.04.4364ab65/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -322,27 +338,19 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/多线程/" rel="tag"># 多线程</a>
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/未完成/" rel="tag"># 未完成</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019.10.30.49324a7a/" rel="next" title="我又搬移博客了">
-                  <i class="fa fa-chevron-left"></i> 我又搬移博客了
+                <a href="/2019.11.04.4488dc7c/" rel="next" title="A岛 API">
+                  <i class="fa fa-chevron-left"></i> A岛 API
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019.11.01.49627526/" rel="prev" title="测试博客插件">
-                  测试博客插件 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -382,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索"><span class="nav-number">2.</span> <span class="nav-text">探索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
