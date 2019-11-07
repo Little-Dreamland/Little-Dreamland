@@ -347,6 +347,13 @@
 
 #Qlyric ol li {
 	width: 100%;
+	overflow: hidden;
+}
+
+#Qlyric ol li ul {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .lyric-show {
