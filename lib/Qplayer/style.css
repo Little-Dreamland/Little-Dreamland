@@ -316,19 +316,37 @@
 }
 
 #Qlyric {
-	width: 100vw;
+	width: 100%;
 	background: #222;
-	height: 50px;
+	height: 65px;
 	position: fixed;
-	bottom: 0;
+	top: 0;
 	left: 0;
+	display: flex;
+	align-content: center;
 	text-align: center;
+	align-items: center;
 	color: #fff;
-	opacity: 0.8;
+	opacity: 0.7;
+	z-index: 999999;
 }
 
 #Qlyric ol, #Qlyric li {
 	list-style-type:none;
+}
+
+#Qlyric ol {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#Qlyric ol li {
+	width: 100%;
 }
 
 .lyric-show {
