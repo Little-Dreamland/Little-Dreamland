@@ -280,10 +280,7 @@
 	border-radius: 0 5px 5px 0!important;
 	transition: height .8s!important;
 }
-#QPlayer .more.lyric-show .lyric {
-	height: 160px!important;
-	border: 1px solid rgb(222, 222, 222)!important;
-}
+
 #QPlayer .lyric ol {
 	height: 150px!important;
 	margin: 5px!important;
@@ -316,4 +313,24 @@
 }
 #QPlayer .more, #QPlayer.pop .more.lyric-show {
 	transform: translateX(-250px)!important;
+}
+
+#Qlyric {
+	width: 100vw;
+	background: #222;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	color: #fff;
+	opacity: 0.8;
+}
+
+#Qlyric ol, #Qlyric li {
+	list-style-type:none;
+}
+
+.lyric-show {
+	visibility: visible!important;
 }
