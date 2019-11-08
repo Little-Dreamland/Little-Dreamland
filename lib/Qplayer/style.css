@@ -318,7 +318,7 @@
 #Qlyric {
 	width: 100%;
 	background: #222;
-	height: 65px;
+	height: 40px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -327,8 +327,15 @@
 	text-align: center;
 	align-items: center;
 	color: #fff;
-	opacity: 0.7;
+	white-space: nowrap;
+    overflow: hidden;
 	z-index: 999999;
+	font-size: 12px;
+	line-height: 1.4;
+	text-shadow: -1px -1px 0 #009688, 
+               1px -1px 0 #009688,
+              -1px 1px 0 #009688, 
+              1px 1px 0 #009688;
 }
 
 #Qlyric ol, #Qlyric li {
@@ -346,16 +353,32 @@
 }
 
 #Qlyric ol li {
-	width: 100%;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
 	overflow: hidden;
+	text-align: center;
 }
 
 #Qlyric ol li ul {
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	text-align: center;
+	margin: 0!important;
+	padding: 0!important;
 }
+
+#Qlyric ol li ul div {
+	width: 100%!important;
+	text-align: center;
+}
+
+
+#Qlyric ol li .padding{
+	padding-right: 300px;
+  }
 
 .lyric-show {
 	visibility: visible!important;
 }
+
