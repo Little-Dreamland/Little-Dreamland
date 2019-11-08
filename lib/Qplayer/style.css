@@ -405,6 +405,22 @@
 
 #QQclose {
 	float:right;
-	color: red!important;
+	font-weight: bold;
 	padding:100px;
+}
+
+#QQlist li.error {
+	color: orangered!important;
+}
+
+#QQlist li.error a {
+	color: orangered!important;
+}
+
+#QQlist li.current {
+	color: #009688!important;
+}
+
+#QQlist li.current a {
+	color: #009688!important;
 }

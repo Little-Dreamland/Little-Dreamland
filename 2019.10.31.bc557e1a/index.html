@@ -51,7 +51,7 @@
 </script>
 
   <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
-<meta name="keywords" content="多线程,Java,未完成">
+<meta name="keywords" content="Java,未完成,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 线程池">
 <meta property="og:url" content="https://www.royians.cn/2019.10.31.bc557e1a/index.html">
@@ -79,15 +79,22 @@
 
   <title>Java 线程池 | 小梦岛</title>
   
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112028390-1"></script>
-    <script pjax>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-112028390-1');
+    <script>
+      function sendPageView() {
+        var host = window.location.hostname;
+        if (host == "localhost" && true) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-112028390-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
       }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
     </script>
 
 
@@ -313,9 +320,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/多线程/" rel="tag"># 多线程</a>
               <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/未完成/" rel="tag"># 未完成</a>
+              <a href="/tags/多线程/" rel="tag"># 多线程</a>
           </div>
 
         
@@ -467,7 +474,7 @@
     <footer class="footer">
       <div class="footer-inner">
         
-<script data-ad-client="ca-pub-3540583534412085" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 
 <div class="copyright">
   
