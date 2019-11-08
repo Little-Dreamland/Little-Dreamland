@@ -77,10 +77,10 @@
 	border-radius: 50%!important;
 	cursor: pointer!important;
 }
-#QPlayer .cover img.rotate {
+.QQrotate {
 	animation: rotate 10s linear 0s infinite normal none paused!important;
 }
-#QPlayer.playing .cover img.rotate {
+.QQisrotate {
 	animation-play-state: running!important;
 }
 #QPlayer .ctrl {
@@ -384,7 +384,7 @@
 
 .QQmodel {
 	position: fixed;
-	width: 100vw;
+	width: 99vw;
 	height: 100vh;
 	left: 0;
 	top: 0;
@@ -394,10 +394,17 @@
 }
 
 #QQlist {
-	max-width: 80%;
+	margin: auto;
+	max-width: 60%;
 	padding: 5%;
 }
 
 .QQmodel h2 {
-	padding: 50px;
+	padding: 100px 100px 100px 10%;
+}
+
+#QQclose {
+	float:right;
+	color: red!important;
+	padding:100px;
 }
