@@ -9,6 +9,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
   <link rel="mask-icon" href="/images/logo.png" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -22,11 +24,11 @@
     root: '/',
     scheme: 'Muse',
     version: '7.4.2',
-    exturl: false,
+    exturl: true,
     sidebar: {"position":"left","display":"hide","offset":12,"onmobile":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -40,7 +42,7 @@
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -81,23 +83,6 @@
 
   <title>Go_01 初识Go语言 | 小梦岛</title>
   
-    <script>
-      function sendPageView() {
-        var host = window.location.hostname;
-        if (host == "localhost" && true) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-112028390-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
 
 
   <script pjax>
@@ -139,7 +124,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -153,7 +138,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">For my vidorra</p>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -205,7 +191,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
     <main class="main">
@@ -226,7 +211,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="ROYIANS个人博客站">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -234,9 +219,9 @@
     </span>
 
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           Go_01 初识Go语言
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -284,14 +269,14 @@
 <p>Go语言的<strong>开发速度</strong>：编译一个大型的Go语言项目并不需要很长时间，这是因为Go语言使用了更加智能的编译器，并且简化了解决依赖的算法，最终提供了更快的编译速度。在编译Go程序时，编译器只会关注那些直接被引用的库，而不是像Java、Python那样，要遍历依赖链中所有依赖的库。没有<a href="##" title="就像Java会在编译中生成中间文件：.class">从编译代码到执行代码的中间过程</a>,用动态语言编写的应用程序可以可以快速看到输出。但这样做的代价是：动态语言不提供静态语言提供的类型安全特性，不得不经常用大量的测试套件来避免在运行时出现类型错误这种bug。</p>
 <p>Go语言<strong>对并发的支持</strong>是这门语言的重要特性之一，在Go语言中，有一个名词，叫做<em>goroutine</em>，中文名字叫协程（不是携程😀），协程很像线程，但比协程占用的内存要小很多（远小于），使用它需要的代码更少。</p>
 <blockquote>
-<p>大家应该知道最初操作系统最细粒度的调度是内核级线程（Thread），线程其实就是一个栈加一堆资源。操作系统一会将CPU的时间片分给线程A，一会将CPU的时间片分给线程B，靠A和B的栈来保存A和B的执行状态。起初软件的并发处理并不多，线程池完全够用，但随着软件的复杂度增高，并发量越来越大，线程成了稀缺资源，所以go发明了goroutine，提高线程在异步处理中的利用率。<a href="https://www.jianshu.com/p/7ebf732b6e1f" title="作者：DifficultWork 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。" target="_blank" rel="noopener">[⇲]</a></p>
+<p>大家应该知道最初操作系统最细粒度的调度是内核级线程（Thread），线程其实就是一个栈加一堆资源。操作系统一会将CPU的时间片分给线程A，一会将CPU的时间片分给线程B，靠A和B的栈来保存A和B的执行状态。起初软件的并发处理并不多，线程池完全够用，但随着软件的复杂度增高，并发量越来越大，线程成了稀缺资源，所以go发明了goroutine，提高线程在异步处理中的利用率。<span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC83ZWJmNzMyYjZlMWY=" title="作者：DifficultWork 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">[⇲]<i class="fa fa-external-link"></i></span></p>
 </blockquote>
 <p>通道<strong>channel</strong>是一种内置的数据结构，可以让用户在不同的goroutine之间同步发送具有类型的消息。这让编程模式更倾向于在goroutine之间发送消息，而不是让多个goroutine争夺同一个数据的使用权。让我们看看这些特性的细节。</p>
 <h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine是可以与其他协程并行执行的函数，同时也会与主程序（程序的入口）并行执行。在其他的编程语言中，你需要用线程来完成同样的事情，而在Go语言中，Go语言会使用同一个线程来执行多个协程。</p>
 <h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>通道是一种数据结构，可以让协程之间进行安全的数据通信。通道可以帮用户避免其他语言里常见的<a href="##" title="在其他语言中，如果使用全局变量或者共享内存，必须使用复杂的锁规则来防止对同一个变量的不同步修改">共享内存访问的问题</a>。它提供了一种新的模式，保证并发修改时的数据安全。但是通道并不提供跨协程的数据访问保护机制。</p>
 <h3 id="Go语言的类型系统"><a href="#Go语言的类型系统" class="headerlink" title="Go语言的类型系统"></a>Go语言的类型系统</h3><p>Go语言提供了灵活的、无继承的类型系统，无需降低运行性能就能最大程度上复用代码。而且他的类型系统足以避免动态语言中那些粗心的类型错误，但是Go语言的类型系统相比传统的强类型语言又要简洁很多。Go开发者使用<strong>组合</strong>设计模式，只需要简单的将一个类型嵌入到另一个类型，就能复用其所有功能。避免了其他语言复杂的基于继承的模型。</p>
 <h4 id="类型简单"><a href="#类型简单" class="headerlink" title="类型简单"></a>类型简单</h4><p>Go语言有类似<code>int</code>和<code>string</code>这样的内置类型，也可以支持用户自定义的类型。</p>
-<h4 id="Go接口对一组行为建模"><a href="#Go接口对一组行为建模" class="headerlink" title="Go接口对一组行为建模"></a>Go接口对一组行为建模</h4><p>接口用于描述类型的行为。如果一个类型的实例实现了一个接口，意味着这个实例可以执行一组特定的行为（<strong><a href="https://en.wikipedia.org/wiki/Duck_typing" title="当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子" target="_blank" rel="noopener">鸭子类型</a></strong>）</p>
+<h4 id="Go接口对一组行为建模"><a href="#Go接口对一组行为建模" class="headerlink" title="Go接口对一组行为建模"></a>Go接口对一组行为建模</h4><p>接口用于描述类型的行为。如果一个类型的实例实现了一个接口，意味着这个实例可以执行一组特定的行为（<strong><span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRHVja190eXBpbmc=" title="当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子">鸭子类型<i class="fa fa-external-link"></i></span></strong>）</p>
 <p><img src="https://i.loli.net/2019/10/31/orBfPIDqiZ8dVAn.png" alt="继承和组合的对比"></p>
 <h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>Go语言会把无趣的内存管理交给专业的编译器去做，而让程序员更加专注于更有趣的事情。</p>
 <h3 id="Hello，World"><a href="#Hello，World" class="headerlink" title="Hello，World"></a>Hello，World</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Hello, ROYIANS"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -306,10 +291,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.07.13.cb4ee61b\" rel="bookmark">Go_03 变量、常量</a></div>
+      <div class="popular-posts-title"><a href="\2019.07.14.c343c34b\" rel="bookmark">Go_04 数据类型</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.07.14.c343c34b\" rel="bookmark">Go_04 数据类型</a></div>
+      <div class="popular-posts-title"><a href="\2019.07.13.cb4ee61b\" rel="bookmark">Go_03 变量、常量</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2019.07.14.64480d98\" rel="bookmark">Go_05 运算符</a></div>
@@ -342,7 +327,7 @@
     <a href="https://www.royians.cn/2019.07.11.e9c2da85/" title="Go_01 初识Go语言">https://www.royians.cn/2019.07.11.e9c2da85/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9udWxs"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -416,7 +401,7 @@
   <img id="QQcover" class="QQisrotate site-author-image" itemprop="image" alt="Alex Zhang"
     src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Alex Zhang</p>
-  <div class="site-description" itemprop="description">ROYIANS个人博客站</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -442,19 +427,16 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JPWUlBTlM=" title="GitHub &rarr; https://github.com/ROYIANS"><i class="fa fa-fw fa-github"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnJveS5qb3NodWEuemhhbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vcm95aWFucw==" title="Weibo &rarr; https://weibo.com/royians"><i class="fa fa-fw fa-weibo"></i></span>
       </span>
   </div>
 
-<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
-
-<br/>
 <div class="site-description" style="font-size:8px;" id="QQtitle"></div>
 
 <nav class="site-state">
@@ -483,9 +465,8 @@
 <br/>
 <a id = "QQgeci" class="links-of-author-item">歌词</a><span> | <span>
 <a id = "QQliebiao" class="links-of-author-item">歌单</a>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
 
 
 
@@ -525,10 +506,10 @@
     </span>
     <span title="站点阅读时长">1:19</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9tdXNlLnRoZW1lLW5leHQub3Jn">NexT.Muse</span>
   </div>
 
         
@@ -552,11 +533,9 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/utils.js"></script>
 <script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

@@ -9,6 +9,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
   <link rel="mask-icon" href="/images/logo.png" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -22,11 +24,11 @@
     root: '/',
     scheme: 'Muse',
     version: '7.4.2',
-    exturl: false,
+    exturl: true,
     sidebar: {"position":"left","display":"hide","offset":12,"onmobile":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -40,7 +42,7 @@
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -83,23 +85,6 @@
 
   <title>Java 与 HTTP GET | 小梦岛</title>
   
-    <script>
-      function sendPageView() {
-        var host = window.location.hostname;
-        if (host == "localhost" && true) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-112028390-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
 
 
   <script pjax>
@@ -141,7 +126,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -155,7 +140,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">For my vidorra</p>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -207,7 +193,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
     <main class="main">
@@ -228,7 +213,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="ROYIANS个人博客站">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -236,9 +221,9 @@
     </span>
 
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           Java 与 HTTP GET
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -278,7 +263,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在<a href="https://adnmb2.com/t/21065596" target="_blank" rel="noopener">No.21065596↘</a>看到别人用python做了一个简单的机器人，下载了源码以后，打算用A岛API也做一个在A岛自动回复的机器人，今天先试着用Java从A岛爬一些串下来。</p>
+        <p>最近在<span class="exturl" data-url="aHR0cHM6Ly9hZG5tYjIuY29tL3QvMjEwNjU1OTY=" title="https://adnmb2.com/t/21065596">No.21065596↘<i class="fa fa-external-link"></i></span>看到别人用python做了一个简单的机器人，下载了源码以后，打算用A岛API也做一个在A岛自动回复的机器人，今天先试着用Java从A岛爬一些串下来。</p>
 <a id="more"></a>
 
 <h2 id="Java调用HTTP接口进行GET的几种方法"><a href="#Java调用HTTP接口进行GET的几种方法" class="headerlink" title="Java调用HTTP接口进行GET的几种方法"></a>Java调用HTTP接口进行GET的几种方法</h2><h3 id="通过java-net-HttpURLConnection"><a href="#通过java-net-HttpURLConnection" class="headerlink" title="通过java.net.HttpURLConnection"></a>通过<code>java.net.HttpURLConnection</code></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">httpGetViaHttpUrlConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> String URI = <span class="string">"https://www.royians.cn"</span>;</span><br><span class="line">        HttpsURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">        BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">        InputStreamReader isr = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            URL url = <span class="keyword">new</span> URL(URI + <span class="string">"/tags"</span>);</span><br><span class="line">            connection = (HttpsURLConnection) url.openConnection();</span><br><span class="line">            connection.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">            connection.setRequestProperty(<span class="string">"Content-Type"</span>, <span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">            isr = <span class="keyword">new</span> InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);</span><br><span class="line">            br = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">            String line = <span class="string">""</span>;</span><br><span class="line">            StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                result.append(line).append(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            connection.disconnect();</span><br><span class="line"></span><br><span class="line">            System.out.println(result.toString());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                connection.disconnect();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (isr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    isr.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    br.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -296,12 +281,12 @@
 
 <p>原因是还需要导入Apache的<code>common-logging</code>包，导入后正常运行。</p>
 <h2 id="获取A岛某串内容"><a href="#获取A岛某串内容" class="headerlink" title="获取A岛某串内容"></a>获取A岛某串内容</h2><p>常用的基本上就是上面几种方法，现在我用最基本的HttpURLConnection获取A岛的综合一的串的内容。</p>
-<p>API参考的是开源紫岛APP的代码<a href="https://github.com/seven332/Nimingban/blob/master/app/src/main/java/com/hippo/nimingban/client/ac/ACUrl.java" target="_blank" rel="noopener">⋙</a></p>
+<p>API参考的是开源紫岛APP的代码<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldmVuMzMyL05pbWluZ2Jhbi9ibG9iL21hc3Rlci9hcHAvc3JjL21haW4vamF2YS9jb20vaGlwcG8vbmltaW5nYmFuL2NsaWVudC9hYy9BQ1VybC5qYXZh" title="https://github.com/seven332/Nimingban/blob/master/app/src/main/java/com/hippo/nimingban/client/ac/ACUrl.java">⋙<i class="fa fa-external-link"></i></span></p>
 <p>A岛API没人总结，可能我得自己摸索一下，首先看到了如何获取一个串里的内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://adnmb2.com/Api/thread?appid=nimingban&amp;id=5000&amp;page=1</span><br></pre></td></tr></table></figure>
 
 <p>参数中，appid是固定的，id就是串号，page是页码。返回的是JSON格式。</p>
-<p>现在我们写Code来获取这个API的内容，串就用光来po的串吧<a href="https://adnmb2.com/t/16236809" target="_blank" rel="noopener">No.16236809↘</a></p>
+<p>现在我们写Code来获取这个API的内容，串就用光来po的串吧<span class="exturl" data-url="aHR0cHM6Ly9hZG5tYjIuY29tL3QvMTYyMzY4MDk=" title="https://adnmb2.com/t/16236809">No.16236809↘<i class="fa fa-external-link"></i></span></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getGuangLaiPoThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String postUrl = AcUrl.getPostUrl(<span class="string">"16236809"</span>, <span class="number">1</span>);</span><br><span class="line">        InputStreamReader isr = <span class="keyword">null</span>;</span><br><span class="line">        HttpsURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">        BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            URL url = <span class="keyword">new</span> URL(<span class="string">"https://"</span>+postUrl);</span><br><span class="line">            connection = (HttpsURLConnection) url.openConnection();</span><br><span class="line">            connection.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">            connection.setRequestProperty(<span class="string">"Content-Type"</span>, <span class="string">"application/json; charset=utf-8"</span>);</span><br><span class="line">            isr = <span class="keyword">new</span> InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);</span><br><span class="line">            br = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">            String line = <span class="string">""</span>;</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">while</span>((line = br.readLine())!=<span class="keyword">null</span>) &#123;</span><br><span class="line">                sb.append(line).append(<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            String json = sb.toString();</span><br><span class="line">            System.out.println(json);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                connection.disconnect();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (isr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    isr.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>看代码没有什么错，但是运行后发现是乱码：</p>
@@ -309,7 +294,7 @@
 <p>查看cosole：</p>
 <p><img src="https://i.loli.net/2019/11/03/Aw7MbDvSCPdch4R.png" alt="console"></p>
 <p>发现 Content-Encoding: gzip</p>
-<p>经过查看<a href="https://blog.csdn.net/yiifaa/article/details/80928522" target="_blank" rel="noopener">这篇博文</a>提供的解决方法，最后写成：</p>
+<p>经过查看<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpaWZhYS9hcnRpY2xlL2RldGFpbHMvODA5Mjg1MjI=" title="https://blog.csdn.net/yiifaa/article/details/80928522">这篇博文<i class="fa fa-external-link"></i></span>提供的解决方法，最后写成：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getGuangLaiPoThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String postUrl = AcUrl.getPostUrl(<span class="string">"16236809"</span>, <span class="number">1</span>);</span><br><span class="line">        CloseableHttpClient httpclient = HttpClients.custom().addInterceptorFirst(<span class="keyword">new</span> HttpResponseInterceptor() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(HttpResponse response, HttpContext context)</span> <span class="keyword">throws</span> HttpException, IOException </span>&#123;</span><br><span class="line">                HttpEntity resEntity = response.getEntity();</span><br><span class="line">                <span class="comment">// 在此处消费InputStream</span></span><br><span class="line">                InputStream is = <span class="keyword">new</span> GZIPInputStream(resEntity.getContent());</span><br><span class="line">                InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(is);</span><br><span class="line">                BufferedReader br = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">                String line;</span><br><span class="line">                <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    System.out.println(line);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).build();</span><br><span class="line">        HttpGet get = <span class="keyword">new</span> HttpGet(<span class="string">"https://"</span> + postUrl);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            httpclient.execute(get);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
@@ -325,10 +310,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.09.09.6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
+      <div class="popular-posts-title"><a href="\2019.10.31.bc557e1a\" rel="bookmark">Java 线程池</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.10.31.bc557e1a\" rel="bookmark">Java 线程池</a></div>
+      <div class="popular-posts-title"><a href="\2019.09.09.6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
     </li>
   </ul>
 
@@ -352,7 +337,7 @@
     <a href="https://www.royians.cn/2019.11.03.b625e692/" title="Java 与 HTTP GET">https://www.royians.cn/2019.11.03.b625e692/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9udWxs"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -426,7 +411,7 @@
   <img id="QQcover" class="QQisrotate site-author-image" itemprop="image" alt="Alex Zhang"
     src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Alex Zhang</p>
-  <div class="site-description" itemprop="description">ROYIANS个人博客站</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -452,19 +437,16 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JPWUlBTlM=" title="GitHub &rarr; https://github.com/ROYIANS"><i class="fa fa-fw fa-github"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnJveS5qb3NodWEuemhhbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vcm95aWFucw==" title="Weibo &rarr; https://weibo.com/royians"><i class="fa fa-fw fa-weibo"></i></span>
       </span>
   </div>
 
-<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
-
-<br/>
 <div class="site-description" style="font-size:8px;" id="QQtitle"></div>
 
 <nav class="site-state">
@@ -493,9 +475,8 @@
 <br/>
 <a id = "QQgeci" class="links-of-author-item">歌词</a><span> | <span>
 <a id = "QQliebiao" class="links-of-author-item">歌单</a>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
 
 
 
@@ -535,10 +516,10 @@
     </span>
     <span title="站点阅读时长">1:19</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9tdXNlLnRoZW1lLW5leHQub3Jn">NexT.Muse</span>
   </div>
 
         
@@ -562,11 +543,9 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/utils.js"></script>
 <script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

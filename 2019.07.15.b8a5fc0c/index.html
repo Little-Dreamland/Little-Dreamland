@@ -9,6 +9,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
   <link rel="mask-icon" href="/images/logo.png" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -22,11 +24,11 @@
     root: '/',
     scheme: 'Muse',
     version: '7.4.2',
-    exturl: false,
+    exturl: true,
     sidebar: {"position":"left","display":"hide","offset":12,"onmobile":true},
     copycode: {"enable":true,"show_result":true,"style":"flat"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -40,7 +42,7 @@
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -79,23 +81,6 @@
 
   <title>Go_06 条件和循环 | 小梦岛</title>
   
-    <script>
-      function sendPageView() {
-        var host = window.location.hostname;
-        if (host == "localhost" && true) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-112028390-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
 
 
   <script pjax>
@@ -137,7 +122,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -151,7 +136,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">For my vidorra</p>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -203,7 +189,6 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
     <main class="main">
@@ -224,7 +209,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="Alex Zhang">
-      <meta itemprop="description" content="ROYIANS个人博客站">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -232,9 +217,9 @@
     </span>
 
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           Go_06 条件和循环
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -274,7 +259,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码."  autofocus="autofocus" /><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f41e6930b33cd560bd94129685addab1ce13e93fd0ce8b28a8d2639c9b4a8b7b">59c8e8dcff06dce69355db86cf53595a</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好, 这里需要密码." autofocus="autofocus"><label>您好, 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f41e6930b33cd560bd94129685addab1ce13e93fd0ce8b28a8d2639c9b4a8b7b">59c8e8dcff06dce69355db86cf53595a</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -284,10 +269,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.07.13.cb4ee61b\" rel="bookmark">Go_03 变量、常量</a></div>
+      <div class="popular-posts-title"><a href="\2019.07.14.c343c34b\" rel="bookmark">Go_04 数据类型</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.07.14.c343c34b\" rel="bookmark">Go_04 数据类型</a></div>
+      <div class="popular-posts-title"><a href="\2019.07.13.cb4ee61b\" rel="bookmark">Go_03 变量、常量</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2019.07.14.64480d98\" rel="bookmark">Go_05 运算符</a></div>
@@ -296,7 +281,7 @@
       <div class="popular-posts-title"><a href="\2019.07.16.789ed22b\" rel="bookmark">Go_07 数组和切片</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2019.07.18.a9cd9963\" rel="bookmark">Go_09 Set</a></div>
+      <div class="popular-posts-title"><a href="\2019.07.17.e1143fb4\" rel="bookmark">Go_08 Map</a></div>
     </li>
   </ul>
 
@@ -320,7 +305,7 @@
     <a href="https://www.royians.cn/2019.07.15.b8a5fc0c/" title="Go_06 条件和循环">https://www.royians.cn/2019.07.15.b8a5fc0c/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9udWxs"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -393,7 +378,7 @@
   <img id="QQcover" class="QQisrotate site-author-image" itemprop="image" alt="Alex Zhang"
     src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Alex Zhang</p>
-  <div class="site-description" itemprop="description">ROYIANS个人博客站</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -419,19 +404,16 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JPWUlBTlM=" title="GitHub &rarr; https://github.com/ROYIANS"><i class="fa fa-fw fa-github"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOnJveS5qb3NodWEuemhhbmdAZ21haWwuY29t" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com"><i class="fa fa-fw fa-envelope"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vcm95aWFucw==" title="Weibo &rarr; https://weibo.com/royians"><i class="fa fa-fw fa-weibo"></i></span>
       </span>
   </div>
 
-<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
-
-<br/>
 <div class="site-description" style="font-size:8px;" id="QQtitle"></div>
 
 <nav class="site-state">
@@ -460,9 +442,8 @@
 <br/>
 <a id = "QQgeci" class="links-of-author-item">歌词</a><span> | <span>
 <a id = "QQliebiao" class="links-of-author-item">歌单</a>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
 
 
 
@@ -502,10 +483,10 @@
     </span>
     <span title="站点阅读时长">1:19</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9tdXNlLnRoZW1lLW5leHQub3Jn">NexT.Muse</span>
   </div>
 
         
@@ -529,11 +510,9 @@
   
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/utils.js"></script>
 <script src="/js/schemes/muse.js"></script>
-<script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
