@@ -329,7 +329,7 @@
 	color: #fff;
 	white-space: nowrap;
     overflow: hidden;
-	z-index: 999999;
+	z-index: 1000;
 	font-size: 12px;
 	line-height: 1.4;
 	text-shadow: -1px -1px 0 #009688, 
@@ -382,3 +382,22 @@
 	visibility: visible!important;
 }
 
+.QQmodel {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	background: #fff;
+	overflow-y: scroll;
+	z-index: 500;
+}
+
+#QQlist {
+	max-width: 80%;
+	padding: 5%;
+}
+
+.QQmodel h2 {
+	padding: 50px;
+}
