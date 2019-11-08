@@ -332,10 +332,6 @@
 	z-index: 1000;
 	font-size: 12px;
 	line-height: 1.4;
-	text-shadow: -1px -1px 0 #009688, 
-               1px -1px 0 #009688,
-              -1px 1px 0 #009688, 
-              1px 1px 0 #009688;
 }
 
 #Qlyric ol, #Qlyric li {
@@ -399,14 +395,13 @@
 	padding: 5%;
 }
 
-.QQmodel h2 {
-	padding: 100px 100px 100px 10%;
+.QQmodel h1 {
+	padding: 150px 20% 100px 20%;
 }
 
 #QQclose {
 	float:right;
 	font-weight: bold;
-	padding:100px;
 }
 
 #QQlist li.error {
@@ -423,4 +418,5 @@
 
 #QQlist li.current a {
 	color: #009688!important;
+	font-weight: bold!important;
 }
