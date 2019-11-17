@@ -1,7 +1,9 @@
 # 小梦岛
 
 <center>
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6b8f25a4-3d4a-42c0-bf79-2a2ab792e070/deploy-status)](https://app.netlify.com/sites/royians/deploys)
+
 </center>
 
 ROYIANS的个人博客。
@@ -14,7 +16,9 @@ Thanks for supporting.
 ## Logo/Favicon
 
 <center>
+
 ![Logo](https://www.royians.cn/images/logo.png)
+
 </center>
 
 ## Screenshot
