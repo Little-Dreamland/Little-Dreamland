@@ -36,7 +36,8 @@ window.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.sidebar-toggle').addEventListener('mouseleave', this.mouseLeaveHandler.bind(this));
       this.sidebarEl.addEventListener('touchstart', this.touchstartHandler.bind(this));
       this.sidebarEl.addEventListener('touchend', this.touchendHandler.bind(this));
-      this.sidebarEl.addEventListener('touchmove', event => event.preventDefault());
+      //自己改的，为的是让sidebar可以被move，至于有什么bug，日后再说。
+      //this.sidebarEl.addEventListener('touchmove', event => event.preventDefault());
       window.addEventListener('sidebar:show', this.showSidebar.bind(this));
       window.addEventListener('sidebar:hide', this.hideSidebar.bind(this));
     },
