@@ -1,15 +1,4 @@
-User-agent: * Allow: /
-Allow: /archives/
-Allow: /404/
-Allow: /tags/
-Allow: /visitor/
-Allow: /categories/
-Disallow: /vendors/
+# robots.txt generated at http://tool.chinaz.com/robots/ 
 Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
-Disallow: /lib/
 Sitemap: https://www.royians.cn/sitemap.xml
 Sitemap: https://www.royians.cn/baidusitemap.xml
