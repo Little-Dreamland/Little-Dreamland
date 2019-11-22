@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.royians.cn/visitor/index.html</loc>
+    
+    <lastmod>2019-11-22T03:25:25.468Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/tags/index.html</loc>
+    
+    <lastmod>2019-11-22T03:21:10.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/schedule/index.html</loc>
+    
+    <lastmod>2019-11-22T03:20:59.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/categories/index.html</loc>
+    
+    <lastmod>2019-11-22T03:20:42.156Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/topic/index.html</loc>
+    
+    <lastmod>2019-11-22T03:09:43.933Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/2019.11.01.49627526/</loc>
+    
+    <lastmod>2019-11-21T06:11:55.854Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.royians.cn/2019.11.20.94795185/</loc>
     
     <lastmod>2019-11-21T02:40:47.446Z</lastmod>
@@ -107,20 +149,6 @@
   </url>
   
   <url>
-    <loc>https://www.royians.cn/2019.11.01.49627526/</loc>
-    
-    <lastmod>2019-11-06T07:00:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/visitor/index.html</loc>
-    
-    <lastmod>2019-11-06T03:24:09.237Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.royians.cn/2019.11.06.9a314c8b/</loc>
     
     <lastmod>2019-11-06T02:53:54.396Z</lastmod>
@@ -152,34 +180,6 @@
     <loc>https://www.royians.cn/about/index.html</loc>
     
     <lastmod>2019-10-30T08:09:44.864Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/categories/index.html</loc>
-    
-    <lastmod>2019-10-30T07:59:05.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/schedule/index.html</loc>
-    
-    <lastmod>2019-10-30T03:24:37.863Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/tags/index.html</loc>
-    
-    <lastmod>2019-10-30T03:24:11.576Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/comments/index.html</loc>
-    
-    <lastmod>2019-10-29T14:28:04.989Z</lastmod>
     
   </url>
   
