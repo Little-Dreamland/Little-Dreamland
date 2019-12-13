@@ -24,9 +24,9 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2018/05.04.f4e17342/');
-
   precacheUrls.push('/2018/05.03.ae3998ab/');
+
+  precacheUrls.push('/2018/05.04.f4e17342/');
 
   precacheUrls.push('/2018/05.05.c3b5056/');
 
