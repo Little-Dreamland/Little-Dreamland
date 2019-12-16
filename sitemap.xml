@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.royians.cn/books/index.html</loc>
+    
+    <lastmod>2019-12-16T01:15:17.634Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.royians.cn/2019/07.11.e9c2da85/</loc>
     
     <lastmod>2019-12-14T02:04:12.531Z</lastmod>
@@ -411,13 +418,6 @@
     <loc>https://www.royians.cn/categories/index.html</loc>
     
     <lastmod>2019-11-22T03:20:42.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/books/index.html</loc>
-    
-    <lastmod>2019-11-14T02:35:02.920Z</lastmod>
     
   </url>
   
