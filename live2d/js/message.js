@@ -320,9 +320,21 @@ if(!norunFlag){
 				showMessage('下次要听的时候再来听哦', 12000);
 			} else {
 				if($('.sidebar-toggle').hasClass('toggle-close')){
-					;
+					$('.sidebar-nav-overview').click();
 				}else{
 					$('.sidebar-toggle').click();
+					$('.sidebar-nav-overview').click();
+					$('.main').addClass('sidebar-focused');
+					setTimeout(function(){
+						$('.main').removeClass('sidebar-focused');
+					}, 4000);
+					setTimeout(function(){
+						
+						$('.sidebar-nav-toc').click();
+						if($('.sidebar-toggle').hasClass('toggle-close')){
+							$('.sidebar-toggle').click();
+						}
+					} ,12000);
 				}
 				$('#QQplaybtn').click();
 				showMessage('侧边栏里藏着我最喜欢的1000首歌哦', 12000);
