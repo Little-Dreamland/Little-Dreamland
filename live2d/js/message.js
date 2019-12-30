@@ -74,7 +74,7 @@ if(!norunFlag){
 							liveTlakTimer = null;
 						});
 						$(tips.selector).mouseout(function (){
-							showHitokoto();
+							//showHitokoto();
 							if(liveTlakTimer == null){
 								liveTlakTimer = window.setInterval(function(){
 									showHitokoto();
@@ -145,7 +145,7 @@ if(!norunFlag){
 					text = '嗨~ 快来逗我玩吧！';
 				}
 			}else {
-				text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				text = '欢迎来<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>玩儿吖';
 			}
 		}
 		showMessage(text, 12000);
@@ -160,7 +160,7 @@ if(!norunFlag){
 			if(!AITalkFlag){
 				$.getJSON('https://sslapi.hitokoto.cn/',function(result){
 					talkValTimer();
-					//showMessage(result.hitokoto, 0);
+					showMessage(result.hitokoto, 5000);
 				});
 			}
 		}else{
@@ -170,7 +170,7 @@ if(!norunFlag){
 					checkSleep();
 				},200);
 			}
-			console.log(sleepTimer_);
+			// console.log(sleepTimer_);
 		}
 	}
 	
@@ -178,7 +178,7 @@ if(!norunFlag){
 		var sleepStatu = sessionStorage.getItem("Sleepy");
 		if(sleepStatu!=='1'){
 			talkValTimer();
-			showMessage('你回来啦~', 0);
+			showMessage('你回来啦~', 2000);
 			clearInterval(sleepTimer_);
 			sleepTimer_= null;
 		}
@@ -192,6 +192,7 @@ if(!norunFlag){
 		$('.message').fadeTo(200, 1);
 		//if (timeout === null) timeout = 5000;
 		//hideMessage(timeout);
+		setTimeout(function(){hideMessage(0);}, 5000)
 	}
 	function talkValTimer(){
 		$('#live_talk').val('1');
@@ -316,7 +317,7 @@ if(!norunFlag){
 			if($('#QPlayer').hasClass('playing')) {
 				// 已经在播放中
 				$('#QQplaybtn').click();
-				showMessage('下次要听的时候再来听哦', 10000);
+				showMessage('下次要听的时候再来听哦', 12000);
 			} else {
 				if($('.sidebar-toggle').hasClass('toggle-close')){
 					;
@@ -324,7 +325,7 @@ if(!norunFlag){
 					$('.sidebar-toggle').click();
 				}
 				$('#QQplaybtn').click();
-				showMessage('侧边栏里藏着我最喜欢的1000首歌哦', 10000);
+				showMessage('侧边栏里藏着我最喜欢的1000首歌哦', 12000);
 			}
 		});
 		//获取用户名
@@ -394,10 +395,7 @@ if(!norunFlag){
 	}
 	$(document).ready(function() {
 		var AIimgSrc = [
-			"/live2d/model/histoire/histoire.1024/texture_00.png",
-			"/live2d/model/histoire/histoire.1024/texture_01.png",
-			"/live2d/model/histoire/histoire.1024/texture_02.png",
-			"/live2d/model/histoire/histoire.1024/texture_03.png"
+			"/live2d/model/xiaomai/umaru2048/texture_00.png"
 		]
 		var images = [];
 		var imgLength = AIimgSrc.length;
@@ -419,7 +417,7 @@ if(!norunFlag){
 						},1300);
 					}
 					setTimeout(function(){
-						loadlive2d("live2d", message_Path+"model/histoire/model.json");
+						loadlive2d("live2d", message_Path+"model/xiaomai/xiaomai.json");
 					},1000);
 					initLive2d ();
 					images = null;
