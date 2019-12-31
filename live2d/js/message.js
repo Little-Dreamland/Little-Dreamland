@@ -1,7 +1,9 @@
-var home_Path = document.location.protocol +'//' + window.document.location.hostname +'/';
+console.log("%c欢迎访问ROYIANS-小梦岛！有问题请联系 admin#royians.cn 。请不要在这里执行可疑代码", "color:#009688;font-size:50px;text-shadow:3px 1px 2px #0096889e;background: url(https://www.royians.cn/images/logo.png) no-repeat;padding-left:200px;");
+var home_Path = window.location.origin+'/';
+
 
 var userAgent = window.navigator.userAgent.toLowerCase();
-console.log(userAgent);
+//console.log(userAgent);
 var norunAI = [ "android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser" ,"msie","trident/7.0"];
 var norunFlag = false;
 
@@ -47,7 +49,8 @@ if(!norunFlag){
 			return renderTip(this, context);
 		};
 		
-		var re = /x/;
+		var re = /./;
+		console.log(re);
 		re.toString = function() {
 			showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000);
 			return '';
@@ -110,7 +113,7 @@ if(!norunFlag){
 		initTips();
 	
 		var text;
-		if(document.referrer !== ''){
+		if(document.referrer !== ''&& document.referrer !== home_Path){
 			var referrer = document.createElement('a');
 			referrer.href = document.referrer;
 			text = '嗨！来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友！';
@@ -145,7 +148,7 @@ if(!norunFlag){
 					text = '嗨~ 快来逗我玩吧！';
 				}
 			}else {
-				text = '欢迎来<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>玩儿吖';
+				text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
 			}
 		}
 		showMessage(text, 12000);
@@ -301,7 +304,7 @@ if(!norunFlag){
 							talkValTimer();
 							showMessage(res.text,0);
 						}
-						console.log(res);
+						//console.log(res);
 						$('#AIuserText').val("");
 						sessionStorage.setItem("live2duser", userid_);
 					}
