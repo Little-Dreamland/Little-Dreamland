@@ -24,15 +24,15 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2018/05.04.f4e17342/');
+  precacheUrls.push('/2019/11.06.9a314c8b/');
 
-  precacheUrls.push('/2018/05.03.ae3998ab/');
+  precacheUrls.push('/2019/11.20.94795185/');
 
-  precacheUrls.push('/2018/05.05.c3b5056/');
+  precacheUrls.push('/2019/11.04.4364ab65/');
 
-  precacheUrls.push('/2018/05.06.93588180/');
+  precacheUrls.push('/2019/10.31.bc557e1a/');
 
-  precacheUrls.push('/2018/05.07.7b4bebbf/');
+  precacheUrls.push('/2019/11.03.b625e692/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
