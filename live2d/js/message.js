@@ -333,7 +333,7 @@ if(!norunFlag){
 					}, 4000);
 					setTimeout(function(){
 						
-						$('.sidebar-nav-toc').click();
+						//$('.sidebar-nav-toc').click();
 						if($('.sidebar-toggle').hasClass('toggle-close')){
 							$('.sidebar-toggle').click();
 						}
