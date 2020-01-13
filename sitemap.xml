@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.royians.cn/todo/list.json</loc>
+    
+    <lastmod>2020-01-13T13:49:43.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/todo/index.html</loc>
+    
+    <lastmod>2020-01-13T13:43:11.616Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/visitor/list.json</loc>
+    
+    <lastmod>2020-01-13T13:23:47.577Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.royians.cn/2019/12.25.zhaopin/</loc>
     
     <lastmod>2020-01-10T05:17:28.603Z</lastmod>
