@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.royians.cn/about/index.html</loc>
+    <loc>https://www.royians.cn/books/te.html</loc>
     
-    <lastmod>2020-02-09T11:51:48.166Z</lastmod>
+    <lastmod>2020-02-10T12:27:25.613Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/2020/02.06.8317fb0a/</loc>
+    
+    <lastmod>2020-02-10T08:09:52.239Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/2019/12.25.zhaopin/</loc>
+    
+    <lastmod>2020-02-10T07:25:08.766Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.royians.cn/books/index.html</loc>
     
-    <lastmod>2020-02-09T11:18:45.644Z</lastmod>
+    <lastmod>2020-02-10T07:19:05.017Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.royians.cn/about/index.html</loc>
+    
+    <lastmod>2020-02-09T11:51:48.166Z</lastmod>
     
   </url>
   
@@ -33,20 +54,6 @@
     <loc>https://www.royians.cn/2019/11.06.9a314c8b/</loc>
     
     <lastmod>2020-02-08T12:41:46.551Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/2020/02.06.8317fb0a/</loc>
-    
-    <lastmod>2020-02-07T12:40:45.310Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.royians.cn/2019/12.25.zhaopin/</loc>
-    
-    <lastmod>2020-02-07T09:22:52.384Z</lastmod>
     
   </url>
   

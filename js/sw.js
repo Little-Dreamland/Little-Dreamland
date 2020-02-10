@@ -26,9 +26,9 @@ var precacheUrls = [];
 
   precacheUrls.push('/2019/11.06.9a314c8b/');
 
-  precacheUrls.push('/2019/11.20.94795185/');
-
   precacheUrls.push('/2020/02.08.9a314c8b/');
+
+  precacheUrls.push('/2019/11.20.94795185/');
 
   precacheUrls.push('/2019/11.04.4364ab65/');
 
