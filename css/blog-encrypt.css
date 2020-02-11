@@ -94,12 +94,15 @@
   border-top-right-radius: 0.25rem;
   color: #fff;
   letter-spacing: 0.0625rem;
+  display: inherit!important;
 }
 .input-with-label__input:focus + .input-with-label__label .input-with-label__label__corner,
 .input-with-label__input.is-keep-focus + .input-with-label__label .input-with-label__label__corner {
   display: block;
 }
 .input-with-label__label {
+  line-height: 1.25;
+  display: none!important;
   font-size: 0.875rem;
   display: block;
   position: absolute;
