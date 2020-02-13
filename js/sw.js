@@ -28,11 +28,11 @@ var precacheUrls = [];
 
   precacheUrls.push('/2019/11.04.4488dc7c/');
 
-  precacheUrls.push('/2020/02.08.9a314c8b/');
+  precacheUrls.push('/2019/11.01.c4442e98/');
 
-  precacheUrls.push('/2019/11.20.94795185/');
+  precacheUrls.push('/2019/10.12.49324a7a/');
 
-  precacheUrls.push('/2019/11.04.4364ab65/');
+  precacheUrls.push('/2020/02.06.8317fb0a/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
