@@ -1,4 +1,713 @@
-<!-- build time:Mon Feb 17 2020 15:28:51 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><link rel="manifest" href="/manifest.json"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 3.9.0"><link rel="stylesheet" href="/css/mytheme.css"><link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css"><link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css"><link rel="stylesheet" href="/font/LDL/LDL.css"><link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png"><link rel="manifest" href="/manifest.json"><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script><script src="/js/sadness.js"></script><script src="/lib/Qplayer/jquery.marquee.min.js"></script><link rel="stylesheet" href="/live2d/css/live2d.css"><link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css"><script src="/lib/pace/pace.min.js"></script><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"7.4.2",exturl:!1,sidebar:{position:"right",display:"hide",offset:12,onmobile:!0},copycode:{enable:!0,show_result:!0,style:"flat"},back2top:{enable:!0,sidebar:!1,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"manual"},fancybox:!0,mediumzoom:!1,lazyload:!0,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!1,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"",motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},translation:{copy_button:"复制",copy_success:"复制成功",copy_failure:"复制失败"},sidebarPadding:40}</script><meta name="description" content="这篇文章被加密了, 请输入密码查看."><meta name="keywords" content="实验报告,系统分析与设计,软件工程"><meta property="og:type" content="article"><meta property="og:title" content="系统分析与设计实验报告"><meta property="og:url" content="https://www.royians.cn/2018/10.19.cfaef5f0/index.html"><meta property="og:site_name" content="小梦岛 - ROYIANS个人博客"><meta property="og:description" content="这篇文章被加密了, 请输入密码查看."><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2020-02-14T07:05:37.213Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="系统分析与设计实验报告"><meta name="twitter:description" content="这篇文章被加密了, 请输入密码查看."><link rel="canonical" href="https://www.royians.cn/2018/10.19.cfaef5f0/"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><title>系统分析与设计实验报告 | 小梦岛 - ROYIANS个人博客</title><script>function sendPageView(){var e=window.location.hostname;if("localhost"!=e){var a=localStorage.getItem("uid")||Math.random()+"."+Math.random();localStorage.setItem("uid",a),navigator.sendBeacon("https://www.google-analytics.com/collect",new URLSearchParams({v:1,tid:"UA-112028390-1",cid:a,t:"pageview",dp:encodeURIComponent(location.pathname)}))}}document.addEventListener("pjax:complete",sendPageView),sendPageView()</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage"><div id="landlord" style="left:5px;bottom:0"><div class="message" style="opacity:0"></div><canvas id="live2d" width="300" height="390" class="live2d"></canvas><div class="live_talk_input_body"><div class="live_talk_input_name_body"><input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字"></div><div class="live_talk_input_text_body"><input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"> <button type="button" class="live_talk_send_btn" id="talk_send">发送</button></div></div><input name="live_talk" id="live_talk" value="1" type="hidden"><div class="live_ico_box"><div class="live_ico_item type_info" id="showInfoBtn"></div><div class="live_ico_item type_talk" id="showTalkBtn"></div><div class="live_ico_item type_music" id="musicButton"></div><div class="live_ico_item type_youdu" id="youduButton"></div><div class="live_ico_item type_quit" id="hideButton"></div><input name="live_statu_val" id="live_statu_val" value="0" type="hidden"><audio src="" style="display:none" id="live2d_bgm" data-bgm="0" preload="none"></audio><input name="live2dBGM" value="音乐地址" type="hidden"> <input id="duType" value="douqilai,douqilai" type="hidden"></div></div><div id="open_live2d">召唤小埋</div><script>var message_Path="/live2d/",talkAPI=""</script><script type="text/javascript" src="/live2d/js/live2d.js"></script><script type="text/javascript" src="/live2d/js/message.js"></script><div class="container"><div class="headband"></div><link href="/lib/Qplayer/style.css" rel="stylesheet"><script src="/lib/Qplayer/script.js"></script><script>!function(i){i.type="list",i.id=501873788,i.isAuto=!1,i.isRandom=!0,i.isRotate=!0}(QPlayer)</script><div id="QPlayer"><div class="body" hidden><div class="player"><span class="cover"><img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106"></span><div class="ctrl"><div class="title"><strong>name</strong><span> - </span><span class="artist">artist</span></div><div class="progress"><div class="already" style="width:0%"><div class="Qbtn"></div></div></div><div class="contr"><div class="timer left">00:00</div><div class="center"><div class="last icon"></div><div class="play icon"></div><div class="next icon"></div></div><div class="right"><div class="list-btn icon"></div><div class="lyric-btn icon"></div></div></div></div></div><div class="pop-btn"><div class="icon"></div></div></div><div class="more"><ol class="list"></ol></div><audio id="QQaudio"></audio></div><div id="Qlyric" style="visibility:hidden"><ol></ol></div><div id="QQmodel" class="QQmodel" style="visibility:hidden"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X</a></span></h1><div id="QQlist"></div></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">For my vidorra</h1></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-comment"><a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a></li><li class="menu-item menu-item-visitor"><a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a></li><li class="menu-item menu-item-todo"><a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a></li></ul></nav></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><script>document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/cfaef5f0.svg"</script><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://www.royians.cn/2018/10.19.cfaef5f0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.gif"><meta itemprop="name" content="Morty.ROY"><meta itemprop="description" content="记录生活中的点点滴滴"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="小梦岛 - ROYIANS个人博客"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">系统分析与设计实验报告</h2><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/旧博文/" itemprop="url" rel="index"><span itemprop="name">旧博文</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus><label for="hbePass" class="input-with-label__label">您好, 这里需要密码.<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="2c396bd28ee0c8f2bbd71e77bfc3b49172ee33e7f4c937eb39453a04bad3c4c6">036086002a5d9c348780814ccc7aee89c8b7e71d47debef7f15fdfb329fe9245d869cf1dfe6fb877a8a2ec5828d3a1ad0d46c9e14fc3c8531a2d588dc1edfc82e88148efdedb157813bd37d80776adfbd75443048e0609271a9afc35b842b9cf14555df7642824c73d4608f50a4714665972754aa6ae8d1144cfce35efb08c7c86e7224e8cfdc05eb76a2e3499404a3cfe658da6fefa4dd5f305be8ef3dd909e1b8151926c9f8eac8f4971ba9cdd4addf4788305bfe0748e1e1e87ad8e576dbd702283f939b7d6b8a48c6f6d8cfc365e6754963dd0744f8e4081f50db727ec697deeec3ee7e30842582a091c696d5075ca874f262c8d734a4d0fa769e93e65d58d4bcf29391a0f4de783e21f66702097a725645220b446c28ee5af0ba4d5262a3d7a97391ab2d9ee53ebe55e6cb4d2ec609f7e7fc78988606753a9de0d26ee0d496234f160d1b947e41c79fedb943ec001516d3044743941a09b37a81c64d09caffefd5f384f8f24c809167ab6189788cb36addbe32fbaba2292bf6d2849744694b06a2f4adcdbfa6cadf28e1f6954a048ef2bbfe2cc35d62d486326d8e09f5d4575f539ea7916cf4c17656feb7198b195fa42615b9e98403e11182d0ad3a0c5bd258aeb0423cda2062cf3d5a53a06cfc429606ad37cf10007df8504706e9857b53ea1bd30e7d15772b97462165c742c3b05a8fa2f4ecd89a99b592ffbebf03fe63d6372971ba45760d03fcf991260dc198cef2c1084705e7f6f83a581e9f0da8c4553b2d0e559d84eeba4bde72c71a436bd4312cb575ac902e631f123ad6dd6e2f79b007de79efd99621592a8fdc5049aa4a024fbfdf305604c61093646af6d3752faa6158bc55526f7277427013d574d994307d34897026d165dc6c57364ba0d5b7a04ed321d6e612d7819001190a09f38cf1b36992d0ea030b58c104221b7a396b2dbb8b57e427cee9b8c51fcaee0b1696df039fce9669d6e6b03562ab60bb810ace7b9cf31188c2c0780889ba93a37780afccfa909fd3ee2686c02052a7809761c2aa979104531f8469639dbee4c533757cbdf971d36afbb76bd014c35222b7f5dddb7b6642998700b9876471ea9d0af873e6569268aeb77901684a3d886cc467cc44fb34c2d0c96882e80c03de1d63e66e7558ed15b0fefc0abb6d14cd9a48567d8c2641511820d5ceb5bf32fea3ceb08d7e08839ebfaa9c91649d64924c64b4713e82ec4c3acdd3068861d6087c86cb538ac6ce27a132a5832380b6051d93be5c8ede7f56169622ca786fafe8d5d4acaa6887cbd42fb672aef122c18b92e522051a6c51e8d1ef302dfb91f301bb361fb941a4a63d9f50000d6f22b3a6317377e586dee507359cb69db6493b2e4af7a524f5004c00b9b07433ebab5391f167d39f58918b1e75a2789144cad85da75a2dbacdee63dd99fb6b15c4ac21ab90fdaa425783749a97c5495bc0e9b22555dabefc212b312c14855ed385b94f1fb334169fd33c30afc3c60408dae6187170f6c71a90f71124be80288adb4dc471b0042e94bea699daf715e4952aa9e1c54b483ce8d42d52ef09c452f148ad33da557ad470c0974e2b3b762397a5342837c7d97e0fa6562e0da6c4de1a5e560990fb56444e15dbd23bfcaca41b1db0ae39d0b8dc2687e48b9f9fa4e14412b12a0bf36a575a3f88ed4cfcfd4af851998925378333db5b42e3d9e90a755b6c0b6a7bfa0834df96943c82e579efe8eb37dba4b94fad18bb009bd7ebf2f8f9fb20d33333445139cf6e4bfd1a1018fa8af2947246232f1a40d8bfc84da74bf8d93495e978c5e3e3468b09366d051a0789963c27d679d4bcbe3d9e62342807c4ae70d67043647a14902db7c4b15e08c2bfb109948f43b966d31adfde9421965203993a781302829304924c70e3cfd23a299aa7848ec8c3a50ee5742218db56efb05ac1a24361da7c184b3b211254526fe93b00790372b01ce8050525e5514027777d9b8268b517a57fbd53b0617471b65ebe15c7651502c04f1e7b82f4f1ae909a68aa659b63fdba416db02f4321239251854d896fe49b6b5239224255e85c2f2a70c2d68f45ef115f1c3a8b7832c1d8dbde3e7c39a238dadaa21a52004381bcc4418092943dbed776ac968e0c97b8e1bc4cf197c275e3ae1fc83a6daac2b6add89ca24bdd24a6603b2e844796b588f9c3bc6fa9b215bc85a51297ad92d6432b4fa4e9f712cd96afa34697180879e1ac0d75852925028cc1192a39b5f6b4004eb60a16a0f84c2921fac53e2cd266f498618d084a21adba8064f1bf9b56870340b825d63c9aaf9070feedb319f9c8fee465a949062c34ce19b63bf4daff06b1309ea7e81a375fbd64363c16bc1889a81158d341c86076e3ea748aa1011eab96807e0779c51b2c9ef7f9932c85d1759653e7e70d9123eb6610257643b96d81084dca0a0835f62cfe78d5a7be3796904f58eeff4da252ab8c3e013943804fbe917f69528d0531b22e04298f923ef625d177e3b914b702309a0a1c6a61cf0907f99c82a470f9668b2f6332d0a2024aa44a89091fca2047052a2f3433fa880fe9ceef8726f11d828a0c5eb9eaee1bddafd1ddb37a4b221d215a649f924855086977e1f34389ac8b0f1d5c8fd97c0d1bca7cf7bd38e44813da245a7ae5b046ce047abe396ddfa5e22272c9045fb4e6be62ad865b155753f2dae25dd25dcb0c1fea14079d9f3a059884fa1d6d4f72f0ee26ec1fa414672833912b01700560372c319e764cf6c5d67112f974d38bc237f1291dcec7cdc7cedb746206851716ce9819d688c2b4a8fee15dfc37af7eafa06a67277dc11c25b61f75ea2acb5b1e535d4b2da7bfa7d53534632f1578c3138073d0845d098daf3283a592fdb34fb0c4efb353c321a04e58e04ce5edc798322a26ed8c96ac5ee8bedb09a443d0891a83253e88847f03b25260ea54955d106a10249cbe20598a0fbf9a9cb049589dbf14ff974bbe05227923d8230b0a8494926353950b8aceca67d64e55253ff3b15fb569005ca54ddd0b1b33b15f7ece20335b8007a6ede49a3119051864f43db23c4bc52fd3a894474ca4aa0d838fc6a2ef1ab98fef057d1045712653fdd04f180c780ccdfa79f61b8162b888ddab328673cb2105440c9b73adc71a43ab0b78a90e645ee3cfba2dcbc9b18b3271ffcf8a90d0a4fc056ea4b2173807de648e29203763e1ff40a065243c3c936f198acc3c49a5e2c870080781c2c54d38c4f11f0de8a0aa98c51db929767063c5aa7949ef9fa85408f614bc4620a9f4cd8881c96ef6ad2b4bb19344f454bfeab2290af06a0fef4d292c7c2f0c444548ec3e20c8cbbd11c6292f97ae04d20080c08e8be7a766ebc64bef2efae6f54697ad5e40ce239685c1d621646173611c13a1ed67874287e43df018c91c240134e22588a38c04a436c290f5433e7a03b106bbd68805391737b51b55ee690d24013e508c1f06b4e699336ede84deb4d9964e297162ee4278ca12095dff621c8ba7f0006088268d47c82b7d4bdd24ccfbad9cebddcaad0915c8fa9eb8c809e939c21e6fd0ec38c4fc63b1a81c708e775a74a976450da614c18eabf817e99485d36c8545f03811d866c8b075b09bf003eab3a5c4568bba62ed5126ca9c83bf2f4b5d85d001d60e7cc46de2726dfb79b74a4de80ba1fd52a1c2d00008949307da169e6022264fe666e70bb3db2ec2542ba73c5cc0a755d798230a189b1b67686b394f88d0eb1bface7b62f7189839f4fc4300c26f84f213c22c002350b61db05afb64302b60ce8d9592b9d5afce999330f3bc7c2d14ad0d61f4481973b12310f34e5854430abee4c0e27ed2a1a2837fd04cf4c39e90ed8caf378590634390b885b0cd78b8f101d255653e5a1683eae1a70e5cc5395ac6adeb2aea726156c322b06abad631a112b29a738d30c3feb99a886f35fcd83ee1f54d5af46fb6dae5779c47273c616566fa88452f4c333c09d8f7a1bd231b650faf56b036ce06510b49765fe1b7b0b326d639cb33c1be7c7304a9925a0abf00df602d0925d6afd1a027df98efd4de684644d7a7252668562561acbbebea1a095776d823f76a89034f64cc1c6e11f8e4ff151b818374bd920e69d703f3173f33a9a921e860dca7e6544d33fdf486786a5ebc09518e1bfdace684d8d1fb6703c71f8ff23ddcb863b7d03c8e89a9962cc13999f4aca6a975078018d541d1a8e72662e7f9bccb9432796f771ddda136e2a2c04cc56a54f1e2b7a89fb13e54b28b4d7210f1728703cdf36b91589dc4743f463243c9027532c343400349b63116126969477569635cd3e5e642e6799da7798c0bc4e910b5722d477091317328ca508e9aa0563573a5b903394ae83e5d7cc31a0e6ffc7089e1f0df5352b147adcee1498ca2562fcc6b5937ef10d0308d5f1f51e77c0130ab601069784e092b7e4a5f748b2b22365d90c792780a3d454b8c16dfe6095743722fe101a8c4812c69656910f3e6780055fde30bb6e307819607a94fccb1b167b7fac5a6113e770cb1d547f73d4b74f2c5e834d082ad74a26e5e7756d16f69567c400c7fd187b3215eeef465a0a97096c24b957c0657ca7c05f8e386ba999d8754c041f7d2b8cf124ea7daa42e0733e3eb751913f1ae668856f2ff47baee07bbdf9f732c2589a15759956ebbfa2a9eba49d10ef0a54ecf39bc23a63e6576defcb4c8908bc90926f06d2b5375b0e9e6c76de0fce98c22c659c572c84e6f4578bfd105c544e73db6ea11d6b42e320aa363463aaf9ae2f83d5437058adc7de1c83dae1ebafb3d667b393c6556efd7f3c7cb24a3f961dd154879344991a11c52fcf5912145c4b886749c95194de52c30f50447dcd67278c9faf5e74a60d366496525a7619e28c5fc4a55f45659933562c010c63b3afe90f3dd87d4e6168569f8d72fcde0f1ba3d3516899b4e7e523b567bac66d8b4b27f455fee2c971d4c239ca1669ec15868412f5abad699bb36a52ffcf154cc36cfff1167dbc9b9e16d141eb2f3d69719ad79d3f9a1f11dc84896bdbce31c5f0d848795cb2058bd38a08c90412fcad7d676144454eb6fd77216b597b34cf98fd04002c4009ba91a9d78e91248cb54e2dfed40e4b918c8a4db1fbfeab275de02b8154998022a15676ab3ee3dab490edbd64b18dda55c379f69e6607f313d91ab91e0c8d71267c87dcf9e37a10aef92854d679218e8b8b3c2d18e979230927903cb4075062573727074f9cdb27b777f4847b9825aa21d02e51f42d54918c45216a718bb715fb08c1d8ccd2e8dc4d7a16101a34949b81e792fa176e98270911b704fed744c4cc5754db97d74d1afc8aa9fa25cf897b65b25e433f9cfc95df2317efab4458ab1c5279ee62b0cffe4f60ef147fd7b0242de6489e9fb49ab50d2ac63d681c923080ab2416f62c18ec8402759ff2f2dd72856cc754018ee0aad2f86efff734fd9f97ed965e34d141e817b0457a4f8f97454d3a84928615697b8580391cf0c56ba4345174c3e7809257fbe95298e7d08574e7f4a8a42b46a6c6e2f97f428686f85a8892118f41285318b1bc88cdd81d923be70de495d25fc5a2430d5351ecac09d802d7952b91de9e789ed706488e035c511d049e8c2e7481d111ef196486172b078891ab70269b5c668efa0bf0e3a8e13f3b5a19b78f74f5fa9da86b0f5ff3acd9194309893df81ce7ff5859618cda68dcc00bff6df29619c80c7cc24c6a6cb94bfa0159ac52ece31a7f9ea66667b4c57d670b2a8cb7c9e464fa46d9a294e7eec127faa1148f37536cb70b8722a9276541192d56d7d139309ce903fc327825f6784df3e4597056ea801256387683c9bc3ffdbd51b1c04739fd91dd29296c27b8d2b4b8f2165b5b862ee6a1628dd315fbc736bf146782d292474173d6170660a84a8b4ef1f03822be99ac45d0ecd1c10f12e0b75cc5970553dd6c46204d49cca56a3876ff2e5c87a8ff5a9ce95d017dbdfd3478f8170291df10f3487b8fe10620e5a435fe6eedae45bdff19c6736c6299517e810e2e51563c55ed4b1e9ea864c0c12561a1b9c3c4e705900b8d6d4ae8b1a9c028e93d3f521a0fe091dfb4ade7ab2e97432b25a64489ceb1c153801a840ba7767fa6951d151fffaf20c1e767dd8da7a1592d84636ad9df1e774c071cdfcc22dc2fb8d47e215511fe0519e5b9f7c9e27825b491d3ed336230eaad2066e3eae9eb76a0a621169c805d1322654319f7c3989768c1617a4d78d6857a6cdb1856ce92313ba78d8f62cd081bcc6ae1fd0371bdf901cea7ba1990c5536d332cae47a98d7dbfc02e795ebffdb9e8ba401fdb7b8e3f809cf3eaea9cf14035efd129081acde429dd1a52b852130f09bd071ed3caaf252e0ad55534770d74bbeb717751c8b2a51f41818b72a5e2e355c322c23a1d0b45d2ce77e05cbe04b9f10f91343c780607452c86795e4e07c9cef6083009b92d475e043b8d09251d084fb6fbd68d0866c95d</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"></div><div class="popular-posts-header">相关文章</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2018\10.23.c375ee94\" rel="bookmark">Web程序设计实验报告</a></div></li><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2018\10.16.cd7b3fb4\" rel="bookmark">实验报告之白盒测试方法</a></div></li></ul><div><ul class="post-copyright"><li><strong>创建时间：</strong> 2018-10-19 08:10:23</li><li><strong>修改时间：</strong> 2020-02-14 15:05:37</li><li class="post-copyright-author"><strong>本文作者： </strong>小梦岛</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="https://www.royians.cn/2018/10.19.cfaef5f0/" title="系统分析与设计实验报告">https://www.royians.cn/2018/10.19.cfaef5f0/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/tags/实验报告/" rel="tag"># 实验报告</a> <a href="/tags/系统分析与设计/" rel="tag"># 系统分析与设计</a> <a href="/tags/软件工程/" rel="tag"># 软件工程</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2018/10.16.cd7b3fb4/" rel="next" title="实验报告之白盒测试方法"><i class="fa fa-chevron-left"></i> 实验报告之白盒测试方法</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2018/10.22.d55773c0/" rel="prev" title="实验报告之黑盒测试法">实验报告之黑盒测试法 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验目的"><span class="nav-number">1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验要求"><span class="nav-number">2.</span> <span class="nav-text">实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验主要设备"><span class="nav-number">3.</span> <span class="nav-text">实验主要设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">4.</span> <span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-选题及项目背景"><span class="nav-number">4.1.</span> <span class="nav-text">1 选题及项目背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定义"><span class="nav-number">4.2.</span> <span class="nav-text">2 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-参考资料"><span class="nav-number">4.3.</span> <span class="nav-text">3 参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-系统分析与设计"><span class="nav-number">4.4.</span> <span class="nav-text">4 系统分析与设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-识别参与者"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.1.1 识别参与者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-对需求进行捕获与描述"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.1.2 对需求进行捕获与描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-用例图"><span class="nav-number">4.4.3.</span> <span class="nav-text">4.1.3 用例图</span></a></li></ol></li></ol></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Morty.ROY" src="/images/avatar.gif"><p class="site-author-name" itemprop="name">Morty.ROY</p><div class="site-description" itemprop="description">记录生活中的点点滴滴</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">41</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">19</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">36</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i>RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a> </span><span class="links-of-author-item"><a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a> </span><span class="links-of-author-item"><a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></span></div><div class="site-description" style="font-size:8px" id="QQtitle"></div><br><div><span id="QQtimer">加载中...</span></div><div id="QQprogress"><div id="QQalready" style="width:0%"></div></div><br><nav class="site-state"><div class="site-state-item site-state-posts"><a id="QQgeci"><span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span> <span class="site-state-item-name">歌词</span></a></div><div class="site-state-item site-state-posts"><a id="QQplay"><span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span> <span class="site-state-item-name">播放/暂停</span></a></div><div class="site-state-item site-state-posts"><a id="QQliebiao"><span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span> <span class="site-state-item-name">歌单</span></a></div></nav><br></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async></script></div><div hidden id="QQcover" class="QQcover QQisrotate"></div><div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">ROYIANS</span><br><span class="post-meta-item-icon"><i class="fa fa-area-chart"></i> </span><span title="站点总字数">277k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span title="站点阅读时长">4:12</span></div><div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-fire"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div><div style="display:none"><script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script></div></div></footer></div><script src="/lib/anime.min.js"></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script><script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>if (document.querySelectorAll('pre.mermaid').length) {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><link rel=manifest href=/manifest.json>
+  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<link rel="stylesheet" href="/css/mytheme.css">
+<link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css">
+<link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css">
+<link rel="stylesheet" href="/font/LDL/LDL.css">
+<link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="manifest" href="/manifest.json"> 
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="/js/sadness.js"></script>
+<script src="/lib/Qplayer/jquery.marquee.min.js"></script>
+<link rel="stylesheet" href="/live2d/css/live2d.css" />
+  <link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+  <meta name="description" content="这篇文章被加密了, 请输入密码查看.">
+<meta name="keywords" content="实验报告,系统分析与设计,软件工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统分析与设计实验报告">
+<meta property="og:url" content="https://www.royians.cn/2018/10.19.cfaef5f0/index.html">
+<meta property="og:site_name" content="小梦岛 - ROYIANS个人博客">
+<meta property="og:description" content="这篇文章被加密了, 请输入密码查看.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-14T07:05:37.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统分析与设计实验报告">
+<meta name="twitter:description" content="这篇文章被加密了, 请输入密码查看.">
+
+<link rel="canonical" href="https://www.royians.cn/2018/10.19.cfaef5f0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>系统分析与设计实验报告 | 小梦岛 - ROYIANS个人博客</title>
+  
+    <script>
+      function sendPageView() {
+        var host = window.location.hostname;
+        if (host == "localhost" && true) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-112028390-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="300" height="390" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+    	<div class="live_talk_input_name_body">
+        	<input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+        	<input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+    	<div class="live_ico_item type_info" id="showInfoBtn"></div>
+    	<div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="音乐地址" type="hidden">
+        <input id="duType" value="douqilai,douqilai" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤小埋</div>
+<script>
+var message_Path = '/live2d/';
+var talkAPI = "";
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+
+  <div class="container">
+    <div class="headband"></div>
+    
+<link href="/lib/Qplayer/style.css" rel="stylesheet">
+<script src="/lib/Qplayer/script.js"></script>
+		<script>
+			(function (q) {
+				/* 目前只支持网易云音乐的这几种类型
+				 * type:
+				 *     list - 歌单
+				 *     dj   - 电台
+				 */
+				q.type = 'list'; // 类型
+				q.id = 501873788; //类型所对应的id
+				q.isAuto = false; //是否自动播放，默认false
+				q.isRandom = true; //是否随机播放，默认true
+				q.isRotate = true; //封面是否旋转，默认true
+			})(QPlayer);
+		</script>
+<div id="QPlayer">
+			<div class="body" hidden>
+				<div class="player">
+					<span class="cover">
+						<img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106">
+					</span>
+					<div class="ctrl">
+						<div class="title">
+							<strong>name</strong><span> - </span><span class="artist">artist</span>
+						</div>
+						<div class="progress">
+							<div class="already" style="width:0%;">
+								<div class="Qbtn"></div>
+							</div>
+						</div>
+						<div class="contr">
+							<div class="timer left">00:00</div>
+							<div class="center">
+								<div class="last icon"></div>
+								<div class="play icon"></div>
+								<div class="next icon"></div>
+							</div>
+							<div class="right">
+								<div class="list-btn icon"></div>
+								<div class="lyric-btn icon"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pop-btn">
+					<div class="icon"></div>
+				</div>
+			</div>
+			<div class="more">
+				<ol class="list"></ol>
+			</div>
+			<audio id="QQaudio"></audio>
+		</div>
+
+		<div id="Qlyric" style="visibility: hidden;"><ol></ol></div>
+		<div id="QQmodel" class="QQmodel" style="visibility: hidden;"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X </a></span></h1><div id="QQlist"></div></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-comment">
+
+    <a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a>
+
+  </li>
+        <li class="menu-item menu-item-visitor">
+
+    <a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a>
+
+  </li>
+        <li class="menu-item menu-item-todo">
+
+    <a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+<script>
+document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/cfaef5f0.svg";
+</script>
+
+
+
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.royians.cn/2018/10.19.cfaef5f0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Morty.ROY">
+      <meta itemprop="description" content="记录生活中的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小梦岛 - ROYIANS个人博客">
+    </span>
+
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          系统分析与设计实验报告
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/旧博文/" itemprop="url" rel="index">
+                    <span itemprop="name">旧博文</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus="autofocus"><label for="hbePass" class="input-with-label__label">您好, 这里需要密码.<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="223dcbbc6f8cc50609c7e8a6b7314c28fad402f65816b5754093c57f13f4602f">b3a2b9bb57a33a39ba53cc19c6c4ab036b7d4c614536c1cd765a0a488182e17b65dd692a024953889b0cac1213b752a2cce9952abebc1779e414239ac9921f7f84fdae084672630881f32debdc4cae15656889c4b037f812435b8530a2da0e138a943e983b69e0f47677c86ce0e2d84698f1206983bf1f9a5f0968ff8d9623a9250a07a89c4576e8876caa6a77e5caa59ed62cd0f16b22b3347c50d4cf81b9a2cf3ea9f0df538097ef5542c4bf672e9c3e4da33f63f7ce317792bf9810fe16999fe5d195351445a52e406318afeb905ccfd4168bd659f46f8686fe20194d9a99aac7fc09168a737be8c9a50663b66cf6340ba5572286d9c8c45b533a073c10a4e6d7ac0a796426212b3f05ca707d430347fe0499f4ee5cb56e4c27082c975c03ac9a15d0c5c8bb8a57c2f945af8f1b6615c53818567851513d4dd6df809460e24379104983f414f874df23bad41399bd7cc54e6c0c3639588f91698ffe1a41425da3255bb16b81b6b5c6ba4f7203ae4ee743219efc5724df5ea8459d623585b7ade10056037d2a689fd5645c1ec57b356227cefc711eeeb69f1794b002de223867358357a8e58567ba807d84a66fdd51d9e8c5b58525cf756abb1eb7e2c40024c861b4fca2102bcd0120e7653b2e633e683bb5fe45789b49daf441bf0571e79ae634bf130f88f7cceb7047c2685445e1990233761092a0be69b7f151accf92bc5dc19b66bda9cb1cfeb99725a5b991b9ce24e2885a4930e0dbb5084926668bcbc6abd1fb284a093460225f32f324bb761224bff0942e26501c1a2435bd54d3915dadc8cc7dba6121e730dea72adcbe935d97cac9d27338b8db4bc995690dd99fa924b16b6bc9a0018a953ffb4ca76e772bc0ea0b5bc53cbd355d5b5a6107587fe0536eb59373e8957bd2c7d0d56aeccdb04142414b2dfb67ba90681048e0c01dbdea3237d98647171919d62d56503c277dfa6f6130d0505c9a94435790a3b32db8de55b6ad30961b74eec11d8d5ec2c9ee721d80962cd5640897d4d5a89832ea9766ce007f2bfacb6b4eee1a598f981b62f6d0eed5c8f94ba01d027a477f66e43dbc341f38a332b1b13b61467a3863b2582208fe89c614eb0cc76048c386a498c57ac942a0b0fb977058d6e27af08bc1d34b2f95efa2b433b1abeb5534a4106f3977a9bd50bba41e6ec6d310f3b6ddc7b41cc199ba7945c7bedcd70ce4fbd1023af8f23cc5b04ce289be11c0a798f07dd123627b950558f430ae44a0354aa527883e39929309c7ae5f12ef9296df055da68e48f6ca4948eb43d6f98920b94d9429846b32d055db59ab1e496bd46b8138f47252a60e7ff421b5cf99904f8d6213aaf2ff9cd345dd5ef51a75a31262d3a0293311bdacc8acf99ec367d0bcf1d099a083d1fbf11a7793ddf6ce50cc783cb39cf2da1beb8d9acbafdc813d9fe8f28a393caddee5df66340d95b4d1caf1a4383a23418a050c636ebbcf1493fd150a549a89ee2a859271d0119fc90b12603db3712ac21b2c8f7cece80c3af0d89b3e6b57bb7cde67b77daa9d920ab8fd7367d418d04d9ab312e196b989fddbc79d5e7bfa14f50190501a3b828d22a7da16b1dedf19f152696ca7803ae327b4b68ac374938bcb1934f3e3bc69d9595e313e2603cccad5f51ec7386c47b8e426fb7765199c2f561391850819f0c11c1b46da7d1435e895e35d51090a7aa63c09b5d48694c6347c5c3d96bb07334bbf486620b49f230e5ed5231a39618ecaf87fc9f394a20d8945caa28cc435641448b57df9016f25b6c343f667513ee9012ae936fe99b4f63f2e4801ba55ee836d498a2c6c64bfcff749e641a3763e861539ba27e8ca8a4909627b2aa34da30a4094243c009efbb795b7f4b53d3cb438979e06a272def7a7c16767ff92f50518597122f0d226e37580b7b1c0d8446a19cdc4a9f81073bfd862076af4b73e348b2d29445946cd421e83711e51b5cd219fe130f88e5ee4c3c0de78c0742711a9e7b32045c7e0f16d4aba2a8933a51c36e17be613634b878ba25307a4a938f569bd3690e0a9351a73fb498f69e1fdcd560de401076ea7bfcea643d44cfaf97aa3eb797966b5727a7be5a200843d27f786ac6f7052aa4caa1d380e5c7568c7bb1983960988b9488cc977964b6423708793c8c37ee7d094c172f15def79b1929acca31cc1812aa61a45d8c829c3d34ba1b946f0cc2ef1b3f2fd5ef70fdaec106a08fb266b7e8453e40f3f15983b059340a296e2af8c2cbd30c4100fecbf08ec4f5740a0c17f6f7a60d67d4cb671da6afd37a4efbb0bf42879aaee505b352349f87cf69a91aded3fe2a798868e66097d8529a78199b860a7030e4225355892289a1d706d656b1d7bb47b672f31932d785837d35a8ebbedb3488aaa9c7fb094523dad2f0185c243fa77e2fe7c27b32842795151ec931f5442d87e5300ca02df48264391b8044f19679051530f4e692a99bf5d0cd3a8dd364a905be3e26510af1109f0803fc38e9de77fe75f8ed427d1a5eaa3d94746ae9e5e252d4ab0f36168c35c510ac2a5b851d751e153e36e61549e92169e0e80b2e49956f5534d905674fe48d021cfbec34d8373bc9e5b64f0e976e2257e679791979dc85423f9903f2c8f1d91ea05e4850996035ada38d219fa08a5d3524376a272c7dd820eb0c52356fca677ccea3992779ddb70ea0dfd989e09c5c85d905f9986479ba6c5944b800208926df12800d11ab98b07a38edcef7e9c36a80e9518b652000ef1757aa6ae9f0572b5d9ad741e121dfa856fafd37b834d4b4b46bf24a696a3f16e80f4abf0af149508e1a8b0e69e9570fdfdc925b61fc0a147bf530375b2bd669b36e4c55ddd7a40f3793399c824aaf8495cd7bc09fbafe39624c4bfdf3c763126a9c248271c44fb9805673e4b72b44e677f8b1fd37427ec70b62bb0d92e5f13a1d8ed79c348ec8eb4b14aa09e5c6dd99935de8b28c34510c035712e8fbec02eb23097e1793ab86dcf413621db6a4484e912addeee754705c40e1daed9438aa5364d1e4d0a719c86f9f3cbfaba6ae025de636496dbf410684997e626fa1c2bb99d2e19811634cf8afecf3d3a128f2d2cbfb03b63bd62d11332717a788abd0e5c5041a814499b76a16f580fc3662e3b48d41f6fef9dddca753a67ef5167cc268fbaf9d2cfaafd6b0326e6d0d937950a1bf6c4055cca522a183e8c998ac37e73ea3437a0cfac506a869a864be57df28804cae28c55b81fb628416ab13309173399eb2aff0be1956bbc4a447aa152d9aeea07c7ede6736e8782050aa9e93aff10744e00b72441e1561d7a31c83b7f3582a6e8e3a6f0f1b02608538efd1b499ea3feea8c8e11c8942dd25d7237c958cc92342289aab062faecd4c4dcb9173f51885421c50794036fa86e549eab07f3e06ee963fa63699ddd01b31ad1cf211f02d25e4295c5ba1eac5154cefbe68535bbe57c9e56129f4376fe06cf85b0af5178a32053ab7cacc3c7651b0207419a6db4dac4f80761c4e73929905a7e9188f4a6ff5cae33aca2fd319447df4bfede62e0075384405dabaad96135aead4edb5547ac9e4a50a8b8fb52a62fc1be03bbc8905d8e8829e847e9cc4788ccf486a77a5438649e10f073b064aca9685c12f2e323690d74c03c6939dc172f4ce0974903027486f35cdc7318b784ab370befc944adad2d681ecbbfa12835eea926deb06453f911db9e99093ef793e4bb657396f49435643ae1f156b0f8d5788ae2bb8be6fbead354ae9ac4497a1cd8a7703b6338e392b2b00b4080b00204d1ad34aef0d14cf66d3790d71157a0e4c6937fca3932ed5e2e1100b74d98253c5f856c933852a58e85a804f5fbe603c57f14698a8520e5fab2956d49a46939850c6654a07d2405634ab0b8a20d5dffed7fc829ebbc7e47b36d061f0da89ae8c2fea35ba2cd86b64e41171e5ddc36bce2582b98db20138f4094c95d4a728c27287db1fd4cc83e90e6d043a466d2b05bb7a8d729fcd8bb981669634ea09db061c07be328faec6870449b28f3e4b423c488c46e5f9c8855c78a1030eb29af8eeea4d9b87925b0e80cba69ee1e6347ba21f5ebb9e3b485a1ea466b8361768ce98e8dfcf3d93adeb52b2e4c276ee4586a4ca63da027a9d5329e68a73966aaf161e75c33e98c59329ed30828770b0494fc60cd43e7957a2c7636d881195c3d82060c60a7314a9ba1eebcc736e41088956cde0c20d39131f04f0568b3397d2f5af65b7890deb40024372d38995c1e020ad345d0b765d1c01daea35cd799230efb3de3567d24cbb4e7923f8b8cda3ba14df81310de3ad751f8ed9c8253127a8e20923ca70c64fd3b2942877dfc139ea0621d9f9aa77eee77102d005939db0277db739010074d335bd62ca59896230a0a763fd1a6131a065f3ee9d5afecceb72003a05add1cb70b020dc3c5893be048535fa67f433d911b2ef3d9a36d9753d981ffeb3ee5a47b33f7ea2864fff5da2235bdb97c627b2d5a69d34d2c3a532734142e7bbb014fdc3d5d2704a1867b7e7d69a63da406da238e17e8d1d3168b17ddf3b8c349e9330dbb491280db950021c825fc00d49270e6ab4cdf2591288ed5034093a5f81b830e1b7b84b38377dcdd56c7f693886a1a7626487ba570f9312581ddb1405772e7973d60433d459e9f867e1e5bb1500b4ea1133922c0b297b5e321fecc31a24fa418393bbcd273d12f41c12a875a1d83f49d0380931d9878982619ce52e541fcebac9a3eaa3ddd75aaa85210b1d5ceb6d490c76241de18fad4cfa7e9a91fe4b9292e9f8ec106771218877a7ee43400d0e3c1c05e94d773f565664c8abd7504e6b6c28e23c19ce10d060076eae1bd046a9c38d68c97a179193ea78c1268ba14a6eb8d92307f09de9170cad36bc69a2326705a7bb28a35cfdbd7ff1c93fbecb71f0bcc0b6ddfc24e934cb9391ccf2655a77a57d619a3402d391b7de23dd04b01bbc2f41228461f14db56ceef44d57817e6e48ec0fb17bc15983f87df3b9a5a8fa503a640bbfacc63195d7a0feca6ab9d490b64d089f9fa0f86842158d548a62b40e29426746a578af7678aa88dcc8c4612f871bcaa053f751932a3a664ba40060ed74fb38c0f6b817405e35bd5817f754e4107e2808a529a995e1de73643fe31fd5a714567df52d275c8f879e2793b99677a4fd73833dd119193367e31876e91b0912d2eda216fa39bde8fcd880ee6833543a5e42d05bbb200096e0c5f9d8689e63163db3ab200b917fcb1522049991c116853162dd551b276623a95e130c05a443a500a38e7999a05ed93abf6a66d74864e6874dfc42de125391edd8b8fdbc320f802166b5d0a1f2cf4d7f3e9268379617d50cc867c47e8fbabde66e6c6dbb422a977bd5c1a4e6cb285450e9d928cf018611c696792700a0851b87da6bd20f914b8818871e6e390a0caa84e88ee9c462e519335ed7b9bb6de99ccd840f23bdeb4492e86367ec0298f7836e43e9123efa3dfbf77174d758cd137bfef5fd41fe5e9bff13db165de067b39eaa061dc21ee7aeb38fc66d40119bde750b91f393835e95a9182d2b43c503bf600d565d027abace9ae151fe050d70560e12eb4b31dcedf2349afb74c51e26d20cabbb8ce4296838772848453ff3278ee60b2611895dfbb25cd8aa89f92f65d48f2c4bd7ea210d022097d24e21151efe6f8ed72e422f5304dfe5e2b3f14faf1a51eb13052d1da4091193cd9c50611bfa3ad7955ed4a0c58118e5df7feaf915f2303c1d836fcc566ee0e7f4f0a275645bb29d48bffdc5f4db18f8e2ee58c1e06d1b9a38c8454763f404d1040dd7dea7a2d1a336d43fb050b9f3b8a8e7816864ff830e438344e4f170dfa53073f7084296e3044a9eef8a8066839869004947c54c3fdab9383679f09d915dea0b1b3f5ab6548014e051673a5faf7d3a9192fbbfbdadad103cec43d8bb3ed0bbbc7cd6236b531fccecd669ea63c155cd9ab68c6506faa0bbb1fb9c024c732e15af8c27a4b0af7854e9897f07cbe83128cf950e9701cb9597babbb28fe4c882eca98432dd9f41dc7b30bda23b893627958190024405c6fb6d1e19eefaeed21864f4faa788d30019344fd354ca25bbdd9ad28a6f45844bbcf90a6d4cb091dd16a3564c627f9d5cf2a299a892e68a030d527b0e9808ca9cce6fb503882844185254b290327dba06179a9f8dac0858bdbc376d55c765886ef2760a96ecea7e5d87e4ab0423e80144c1597b296679044931c9ef2af41e1f6c760e3dcf46c532332a225de488caa57675a05a4e1ca63467903cb91c2c00b30edab0735ca6ee0180fed974ca2f04d84e9f9934e2de1f32f08e6c90836136d053444dbc2f4c1990abe6b696a0a05c8b5df</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2018\10.23.c375ee94\" rel="bookmark">Web程序设计实验报告</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2018\10.16.cd7b3fb4\" rel="bookmark">实验报告之白盒测试方法</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li>
+    <strong>创建时间：</strong>
+    2018-10-19 08:10:23
+  </li>
+  <li>
+    <strong>修改时间：</strong>
+    2020-02-14 15:05:37
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小梦岛
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.royians.cn/2018/10.19.cfaef5f0/" title="系统分析与设计实验报告">https://www.royians.cn/2018/10.19.cfaef5f0/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/实验报告/" rel="tag"># 实验报告</a>
+              <a href="/tags/系统分析与设计/" rel="tag"># 系统分析与设计</a>
+              <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/10.16.cd7b3fb4/" rel="next" title="实验报告之白盒测试方法">
+                  <i class="fa fa-chevron-left"></i> 实验报告之白盒测试方法
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/10.22.d55773c0/" rel="prev" title="实验报告之黑盒测试法">
+                  实验报告之黑盒测试法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验目的"><span class="nav-number">1.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验要求"><span class="nav-number">2.</span> <span class="nav-text">实验要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验主要设备"><span class="nav-number">3.</span> <span class="nav-text">实验主要设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容"><span class="nav-number">4.</span> <span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-选题及项目背景"><span class="nav-number">4.1.</span> <span class="nav-text">1 选题及项目背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定义"><span class="nav-number">4.2.</span> <span class="nav-text">2 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-参考资料"><span class="nav-number">4.3.</span> <span class="nav-text">3 参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-系统分析与设计"><span class="nav-number">4.4.</span> <span class="nav-text">4 系统分析与设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-识别参与者"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.1.1 识别参与者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-对需求进行捕获与描述"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.1.2 对需求进行捕获与描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-用例图"><span class="nav-number">4.4.3.</span> <span class="nav-text">4.1.3 用例图</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Morty.ROY"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Morty.ROY</p>
+  <div class="site-description" itemprop="description">记录生活中的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+  </div>
+
+<div class="site-description" style="font-size:8px;" id="QQtitle"></div>
+<br/>
+<div><span id="QQtimer">加载中...</span></div>
+<div id="QQprogress">
+							<div id="QQalready" style="width:0%;">
+							</div>
+						</div>
+<br/>
+<nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a id = "QQgeci">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span>
+          <span class="site-state-item-name">歌词</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQplay">
+        
+          <span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span>
+          <span class="site-state-item-name">播放/暂停</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQliebiao">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span>
+          <span class="site-state-item-name">歌单</span>
+        </a>
+      </div>
+</nav>
+<br/>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
+
+<div hidden id="QQcover" class="QQcover QQisrotate"></div>
+
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ROYIANS</span>
+    <!--2019.11.01修改，增加换行-->
+    <br/>
+    <!-- <span class="post-meta-divider">|</span> -->
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">281k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:16</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-fire"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script>
+  </div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
     mermaid.initialize({
       theme: 'neutral',
@@ -8,4 +717,20 @@
       sequence: { actorMargin: 50 }
     });
   }, window.mermaid);
-}</script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/js/sw.js?t=1581924508387").then(function(){console.log("ServiceWorker Register Successfully.")})["catch"](function(e){console.error(e)})</script></body></html><!-- rebuild by neat -->
+}
+</script>
+
+
+
+  
+
+  
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/sw.js?t=1582193159494')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

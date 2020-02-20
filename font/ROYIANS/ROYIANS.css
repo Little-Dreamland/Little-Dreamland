@@ -1,3 +1,14 @@
-/* build time:Mon Feb 17 2020 15:29:00 GMT+0800 (GMT+08:00)*/
-@charset "UTF-8";@font-face{font-family:ROYIANS;src:url(ROYIANS.woff2) format("woff2"),url(ROYIANS.woff) format("woff"),url(ROYIANS.ttf) format("truetype"),url(ROYIANS.eot) format("embedded-opentype"),url(ROYIANS.svg) format("svg"),url(ROYIANS.otf) format("opentype");font-weight:400;font-style:normal;font-display:swap}
-/* rebuild by neat */
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ROYIANS";
+  src: url("ROYIANS.woff2") format("woff2"),
+       url("ROYIANS.woff") format("woff"),
+       url("ROYIANS.ttf") format("truetype"),
+       url("ROYIANS.eot") format("embedded-opentype"),
+       url("ROYIANS.svg") format("svg"),
+       url("ROYIANS.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,4 +1,721 @@
-<!-- build time:Mon Feb 17 2020 15:28:48 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><link rel="manifest" href="/manifest.json"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 3.9.0"><link rel="stylesheet" href="/css/mytheme.css"><link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css"><link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css"><link rel="stylesheet" href="/font/LDL/LDL.css"><link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png"><link rel="manifest" href="/manifest.json"><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script><script src="/js/sadness.js"></script><script src="/lib/Qplayer/jquery.marquee.min.js"></script><link rel="stylesheet" href="/live2d/css/live2d.css"><link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css"><script src="/lib/pace/pace.min.js"></script><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"7.4.2",exturl:!1,sidebar:{position:"right",display:"hide",offset:12,onmobile:!0},copycode:{enable:!0,show_result:!0,style:"flat"},back2top:{enable:!0,sidebar:!1,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"manual"},fancybox:!0,mediumzoom:!1,lazyload:!0,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!1,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"",motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},translation:{copy_button:"复制",copy_success:"复制成功",copy_failure:"复制失败"},sidebarPadding:40}</script><meta name="description" content="刚刚参加了某公司的笔试，今天总结一下吧。"><meta name="keywords" content="笔试"><meta property="og:type" content="article"><meta property="og:title" content="记一次笔试经历(四)"><meta property="og:url" content="https://www.royians.cn/2020/02.17.4e80354f/index.html"><meta property="og:site_name" content="小梦岛 - ROYIANS个人博客"><meta property="og:description" content="刚刚参加了某公司的笔试，今天总结一下吧。"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2020-02-17T07:27:25.154Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="记一次笔试经历(四)"><meta name="twitter:description" content="刚刚参加了某公司的笔试，今天总结一下吧。"><link rel="canonical" href="https://www.royians.cn/2020/02.17.4e80354f/"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><title>记一次笔试经历(四) | 小梦岛 - ROYIANS个人博客</title><script>function sendPageView(){var e=window.location.hostname;if("localhost"!=e){var a=localStorage.getItem("uid")||Math.random()+"."+Math.random();localStorage.setItem("uid",a),navigator.sendBeacon("https://www.google-analytics.com/collect",new URLSearchParams({v:1,tid:"UA-112028390-1",cid:a,t:"pageview",dp:encodeURIComponent(location.pathname)}))}}document.addEventListener("pjax:complete",sendPageView),sendPageView()</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage"><div id="landlord" style="left:5px;bottom:0"><div class="message" style="opacity:0"></div><canvas id="live2d" width="300" height="390" class="live2d"></canvas><div class="live_talk_input_body"><div class="live_talk_input_name_body"><input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字"></div><div class="live_talk_input_text_body"><input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"> <button type="button" class="live_talk_send_btn" id="talk_send">发送</button></div></div><input name="live_talk" id="live_talk" value="1" type="hidden"><div class="live_ico_box"><div class="live_ico_item type_info" id="showInfoBtn"></div><div class="live_ico_item type_talk" id="showTalkBtn"></div><div class="live_ico_item type_music" id="musicButton"></div><div class="live_ico_item type_youdu" id="youduButton"></div><div class="live_ico_item type_quit" id="hideButton"></div><input name="live_statu_val" id="live_statu_val" value="0" type="hidden"><audio src="" style="display:none" id="live2d_bgm" data-bgm="0" preload="none"></audio><input name="live2dBGM" value="音乐地址" type="hidden"> <input id="duType" value="douqilai,douqilai" type="hidden"></div></div><div id="open_live2d">召唤小埋</div><script>var message_Path="/live2d/",talkAPI=""</script><script type="text/javascript" src="/live2d/js/live2d.js"></script><script type="text/javascript" src="/live2d/js/message.js"></script><div class="container"><div class="headband"></div><link href="/lib/Qplayer/style.css" rel="stylesheet"><script src="/lib/Qplayer/script.js"></script><script>!function(i){i.type="list",i.id=501873788,i.isAuto=!1,i.isRandom=!0,i.isRotate=!0}(QPlayer)</script><div id="QPlayer"><div class="body" hidden><div class="player"><span class="cover"><img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106"></span><div class="ctrl"><div class="title"><strong>name</strong><span> - </span><span class="artist">artist</span></div><div class="progress"><div class="already" style="width:0%"><div class="Qbtn"></div></div></div><div class="contr"><div class="timer left">00:00</div><div class="center"><div class="last icon"></div><div class="play icon"></div><div class="next icon"></div></div><div class="right"><div class="list-btn icon"></div><div class="lyric-btn icon"></div></div></div></div></div><div class="pop-btn"><div class="icon"></div></div></div><div class="more"><ol class="list"></ol></div><audio id="QQaudio"></audio></div><div id="Qlyric" style="visibility:hidden"><ol></ol></div><div id="QQmodel" class="QQmodel" style="visibility:hidden"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X</a></span></h1><div id="QQlist"></div></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">For my vidorra</h1></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-comment"><a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a></li><li class="menu-item menu-item-visitor"><a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a></li><li class="menu-item menu-item-todo"><a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a></li></ul></nav></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><script>document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/4e80354f.svg"</script><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://www.royians.cn/2020/02.17.4e80354f/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.gif"><meta itemprop="name" content="Morty.ROY"><meta itemprop="description" content="记录生活中的点点滴滴"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="小梦岛 - ROYIANS个人博客"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">记一次笔试经历(四)</h2><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span> </a></span><small>&gt;</small> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/经验/" itemprop="url" rel="index"><span itemprop="name">经验</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span><div class="post-description">刚刚参加了某公司的笔试，今天总结一下吧。</div></div></header><div class="post-body" itemprop="articleBody"><div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus><label for="hbePass" class="input-with-label__label">私人笔记，请换篇文章阅读吧<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="8a6c75914322319e60665dabc6ee9aac79b0117cfb2b7f4bc4e37cf23a2ea03e">4f7e171f6b0912b678a21d99b66e052b62e18f0aa6653e981286199840fe980b35e7acd74d018a3bd83e389ae06f5a93245b21b33c4dde6e4893baf13f4f551bf427957c40fb000d4b659c9e88939f71941b875e208b2723c87d79e960aa2a60a9a8ee85420e0cf21750e4a56342636740b2fd8fe70f33fd06197734eafe3ce2a53654e2ddbf4d5891933e4645189be8d179b6941e3fe18a2aa0ec5557287ab88a7f845e4d46342e3479a340ba17cabacb8591f1b9779bda9e2cfd68fa5ee4f6fd5305f74e3e805e72a4eeeb152f46cd853d8e5b274ec060eb1741fee1d655fbce2473ede356047dfb21953cbdd2f463092da6010811c1d0d23204574bebd2facf20b2c0c0f3f0fd4fa9630c72b4a5fce8199f3dad325873c1090a34beb31623db0e5a7c0f865487b6b9e4a15e0745ae76c5206285f6f237fb1824b42ad13c7572a3e92f3c4b3790da82d1fc8d44763c463285fc181020485a3a34360e70f0c684f72a00930e338940a8342b798a3758b53321b25a6fb91ec8a5a95aa44eb8a2a2e20ad52e521fb1c010cd8cd5f785f1bfcb037ddff86dc99a7c8cfd73afd80debb03c8bc109df84fb7fcf7ebbda6115c2e01fbdf7f9cb2bdee32e9e5fdd178380d2d687dbff6c0567b95888f55c37b6ba49df9dbe8af21054e1295e8b896c1bce7d71cacab07476c2a001b61865ce534af054c19a9ddd34459831da020772bdcaba77d6feb81851927a6a3476539a4b3930d8d1f4f968cdab4ac7eb604fbe12f6e9a6cd05a3a522d2689a5846ab534b2a76f634b35b15c397c62b03159b34f4777bcbfba2f6dc7d23ab7b2a9dcc146836e5794fa6735b99339aa700b82b8cde12b8e83f80360eb3d5fe697b9a6a8bb656c8fcbea6b544b6bfe041326577326dbc93e5912136276f6a944b28687333308964ae7aa4b2288411c84d9e9c7cb538a261a0022c353bebd6040cfb27836ac235ab175db05b2d47483b0569d0ab556d60b315a22e99ac2721ccaa50a054d3a82bf812c0da507d4eab1f917946b142eb0e404f0cd4a388ba0b2e22a35df45ecd23da6d8e59e049fdbf0dcb7044d5c19a0b1c9b81e98cc306501b5d0f050f831c2f95b5374e2212df4df61831707855b9701d6433cae4dee1f8f325e92c313d20954938869c9cb9253b31de00bdc5020d64e8b2c95bdc270f5944f29bad2e078d87dfa2fae870d7041857173a3ce9cdff30b919877fd6bcccc11eada0fb04fd8b7b2decb1cb7c7222e39c8411b9421c526358f9dbb5a9a5db1bffd391cfdae844e145387ac81824ce2ef78409341f34175f0434992d4a5593b5ea5c512e1d5f4560f17a9fca87aad7c1020bc396cef5e4f635be180b8f7a03b2b34698df6aea3beb7013cc9171095460ad4a6ca05d880629b65ee63fbee8628c18f58efaf01995ef947e2d0a8e29a7e8b3fb7f7ff3d684765fd1e695d24e112737a83f0f361ff4a2ca8d8ed935b53975d7ade3a72cc32be82a0161148711be307c55f0c5844346312fe97091891796802dc31a6424571cfe389f80c370fb98726b67d7af9c39740c50aa4a871c84606071c2788203ed9f0c62eb8c12bbdb979e847f36093864b6b00e9486bf152905f5a1e8b4d8c47f2f6cd9c4ed2d4a3bda9b15f6d425b7eca3bb73f2ad69325128e4a540bd8805049acb565d0459462bf43d9745348fcc4c3824cd5fdb0dc84d03783ff2172cc531f7868072c98d6c00165cb7b5e43a3899dca206b46fbc963d642bf57450c32d0efdea069c28e446beb6a43404ac20eb6d05ac7af8807ba31c3ce057d3b1e58521a26e1435ace2185e7163a66567fd88098352c4e1be7d897f3a04d8820547f222159128c3417fe4e041737c9c4705dd182118c81b286d7d7b00015affd2c2f65a9e715c0b2ed46bfaaf1d416b39f1954c7af65794ed806f3888513660a037cf3fc205d87cea7fb4526bd622fd508faa626a1e13609f3a1652917a960747ad68a56e1d971a70963eef4f7e38baf6b3ed991b33e260716c220179f42104e261302aeb586975503de47b3b2fb1e96f5863ea624deee78751b1896a9c57729a3c1dca5a6bf71e1110c258f744a0064fad3777f9c105bad1bb48feb58a20e75e462d5f0f0ff3d6ce3f9a1fb9c5b723633357cfeb6989d62fb1026dfc55adf065bd52ed1806987f9c4f8d8f6fff04867d6cca613e95ac487139733c2418a1fdb9793511038321b5936c3e069a1f97e060f80b126b5930bb53e6362bd967942aaed77a844bfd752558784f68abb3b173b5c80b5d226fa1589e6f580ad9ce99f3b6c3eb4e92f82d151ee59e124d83d0999114543953f7a8081490e188e032986e1c6f9c1a0de5d1a8c5f386d20a3c6bfdb0c36a7f5cf54ea0348ccebb94151136d14e9209d09f2135c4a349e4c9c410054e8854de58ea5f84f7cb21fcbbb23ac7dc35bac58f95103d9b81d92b20ba4557538b85284cad408df1c362f503a89769d8abb6f25c3ce3f3487f2a39d7afab060ede3e6266141400f0871cc38876a9126daeb081ee27772ff46105272f3d6118522c79f9957a104a1d4566e21a6269bcf14e9cb6efa0058f5ee27a498035e07ae2d7ef46ff9ff9cdfe89b6790139699bb7598d823cbfe262044cebf8f05ba11e5d58e5fd667443d63ae0c2ba140245e991597d4841481b25cfa5f3a7c0972a90ac5e115d684d915d0fbbac0c300a9065cdbfa1199ba949ac71b73a451c253c70477543371987f51ff057973074fcaff5acab864ae3952410655d4d69b3056e1ae7cb3005445f0422b6e82a1e86d21c92cb2db3881ce7e89c395d6fde1350e3348384c3adfaba5a3c1a303f1a61e3a00c5203fb6401699e5a0a32b71f38b63785a4f58214a8a0d78fda77db305c063705724a2dd66379fe36d5fcd4e77faad5e7bd93076db5790c9955ad4fc10dc08559ab141e8fae5c3d1fe20d99079484b4c9f94bcd41ca892afc7fbf45d8de3b657a76db2eaef00c84e84bb58bd5a3e42b1e9dc5cc243bc3bc928a2c188829409df069f2580ab5872c9ee83de8e90f7b5e93b88395f195ad9279fd3770fb143af444308b591ec9b132284901a8eaf1d5ab59fd86c8ebb63c41fd023c7603014c7dc3aca618acb197179adabb1f991a5c6d88d4e37a09131b2108b3881a78f6bfd0b5bf54a9b275fe6a2cfa93777668ec43efb6b386aa391a05e1e15166640c25f57d2538f5cb0da5089076da371b9118c7638269410c898954899a6a54a8859c8270e07e84356398c1e32f2177e8de554f08e73109df2685ce48338892d0e9d3897abb7d776f75ccfe1e56d5502d2cca3f5d20f6794fa6a132f8bae18a64ded06742d804bade78bf7adbfdbc8cc60cf999dd22dbbabec7ed334e343df1aaaad91e9737b777bf75c27876ca3227580bd2a05b8f2738f8e5f76d8df2a637269258c2fe5121dbafd02115e5df045d485ed116b7b1e7414d0118e78c82766ed9efdaa85bf3482d9eadc646fa6f6185656a8661cd019438ee69aa3a98b68aba127c2a6e34005e6069dd2fac5786fa5f1131b43084890fedd949ed916843bda840bad3c83f78a344b069b05a5b80465e8422cfd74eb2dfa3edfe36b167167665044ecb5e6f9c51ca6b2626a0cce22eda53d9f48c53d5c4f9f183d0aff59093776ff013cf13a7aa9fba02ed687e30874ab86f9492af40d23484dcf8fb6e994614201dde8f63ddc9bedae469dd82e33d8483f288ae00c18f8fb61aa0203d1480c4f337a4ed66e4bf26c81e689a7c68bf1ba70d0c7ef5fbf47b401a09839df0379502e65a54c81d195d8c6eae35cda54f4d5aa88c12e7443541d84e72775a322dd1a62edf7baac925ef3ca63b6530aa7a092e0bed263ec771dc2a790e00bd905672028bdc37c5e09ebcda0d03b55626710544355c0b74f89746bfab54d1da55675533581f752f0e8c5c8837220d37f094fd03be51b638317441f4658e4746795256bd74c9ae5108760ba27f40258f11ef43dbc5efdd16b7551fc077e17f63a0027da005fcb883a41752f0e4b35057ad25dc74daf5dc793dafdb95bac74e913ec4bfa35ebabe9fdc7f49d9f3cb0b42aa974db761202b7bc87eeefc2690620e05df2200e7dc620047739d89f09665a856785fcbd3e0b4da5b3da5990a64c69aed19140dd8466602096a1008b419fc2833f0c57e184f232b4eeb3c1a087c98e89f4a7bd4618f58aa5d279b7bb0485909a6daeb215d7d9417af4ec1ee93b3462a1865f3cb4cbdcb41562738b3acd4c0242f0f456e9ccc0235b6b539c0932970feb719a9714103e8f0f887d56a1a4546570f6dc3ff4e3457ce27d37f3e59ad1e7bc7670ca31901ec4e8eca560ae0d563cfa33eaed85af2475cab4b6f2d0d3e3c25fc838e761b179487b3a250685703239458217e156d166f0717f26df897b1e8bd8f0f6e5c92fd8dfe0637733604f06d9702d49e1aa3cca2df8ef4ab51f8de480e0bcc29c20539a2f183739a917090c513d3fcb1374ea15151593604ba179fd7d82a48ff01f2fd4a8b6b58746cd54fdb2e5a30c1aa4a4b9eb4209c88393ee915a28ecda036bf9390158d52dc461be76cbfe19b936c0cb1b6b920759d1f4d7bd0e58f0f43bc514f86d479aad4455b092daf8387d0c4b162a4992029b07c50e4960fe5ad10e40c9ba9243a1b90c0f5a003ee563dc22b1d36357f7598b651ba64b5591e946abc4df0eb3a2172d56e7fd49d7f91192741f8824efa17229b0cba92467d590ba0b3bc68788b840e76ae0d3296b2f492f2998d15de51e74ba4d24cc3391bf9ca2d32cde66b9d9ee9bdadb8eb7beff7fd94d6d9639e134423daffb44b5abf7c62f4fe7e2f27cc989d6db9b9a4a529031a580f04e53b2c290bdf361c3d6b932c8076f431d034be7081a03ad44911a1f7d969215dae8fd1221b30c5655baec70af417a8152cde6805e1fafbc9db0b7995c7e9e69b27faffbd6cb361426637feefbcdabae1ef139019a68c620b6350eb34393a5b40f662ce19dc67d6913c7ece69386e89b46bceecf69d8a75be3048a4c4a98bbdd2c03558952b014e85c806b344b318e0b786e8a1cd4fed35c67b80fbae8996407223518427b3905634267dc6afd473c4dedbdda891cb6ebc4472e90a7dbf93a47aee705971f5ea803e4ab33dd7ea2f66073bc144a4cc90b462a45b1c974423485de0f45bdc54007552b98efe591effe2548202933ebf38d58de59f056c7d3a8ac372f3548cdfc56ab5210a63a50e59dc74040272f9f079ffefc9f240cd8af318cdc638649d4100078550aaea75a82610925f342a2e42d6de4737165ab1e59d866534a5d4b632081dbbdeea3c0293b7fe75b7582f656c7e07b21b6ad6edfb43b8a3977d3cbc4ebf68afd8ae32c607a178d52dafd8b94bec4c3df88702b98e3b97eea9c158ee1281b7b877e2b0b0d2fb17279c9b28d0eb9de315bb7abcb463d77b8ed61da1d41416a95e5b9ac063c37373fcf44be09b58ac0371c08a86dbc7c16a1e87e3023502bc711dbf6f3ab7fb27745499f7fb944078c3c6469b4e0f0cdd08773cf18033f29f60bb1c010e742cd552b667987db68631312985e3e041a39e58539b4226df0af9bde4789dbe942038a9b1dbe4e9e1099bd45b362beedff282d6378fd72cb15dd7aab863a59f54b4ec3ddd6d57709c67f9ffcd4ed82cfdbf055b46009568d4271c90154ac81aa20310ec7d238086f376ef06912120826f5c63270e987a4c47816c090d1e31ae99526fd63d1368d1f2f2a7a77657fc0a8b1c6e365b023eda2351373553e9dbe1456f2e91ecf15a6d98a0714b1c72e144b629fc67cc5c6a9e622ccbf7ffede8990b58f2a7182887ced0b38ae81876dacdb204da5ef743bd69f093dc5812d6d720c378fba904060313879176d6ae3d64b42ea2c9af8bf70e89dc9537ec196d7a506cea4aca8862bdc40536212f2617b87b330ba1b03a9ff6094f6f59a6cc86fdbf1f9cb919b7bb753878170fa2545c4eee693cf19296153f3516c9f8d156c784cbe3f1035171d30b4e5f7981fc6cf376b40ec575724f70863b371edd5eca5e6b1f40f6db62dcd5573e8e4bbb2c6d1ca27fd49b7d65a8200e807477764e818cc65a747e3f4ccc0994852952af58f277151d2c42c69ae9de4f16f380ad997bbe5c6bf15259224d34fd269818028a57fbc73be4b210ecb230526ffd3875538ab466fafa06418c0624d261a72d13e97ecb197b63c0430e340b13ccf495a7ab16247982882d9d0ed771bcc61d197816e038b31b2edcd83d8135e6bc62ef539308c21f8103217fdd944c0b108472c814a01b10dd10c591783b5b2373d5007676ee1d4a54703e11ee79f2f6476105ebd665e06d6dc11b7b59313a4ef4fa9eb53e9b8ddb90f5a40a3d9dd7765937e775e9513c2d1fff7a03a8c0f4683f1c06bce7c8</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"></div><div class="popular-posts-header">相关文章</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2019\11.06.9a314c8b\" rel="bookmark">记一次笔试经历(一)</a></div></li><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2020\02.08.9a314c8b\" rel="bookmark">记一次笔试经历(二)</a></div></li><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2020\02.15.b4c3da40\" rel="bookmark">记一次笔试经历(三)</a></div></li></ul><div><ul class="post-copyright"><li><strong>创建时间：</strong> 2020-02-17 15:10:15</li><li><strong>修改时间：</strong> 2020-02-17 15:27:25</li><li class="post-copyright-author"><strong>本文作者： </strong>Morty.ROY</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="https://www.royians.cn/2020/02.17.4e80354f/" title="记一次笔试经历(四)">https://www.royians.cn/2020/02.17.4e80354f/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/tags/笔试/" rel="tag"># 笔试</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2020/02.16.bdf2af77/" rel="next" title="在Windows系统中使用Linux"><i class="fa fa-chevron-left"></i> 在Windows系统中使用Linux</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></article></div></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不定项选择题（共5题，时间5分钟）"><span class="nav-number">1.</span> <span class="nav-text">不定项选择题（共5题，时间5分钟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#填空题（共5题，时间5分钟）"><span class="nav-number">2.</span> <span class="nav-text">填空题（共5题，时间5分钟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程题（共2题，时间40分钟-第11题必须做，第12题选作）"><span class="nav-number">3.</span> <span class="nav-text">编程题（共2题，时间40分钟, 第11题必须做，第12题选作）</span></a></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Morty.ROY" src="/images/avatar.gif"><p class="site-author-name" itemprop="name">Morty.ROY</p><div class="site-description" itemprop="description">记录生活中的点点滴滴</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">41</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">19</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">36</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i>RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a> </span><span class="links-of-author-item"><a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a> </span><span class="links-of-author-item"><a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></span></div><div class="site-description" style="font-size:8px" id="QQtitle"></div><br><div><span id="QQtimer">加载中...</span></div><div id="QQprogress"><div id="QQalready" style="width:0%"></div></div><br><nav class="site-state"><div class="site-state-item site-state-posts"><a id="QQgeci"><span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span> <span class="site-state-item-name">歌词</span></a></div><div class="site-state-item site-state-posts"><a id="QQplay"><span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span> <span class="site-state-item-name">播放/暂停</span></a></div><div class="site-state-item site-state-posts"><a id="QQliebiao"><span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span> <span class="site-state-item-name">歌单</span></a></div></nav><br></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async></script></div><div hidden id="QQcover" class="QQcover QQisrotate"></div><div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">ROYIANS</span><br><span class="post-meta-item-icon"><i class="fa fa-area-chart"></i> </span><span title="站点总字数">277k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span title="站点阅读时长">4:12</span></div><div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-fire"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div><div style="display:none"><script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script></div></div></footer></div><script src="/lib/anime.min.js"></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script><script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>if (document.querySelectorAll('pre.mermaid').length) {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><link rel=manifest href=/manifest.json>
+  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<link rel="stylesheet" href="/css/mytheme.css">
+<link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css">
+<link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css">
+<link rel="stylesheet" href="/font/LDL/LDL.css">
+<link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="manifest" href="/manifest.json"> 
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="/js/sadness.js"></script>
+<script src="/lib/Qplayer/jquery.marquee.min.js"></script>
+<link rel="stylesheet" href="/live2d/css/live2d.css" />
+  <link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+  <meta name="description" content="刚刚参加了某公司的笔试，今天总结一下吧。">
+<meta name="keywords" content="笔试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次笔试经历(四)">
+<meta property="og:url" content="https://www.royians.cn/2020/02.17.4e80354f/index.html">
+<meta property="og:site_name" content="小梦岛 - ROYIANS个人博客">
+<meta property="og:description" content="刚刚参加了某公司的笔试，今天总结一下吧。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-17T07:27:25.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次笔试经历(四)">
+<meta name="twitter:description" content="刚刚参加了某公司的笔试，今天总结一下吧。">
+
+<link rel="canonical" href="https://www.royians.cn/2020/02.17.4e80354f/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>记一次笔试经历(四) | 小梦岛 - ROYIANS个人博客</title>
+  
+    <script>
+      function sendPageView() {
+        var host = window.location.hostname;
+        if (host == "localhost" && true) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-112028390-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="300" height="390" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+    	<div class="live_talk_input_name_body">
+        	<input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+        	<input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+    	<div class="live_ico_item type_info" id="showInfoBtn"></div>
+    	<div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="音乐地址" type="hidden">
+        <input id="duType" value="douqilai,douqilai" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤小埋</div>
+<script>
+var message_Path = '/live2d/';
+var talkAPI = "";
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+
+  <div class="container">
+    <div class="headband"></div>
+    
+<link href="/lib/Qplayer/style.css" rel="stylesheet">
+<script src="/lib/Qplayer/script.js"></script>
+		<script>
+			(function (q) {
+				/* 目前只支持网易云音乐的这几种类型
+				 * type:
+				 *     list - 歌单
+				 *     dj   - 电台
+				 */
+				q.type = 'list'; // 类型
+				q.id = 501873788; //类型所对应的id
+				q.isAuto = false; //是否自动播放，默认false
+				q.isRandom = true; //是否随机播放，默认true
+				q.isRotate = true; //封面是否旋转，默认true
+			})(QPlayer);
+		</script>
+<div id="QPlayer">
+			<div class="body" hidden>
+				<div class="player">
+					<span class="cover">
+						<img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106">
+					</span>
+					<div class="ctrl">
+						<div class="title">
+							<strong>name</strong><span> - </span><span class="artist">artist</span>
+						</div>
+						<div class="progress">
+							<div class="already" style="width:0%;">
+								<div class="Qbtn"></div>
+							</div>
+						</div>
+						<div class="contr">
+							<div class="timer left">00:00</div>
+							<div class="center">
+								<div class="last icon"></div>
+								<div class="play icon"></div>
+								<div class="next icon"></div>
+							</div>
+							<div class="right">
+								<div class="list-btn icon"></div>
+								<div class="lyric-btn icon"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pop-btn">
+					<div class="icon"></div>
+				</div>
+			</div>
+			<div class="more">
+				<ol class="list"></ol>
+			</div>
+			<audio id="QQaudio"></audio>
+		</div>
+
+		<div id="Qlyric" style="visibility: hidden;"><ol></ol></div>
+		<div id="QQmodel" class="QQmodel" style="visibility: hidden;"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X </a></span></h1><div id="QQlist"></div></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-comment">
+
+    <a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a>
+
+  </li>
+        <li class="menu-item menu-item-visitor">
+
+    <a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a>
+
+  </li>
+        <li class="menu-item menu-item-todo">
+
+    <a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+<script>
+document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/4e80354f.svg";
+</script>
+
+
+
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.royians.cn/2020/02.17.4e80354f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Morty.ROY">
+      <meta itemprop="description" content="记录生活中的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小梦岛 - ROYIANS个人博客">
+    </span>
+
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          记一次笔试经历(四)
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+                  <small>&gt;</small>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/经验/" itemprop="url" rel="index">
+                    <span itemprop="name">经验</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">刚刚参加了某公司的笔试，今天总结一下吧。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus="autofocus"><label for="hbePass" class="input-with-label__label">私人笔记，请换篇文章阅读吧<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="c96c9b1debf85d1f9bc05ea58efbc62cb915846003f371029e623f15de060f52">0fd2ceadfa42e8ce5d32036f4b93cd402f04a440685a35713576d0dab09422f021e0e726b346e590fd87f4e722200dd5b9b9564bf8bcae550d5c39ba70bcb2866a15b1136c4e97760d0341249c8877c6af63267776c7e51393e71798c93a5b93c4739e7210e80f24a18252faeb2f7900b020cd6b9b5991a917a100b9c91d2d565486983c5d73a9041ad634129e5e385f1670b7d429d4ad6a06eb839d795192c9d41493c8bfe55baa85131ce146ed0574ddfc3922f7ba51eb78221836d2e74f3736c1717bd346d6cfd29c6b031785fe4e521831a7a26dd3b5d76338f1eda06e9d494a6831f01d7bd5f44fc41eb4544306820684f5874e8d38b3ff96c099a86a3380ec0d6e3995d0833143b236677b406c4adbe727aa71ac1041c6418f8c90c616bd0c4684839b32f97e9b2caede9dc6b7a90c2093e83fe4a73c586539e3125e5b98eee4cf6bffd2c196fa855106d472d16db6aa19ae5374deaa1de009555cf4bd6bed08fd6b6b1de3ff6a69e52cb7a69d1a036529d89d831939b87031936e6a7aad44abd52d092dc547b82ea88f2a724c65267c4e4b164b1c5ef777e2cc0c86dffebb7d840132599a8a1c92d3e344d0e4c82ea734412e1cb351efc2d87887696e00d5fd41ff4808d27b30fbb3a8365bcd5ef5a59f15fa84ea1931134c60cad64e24f20e74e9263c20c061b0e69fc34ea35e8a35e0426cba41b60c0e0b8a47905da35d877d8b657b79352c21cea4be2f38f659e44dc47179db123df3ae8dcc25d2bb6a0a142c3b831a4da30cc8ed6f8e765901cb9f82387b0c1784ca08addfe02f7264431cf58b4a0fce9903f820e2c488c142b6bb3a99590bbd946b6a5c3e9f16c1f14fc433be17e9913d2e43e2b3b21cc0a858128e087056ac413f62bbcf76068d7981f980977fb12ff489733b7118e69388e747c6cf6d1f62e85cd1a64b0f76bb68a7ab403e7d46ba38ea0114fd4cb504b0791abb2764f1926ca51a38e2791036094e4e54571636056a9837598350aec3af53a9c4dc29314053778fa1628e2bd6859d2d3464beeb688012f2d8736cbd358e669443ace07d5a052a1cefbfcde2ee11f53b0aa6c3cb60c6db6e02fc084a9e95bb0d7d40c79eeb33a408d9597d68c7b6b5cb6dce15204166bd2172afab2f09c37f70308b7fbb0189675fdfcb609c423280ef72ff7bed02394313775dc4a86b58185764ecd016362d0b51546e8c944655ab36cf0531dd898b0ac8f22ecef40a622e22485b94b503b8e9245397e874dbdf4f7d1790c68a795f528941ffcf0f57047fda1c3ea3c71475595a2df0ab0cb3b3ed8746ddcac9534cd689b7172123c8ffc3dc1483c97b123ea017967f9db06c4cfc54b6e46540542f04583232d9127ae4d79f6a34a417c0fa537beda6e4e4032bd5bdd828a5ab2fa16604ad0522b205ccff2669bb894e1ab408c02a4a57a3a9281c7f48f9d1d961407c094ed4d9d61e76d3d9725051b0081f75a6652d30505fa4e2108ae4f580c051d938ff02da8058c1ef07fcf4e3e399f99de3dcd6a386ecca04221fe7b925ae96fb370a82259f6133733b88e2dad3798e787ea9537c25e6e460795a5a75d49cc88360bb4e5d0aedb22a6b2bd3d482c0d7a219040f757a34d2085cc738dbfc2595b3fcec0528713fa0f65ab7625a8e1027fbb40ffaaf4796d8e66892d5bf6f95e2448ecac864e3d660a651125b6f76d87b82659335c5a42e56ab27ad6b9b53dfde2e08bb00ed1139d103264189c9d14987e2d1c2290e83bc68d896fda49a6b266babe7cb2770ce94d7291072458d171660d572cfcb30153e916b2c1046e1ffce141ed672e47301e2df8f458b753673463b393a32c94c6530d12f9bed4395515ebfddffcdbf28a56b95ab76a3f3334072b38199f97b94982aa6afe926afb61091dc1e3fd9b4604ed79517b7c61891f0cdd3228a7de80795b47d61306f78971b9c866fc827a6f10eaa036210032ec0187ed8a4642eb8bc416a14199b678c26faa853cb344cf210c1508b8446f97cc8c4933f9f98bd3cc448fc4c10aab344e24d8487c25f0ecc47c140fe6bebfb6a70af8116cf54ec32e3a645880dfe4c2708d17092344414401c02ceccc806ed5665257c77e3f587018c9ed29d37797650e1bf5214a9406e3ea2b1f61918f5badfda598574f117d0b75ec11c3472d486312ee1524ded556bbf8ecf16bfda6486b114bc970c9dcfdea1e3539f97780510c8b774a3fe397f3053a1ec0460604460d149f962f5e67e6f1729320f1a277b6c5ffc1cbcfd18536601d0171cb52fd98a22ed7a35715cdbed092d1c4ffa6ef7a1dd7feba1bff80988d7b9de7db1ca2cd00fceba49fcaf809802f6d2c1f990082faf745ec2daff29093f1536521051b44ae3ae8aafd9c5e8bb83eea0e1993dfe4c9116ce4bcd1dd72afc14af5a1c9a8b264993bb4a3900edfa6edeb9f6a2702ce792a9663cb4d1a0774d76f53dffbc603e75e9270da489d7eee7e5ff48817402a1c911fa538c5c8bd27762459cc8af4836a0958a66a230bd74f1050a9a8096c931aa26cf2fd3c1d262a1766afc22abe84bb56763e6d4827da9319430898dd61e54c023fb7cb585d269f84f5f1fc4c431f82e12bdffd47be45ec259980f774aa825891868784c39540a984980dc345e55af1e086c3b01820e424dc3518b2cc46116d2c62e2814bda856f7299a5e03a1c7488f9469b6aa3676d6eb4d615f3b23df490e18109bc0377459993e1537ce0c6dc706f0a289f9ddaa5edad467fdcdb25940934abb28e5436cc7bd278906a889039172014b70580e0d4a3281dbcee027aa839d5ebb5cf570c61c6fe35ae38aa15630374553e5a3c71db65bf5a1008e8cce2911c85301c52a662b32d201a2a07e5662bf4e2d82d0c6aca8f1fd62e90ac7acd20763e2f7a224a9d60b830da5a69ee1a2d17374829f4443bcd86f8eee8bb8cc915c550a1dea6f2ed30d19920beec804520cb8dec7e07bfabac1fee133d26f30108711fd90fb5c79e853382e991e661bf1c7fcd77855c31aab2e43ff4d87f338e0f74d819ceece64502061d9157fd979ce33300e7a706215bbafdb5662648c8078a9566ccc0318be15ec0535c3842ee2133e9e4fdc66d067f5a3e9d4c939ad48f20f5f016063714b202c45a29534b439218425b63497e04f869dd1e9fdf0e3cb2cb0a8c19a90e26209f30e1343df9ae0d610de4bd5f11fb642f33c94c56fda4ee1012ce4898ba98a88412b24f12b1aff88452768ac0aa9aca488ca4dd310c10f6c2dff954adef6c8280dd9199d695c3949b43e91ab4fef8f4d2aa29ebf28f166e156baa533036edb97e3f0ffc7bdba0a879f7900923201c28b546226b88bef1d099556874d930780e1f13bed27de41e5cb0ef4443ca9698edf57b69045ac179ce626362f52cf4f3415fc0341c658c169b3bfef5ef437ba78789debd21d4d2987a44741dda32b1ab15131036dcc28c4fb7c680104c108f4440f44b35acd063e15040a84f8f2300b12a11963fa7063d4091bd07793f15e8e5986fe15aedc22fb03b2edbd0837432e7002354cd34d03f8b68f1506d7c509715afd1ff899930ce3e9f16fe8e0e0ab826699c993a3b2b395dca2bc74631aecb18c048948bf260f4f907cc0ad2bc465a3fb30b21dc4d0988e5b7a127eba8ab9df88edb51ec48c577cce535dccdd48370fa5b9523b7efd9f17460da1cbaa1996094925fdd47967703de23193d160e901d4442d7474ebf0861cef2a5202981fb5e152641cec7271b45c0efbf3bebdff44d2bb6651487e6c64754d26be2a015ec813ef1933d1ba5cd14e9d5e89834faf311302c5431a57b48ffeb9afef664cf72d5ed759ed7c224188f2cf5b7ffcb653e4199c7ef1cd30f928dd829d8a1aa9da4f5d79fb7a9650f9f940a1ecf82e48af809b5f38c77ce44ae9e405ebfc37738407e8b797d61b16a1786902e3fb3d5caac2920558f605e19c7583793e0c36fc2ab9d1030d66833d10ef2e4ef82c169ddffd32614b6c90e23278f07ee0003b4d00fcdca8342b2319d880817bf918e353dc7d28659307450a577c6e51c1acc7e06a5dab77041a969d52b6dfdfee9fa62aa16881efebdb4a63a31c578ad1c29eb3ff7d52b94ddbc08ee5fd81627d57402517782d49d5cc42d89ebf7ce96203a0ea0bd47d9332dfbec10fe74636bf5bd18c9ed2e610751ff23681e7c16b24ac354daae44ce006f3ef595842c4cf0c97a6c8c84d206a7181308954c620e12c2867bec43e1e2b8d70668e8aefae6885048049a013fd430af5ab7d72213dbec3546ba9c79ea52421db71bf1ae3555a43264a9898022ec6a8007abdd7124de70e85aecfee0003d3d16ae0cd2afc071081f255b79ba2b648d1b9f91de43dff584e4c1ac0611724d9ea8b9c5ee1fde488927860fc73a59a83e0ad48d59d1bf2728be67a4ebb9067b344e70ee079eb284856f5ecb7d0ebf0ae5247697a724dde0f15cd0a53e04e50664819d2a0ae2c2d24123668cb6c7c5ddc53e40ffa01725c178e99f7b18f2ac90e6eb4fad25025eea0f870beafeaac261cd2385c749d0eddb2a013b79603d3f35e947ad522d89dd089faa665bfb2dfe5cf3862a7427375d48b58a036337c523eb847a6ef6cc218f0d0c67ac4719f9886bc9b6f40129c8200e2e214b9fe1f724beac7975c02088ec9017dc52910c7001482da069b69b06eee7125dc455843a96ba13c294b044ed548668361077830cea28a4a910ff7b247ac8a8504e308deb0124e2155c7ef88d3d64f7e34a6984ca9090029af1ec74b679ed73099547300812fcf9a050f74d1c93de76fd0b0b1894f77e133685c9582cb0e2fc237933c23a3a9fe4a6fb9eca7ebb4ca9abaedcd08c4eeacaa534290b27377615de8ffaae2dab9113f23dcaf79fad3a7d8b412ed67a35dbc65fa402458530aa2f2acc84b1141db4b6e55f1ac1b645262509e7c27b866b49bfc73434bc84fbfb1819b68c2d7ff8906e7bded4371d19c8d549d931938d1849b9df64c5383c7928ea90bc2be02aeaf1d150287fed3a45dba046af5869f1765f229caa9638fe60cb17805265a223b5ffbe2859b086af9cfac1c5ceb7de4f24f2026baaeff90fe67bd3d70603f25d9bf92801b416aa6122c79061a9b4cb96cc40a2a3526ca3ce98944d6da55e176a62e87df8fe638f8db58fa3520989b58f46ccc3f41be6a8ca930e6caa55ba0ca7f01621304caa7a818b3fcc45153e4d1bb9a70078f07cd9446b1b19f3ddc0a3e286db6f7057a8185e616f86b00154aadaaf50511d1461c1a27369a675ccd26f84ccd69c921159eab18e90ad02542ddbff81f2e8d3474994ba23abbbe75fe9277cffe6222ec5ba64433479da2c6e2efcb92338cec9b62a1f2ab6c1eeba862cec2d2065d68b82d374fd1890a997372c1db6a41e6eca0bc41b0070375237129e52c535ae50d72e9af57b708e863129b380d8e5caae32933feb59875d0a60d53e583081637e6dc95980291969c93428d2f24bf2bf00dba5afb3453291f5d99f38adf89f7f03e04cbf3098f68330525880a316f36ed79d39d19423f93ade2de83e314f9706da5f0cfe9a7d0a8d3e3681834a062ba3a8e61f04ea06c2a3b8782a52cad32333c35026e4902ce2748bd2fa3a2c5113bab827d5e8c8526d46d75d0caf45f3885a1cb7c2973d7e68f479d8c6783c8f3f134f458d141984dcb5bf9132c9e35bc7a4de9e4e8eac1800dc4493e7bb4f70c33bd5534dceeceff49f86e952d54a5837c5bc2f4dc1036207213475f945d1e142c7ecbbb320adc24997efb4acfe607be322c91b240fd2a7bc1e34685de7c92e7264b479946c996f97eb6f5c7b288b38b3d9cbc7a73e221957deb9d5d4579eaab76a2280cada2e8cad2f7ceb9db59425943d3ec5513405ea7f0b25e28ca34c352177e9b2e0dd8453d2bb19abc0f611ebbe26967ef183bb23f8f444e35fdfd123a3512a8599e8bc0148efd40f4db092dbe6d76cc84dfcbdbc16fcb6a6a7f3aec3964917abb0bc6a3d389e3401e4c2561868fa0460463971294748f14861234109b94b5437c178a4853498913d5f6731fd9a9d89239a52b5d81d095c7bedb9f07bc8da69a671b87145cd363569b2542736830d67438cab5c1aa474c31eb2092addddb4b60be0d8df534480891ee0bb2665c9d7476bbdbcf580f0d331f511c47e11aabb726b34b4f59809f99f7506431ac7b744b344ee2dd18cd5bffe95516bf2f01ac4e5eb38e815bac795d42931c473aae539de36078654d7e1045f6aaee845186852091ba29d8a2c9e4db4359ce630f3c40b4573ce6698465d72126058c073c8fe618ec916c975bf9562aa2e9e3f5e129cbbaf50111941844c18cbd96c6a9dde3e8535d9745ee6c117c80018aeb1021e8d07e23c7dea9</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\11.06.9a314c8b\" rel="bookmark">记一次笔试经历(一)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02.15.b4c3da40\" rel="bookmark">记一次笔试经历(三)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\02.08.9a314c8b\" rel="bookmark">记一次笔试经历(二)</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li>
+    <strong>创建时间：</strong>
+    2020-02-17 15:10:15
+  </li>
+  <li>
+    <strong>修改时间：</strong>
+    2020-02-17 15:27:25
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Morty.ROY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.royians.cn/2020/02.17.4e80354f/" title="记一次笔试经历(四)">https://www.royians.cn/2020/02.17.4e80354f/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/笔试/" rel="tag"># 笔试</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/02.16.bdf2af77/" rel="next" title="在Windows系统中使用Linux">
+                  <i class="fa fa-chevron-left"></i> 在Windows系统中使用Linux
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/02.20.d281d887/" rel="prev" title="CentOS7安装mysql和redis">
+                  CentOS7安装mysql和redis <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不定项选择题（共5题，时间5分钟）"><span class="nav-number">1.</span> <span class="nav-text">不定项选择题（共5题，时间5分钟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#填空题（共5题，时间5分钟）"><span class="nav-number">2.</span> <span class="nav-text">填空题（共5题，时间5分钟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程题（共2题，时间40分钟-第11题必须做，第12题选作）"><span class="nav-number">3.</span> <span class="nav-text">编程题（共2题，时间40分钟, 第11题必须做，第12题选作）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Morty.ROY"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Morty.ROY</p>
+  <div class="site-description" itemprop="description">记录生活中的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+  </div>
+
+<div class="site-description" style="font-size:8px;" id="QQtitle"></div>
+<br/>
+<div><span id="QQtimer">加载中...</span></div>
+<div id="QQprogress">
+							<div id="QQalready" style="width:0%;">
+							</div>
+						</div>
+<br/>
+<nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a id = "QQgeci">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span>
+          <span class="site-state-item-name">歌词</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQplay">
+        
+          <span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span>
+          <span class="site-state-item-name">播放/暂停</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQliebiao">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span>
+          <span class="site-state-item-name">歌单</span>
+        </a>
+      </div>
+</nav>
+<br/>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
+
+<div hidden id="QQcover" class="QQcover QQisrotate"></div>
+
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ROYIANS</span>
+    <!--2019.11.01修改，增加换行-->
+    <br/>
+    <!-- <span class="post-meta-divider">|</span> -->
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">281k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:16</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-fire"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script>
+  </div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
     mermaid.initialize({
       theme: 'neutral',
@@ -8,4 +725,20 @@
       sequence: { actorMargin: 50 }
     });
   }, window.mermaid);
-}</script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/js/sw.js?t=1581924508387").then(function(){console.log("ServiceWorker Register Successfully.")})["catch"](function(e){console.error(e)})</script></body></html><!-- rebuild by neat -->
+}
+</script>
+
+
+
+  
+
+  
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/sw.js?t=1582193159494')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,4 +1,723 @@
-<!-- build time:Mon Feb 17 2020 15:28:50 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><link rel="manifest" href="/manifest.json"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 3.9.0"><link rel="stylesheet" href="/css/mytheme.css"><link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css"><link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css"><link rel="stylesheet" href="/font/LDL/LDL.css"><link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png"><link rel="manifest" href="/manifest.json"><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script><script src="/js/sadness.js"></script><script src="/lib/Qplayer/jquery.marquee.min.js"></script><link rel="stylesheet" href="/live2d/css/live2d.css"><link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css"><script src="/lib/pace/pace.min.js"></script><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Muse",version:"7.4.2",exturl:!1,sidebar:{position:"right",display:"hide",offset:12,onmobile:!0},copycode:{enable:!0,show_result:!0,style:"flat"},back2top:{enable:!0,sidebar:!1,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"manual"},fancybox:!0,mediumzoom:!1,lazyload:!0,pangu:!1,algolia:{appID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!1,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},path:"",motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},translation:{copy_button:"复制",copy_success:"复制成功",copy_failure:"复制失败"},sidebarPadding:40}</script><meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。"><meta name="keywords" content="Java,多线程,未完成"><meta property="og:type" content="article"><meta property="og:title" content="Java 线程池"><meta property="og:url" content="https://www.royians.cn/2019/10.31.bc557e1a/index.html"><meta property="og:site_name" content="小梦岛 - ROYIANS个人博客"><meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2020-02-13T08:43:38.085Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Java 线程池"><meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。"><link rel="canonical" href="https://www.royians.cn/2019/10.31.bc557e1a/"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,isPage:!1,isArchive:!1}</script><title>Java 线程池 | 小梦岛 - ROYIANS个人博客</title><script>function sendPageView(){var e=window.location.hostname;if("localhost"!=e){var a=localStorage.getItem("uid")||Math.random()+"."+Math.random();localStorage.setItem("uid",a),navigator.sendBeacon("https://www.google-analytics.com/collect",new URLSearchParams({v:1,tid:"UA-112028390-1",cid:a,t:"pageview",dp:encodeURIComponent(location.pathname)}))}}document.addEventListener("pjax:complete",sendPageView),sendPageView()</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage"><div id="landlord" style="left:5px;bottom:0"><div class="message" style="opacity:0"></div><canvas id="live2d" width="300" height="390" class="live2d"></canvas><div class="live_talk_input_body"><div class="live_talk_input_name_body"><input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字"></div><div class="live_talk_input_text_body"><input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"> <button type="button" class="live_talk_send_btn" id="talk_send">发送</button></div></div><input name="live_talk" id="live_talk" value="1" type="hidden"><div class="live_ico_box"><div class="live_ico_item type_info" id="showInfoBtn"></div><div class="live_ico_item type_talk" id="showTalkBtn"></div><div class="live_ico_item type_music" id="musicButton"></div><div class="live_ico_item type_youdu" id="youduButton"></div><div class="live_ico_item type_quit" id="hideButton"></div><input name="live_statu_val" id="live_statu_val" value="0" type="hidden"><audio src="" style="display:none" id="live2d_bgm" data-bgm="0" preload="none"></audio><input name="live2dBGM" value="音乐地址" type="hidden"> <input id="duType" value="douqilai,douqilai" type="hidden"></div></div><div id="open_live2d">召唤小埋</div><script>var message_Path="/live2d/",talkAPI=""</script><script type="text/javascript" src="/live2d/js/live2d.js"></script><script type="text/javascript" src="/live2d/js/message.js"></script><div class="container"><div class="headband"></div><link href="/lib/Qplayer/style.css" rel="stylesheet"><script src="/lib/Qplayer/script.js"></script><script>!function(i){i.type="list",i.id=501873788,i.isAuto=!1,i.isRandom=!0,i.isRotate=!0}(QPlayer)</script><div id="QPlayer"><div class="body" hidden><div class="player"><span class="cover"><img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106"></span><div class="ctrl"><div class="title"><strong>name</strong><span> - </span><span class="artist">artist</span></div><div class="progress"><div class="already" style="width:0%"><div class="Qbtn"></div></div></div><div class="contr"><div class="timer left">00:00</div><div class="center"><div class="last icon"></div><div class="play icon"></div><div class="next icon"></div></div><div class="right"><div class="list-btn icon"></div><div class="lyric-btn icon"></div></div></div></div></div><div class="pop-btn"><div class="icon"></div></div></div><div class="more"><ol class="list"></ol></div><audio id="QQaudio"></audio></div><div id="Qlyric" style="visibility:hidden"><ol></ol></div><div id="QQmodel" class="QQmodel" style="visibility:hidden"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X</a></span></h1><div id="QQlist"></div></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-meta"><div><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">For my vidorra</h1></div><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a></li><li class="menu-item menu-item-comment"><a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a></li><li class="menu-item menu-item-visitor"><a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a></li><li class="menu-item menu-item-todo"><a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a></li></ul></nav></div></header><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span>0%</span></div><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content"><div class="posts-expand"><script>document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/bc557e1a.svg"</script><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://www.royians.cn/2019/10.31.bc557e1a/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.gif"><meta itemprop="name" content="Morty.ROY"><meta itemprop="description" content="记录生活中的点点滴滴"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="小梦岛 - ROYIANS个人博客"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Java 线程池</h2><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span> </a></span><small>&gt;</small> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span> </a></span></span><span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span id="busuanzi_value_page_pv"></span></span><div class="post-description">多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。</div></div></header><div class="post-body" itemprop="articleBody"><div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus><label for="hbePass" class="input-with-label__label">您好, 这里需要密码.<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="ab32b937e52201ea3d674eb98fdcd4b714cb45c5d1ae493542545e22c493880a">de459c709a2abbb91f30fd7286bc34f78b0b5441e1dc428e93ae00703c0197e07336a8a454bfe74d5bbfbda7aa1ac17f0a1a93cbb03a2e62ee716ff3ed476683b92c2be9b1aa7a19c7b0ff1683e9c6122bd8b22f6f1663b51899a3d577b04cdd8f41e90853f80dd5394dc8e4ad37b5f93b92af90fe784576db77e109b14289686db9b53c89d5e4261113c0bdfc1118e126bee972a879e21379a32e0839d71c0230ace6efefd46ae3de7cd1eaa23b4fab03287a0b7b9b8cd5b38418cd814409bc6968ff425c739b25091c2ee4fa8fed3e9dad3db6d41aca42427f406553e0ad493254838b88844e47c222468cab7bc015c5591be946b29ea667293bdf768875f8adeb3c06ff57ae262a4f1cf95f5444bfc110feeb58b798b74ace2d8972f247c1c3d87fa463963e4737a74b8d981cc6afc3145423da66929b9003e4c225a7b0db4637092c5950c8efb96de691f6bbb4e3f5a5241bd6f086181a5ba0ccae2cee8528dbbc9787b4b4a6ad342d330beea5cf6ea36e15ba8bd45eb68055279c8febaba23b393dcbc758a6d564758e736b1b66f2e8c0443669ec1e0eb5abdf60a0dd12326d24365798bf754902d50beaf8d8c069ae08d46fc7a616f6c709de3712eceee56a4c3cb7bf82bb8a06dc071baca4a32b88dd7032cb522e691cc532f083173ba8517cf297c68b06253506b46abc325d944fa9959ccc36f81c60b89cc533c5eb0897ab2f1f51083f8d42812ee7f3b7803295dd5f8f684e6fda07f313a560d4393dd4ff873b77a2560971583fda3e23de87c898e359793f71652effc3de8fc66f53911371a2855e30bc6ec61a388c3860f4a0ecd330c1273c98a57ca4202918216f4dec59dfd1d0938d7d2899e6fe06ef5c42632447ab0371a9fb26b6b05c97b48724cf610f2845e43011f87687636957d6fbab392dd4d7784ae2406a10a1447083cb38f4a8e8948493125051163ef8cb19480d1da85704d34f813ac0b992c88696ea4cb43007d0587db735c2cebd1706bdc8b26f621ec72e45b1126e661102f0c7e5efeec7949224dc11d48cc9d1795e896b674b01ee5386c2e1d1fdae60fab3d0e31f4c02b913d8eb596c82d9fc799ea8ccf1fcf7525a29b79e2d9379e939ff5d588a0db61594afcac1eef8bf8b7fd06fc53f44591552d74d548c348edca701aee130e6df58465712c8e79d1cbcd0810288a8b66db872a0737bebfd8b7a4a523b5228492d1200e3d9ea59c172281df659b17ee9d2972b46f201a952bc084f92a46b1326a50812323342b150f39fc6ed5a5eaf6194269914c87b97b18347402b94f194ff27225a78c61553627969af139c9b0f0a07e44b171364c19efae4a7435ecdd6da813d269a87a20a4c81fcf0f550efa23c56e0b5020468768a40bea346ec4e6cbf5328a276daaa8586943344b9e41d12930e5be99b15814d8edc1f815d</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"></div><div class="popular-posts-header">相关文章</div><ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2019\09.09.6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div></li><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2019\11.20.94795185\" rel="bookmark">Java NIO</a></div></li><li class="popular-posts-item"><div class="popular-posts-title"><a href="\2019\11.04.4364ab65\" rel="bookmark">Java 如何跳出forEach</a></div></li></ul><div><ul class="post-copyright"><li><strong>创建时间：</strong> 2019-10-31 09:28:35</li><li><strong>修改时间：</strong> 2020-02-13 16:43:38</li><li class="post-copyright-author"><strong>本文作者： </strong>Morty.ROY</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="https://www.royians.cn/2019/10.31.bc557e1a/" title="Java 线程池">https://www.royians.cn/2019/10.31.bc557e1a/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/tags/Java/" rel="tag"># Java</a> <a href="/tags/多线程/" rel="tag"># 多线程</a> <a href="/tags/未完成/" rel="tag"># 未完成</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/10.12.49324a7a/" rel="next" title="我又搬移博客了"><i class="fa fa-chevron-left"></i> 我又搬移博客了</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2019/11.01.49627526/" rel="prev" title="测试博客插件">测试博客插件 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Morty.ROY" src="/images/avatar.gif"><p class="site-author-name" itemprop="name">Morty.ROY</p><div class="site-description" itemprop="description">记录生活中的点点滴滴</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">41</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">19</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">36</span> <span class="site-state-item-name">标签</span></a></div></nav></div><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i>RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a> </span><span class="links-of-author-item"><a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a> </span><span class="links-of-author-item"><a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></span></div><div class="site-description" style="font-size:8px" id="QQtitle"></div><br><div><span id="QQtimer">加载中...</span></div><div id="QQprogress"><div id="QQalready" style="width:0%"></div></div><br><nav class="site-state"><div class="site-state-item site-state-posts"><a id="QQgeci"><span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span> <span class="site-state-item-name">歌词</span></a></div><div class="site-state-item site-state-posts"><a id="QQplay"><span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span> <span class="site-state-item-name">播放/暂停</span></a></div><div class="site-state-item site-state-posts"><a id="QQliebiao"><span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span> <span class="site-state-item-name">歌单</span></a></div></nav><br></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async></script></div><div hidden id="QQcover" class="QQcover QQisrotate"></div><div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">ROYIANS</span><br><span class="post-meta-item-icon"><i class="fa fa-area-chart"></i> </span><span title="站点总字数">277k</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span title="站点阅读时长">4:12</span></div><div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div><span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item" id="busuanzi_container_site_uv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-user"></i> </span><span class="site-uv" title="总访客量"><span id="busuanzi_value_site_uv"></span> </span></span><span class="post-meta-divider">|</span> <span class="post-meta-item" id="busuanzi_container_site_pv" style="display:none"><span class="post-meta-item-icon"><i class="fa fa-fire"></i> </span><span class="site-pv" title="总访问量"><span id="busuanzi_value_site_pv"></span></span></span></div><div style="display:none"><script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script></div></div></footer></div><script src="/lib/anime.min.js"></script><script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script><script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>if (document.querySelectorAll('pre.mermaid').length) {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><link rel=manifest href=/manifest.json>
+  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<link rel="stylesheet" href="/css/mytheme.css">
+<link rel="stylesheet" href="/font/ROYIANS/ROYIANS.css">
+<link rel="stylesheet" href="/font/JetBrainsMono/JetBrainsMono.css">
+<link rel="stylesheet" href="/font/LDL/LDL.css">
+<link rel="icon" id="headicon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="manifest" href="/manifest.json"> 
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="/js/sadness.js"></script>
+<script src="/lib/Qplayer/jquery.marquee.min.js"></script>
+<link rel="stylesheet" href="/live2d/css/live2d.css" />
+  <link rel="alternate" href="/atom.xml" title="小梦岛 - ROYIANS个人博客" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flash.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+  <meta name="description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta name="keywords" content="Java,多线程,未完成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 线程池">
+<meta property="og:url" content="https://www.royians.cn/2019/10.31.bc557e1a/index.html">
+<meta property="og:site_name" content="小梦岛 - ROYIANS个人博客">
+<meta property="og:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-13T08:43:38.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 线程池">
+<meta name="twitter:description" content="多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。">
+
+<link rel="canonical" href="https://www.royians.cn/2019/10.31.bc557e1a/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java 线程池 | 小梦岛 - ROYIANS个人博客</title>
+  
+    <script>
+      function sendPageView() {
+        var host = window.location.hostname;
+        if (host == "localhost" && true) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-112028390-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f519f7f19502f59a9d622978cb3f5959";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<div id="landlord" style="left:5px;bottom:0px;">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="300" height="390" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+    	<div class="live_talk_input_name_body">
+        	<input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+        	<input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+            <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+    	<div class="live_ico_item type_info" id="showInfoBtn"></div>
+    	<div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input name="live2dBGM" value="音乐地址" type="hidden">
+        <input id="duType" value="douqilai,douqilai" type="hidden">
+    </div>
+</div>
+<div id="open_live2d">召唤小埋</div>
+<script>
+var message_Path = '/live2d/';
+var talkAPI = "";
+</script>
+<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+<script type="text/javascript" src="/live2d/js/message.js"></script>
+
+  <div class="container">
+    <div class="headband"></div>
+    
+<link href="/lib/Qplayer/style.css" rel="stylesheet">
+<script src="/lib/Qplayer/script.js"></script>
+		<script>
+			(function (q) {
+				/* 目前只支持网易云音乐的这几种类型
+				 * type:
+				 *     list - 歌单
+				 *     dj   - 电台
+				 */
+				q.type = 'list'; // 类型
+				q.id = 501873788; //类型所对应的id
+				q.isAuto = false; //是否自动播放，默认false
+				q.isRandom = true; //是否随机播放，默认true
+				q.isRotate = true; //封面是否旋转，默认true
+			})(QPlayer);
+		</script>
+<div id="QPlayer">
+			<div class="body" hidden>
+				<div class="player">
+					<span class="cover">
+						<img src="https://p4.music.126.net/7VJn16zrictuj5kdfW1qHA==/3264450024433083.jpg?param=106x106">
+					</span>
+					<div class="ctrl">
+						<div class="title">
+							<strong>name</strong><span> - </span><span class="artist">artist</span>
+						</div>
+						<div class="progress">
+							<div class="already" style="width:0%;">
+								<div class="Qbtn"></div>
+							</div>
+						</div>
+						<div class="contr">
+							<div class="timer left">00:00</div>
+							<div class="center">
+								<div class="last icon"></div>
+								<div class="play icon"></div>
+								<div class="next icon"></div>
+							</div>
+							<div class="right">
+								<div class="list-btn icon"></div>
+								<div class="lyric-btn icon"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pop-btn">
+					<div class="icon"></div>
+				</div>
+			</div>
+			<div class="more">
+				<ol class="list"></ol>
+			</div>
+			<audio id="QQaudio"></audio>
+		</div>
+
+		<div id="Qlyric" style="visibility: hidden;"><ol></ol></div>
+		<div id="QQmodel" class="QQmodel" style="visibility: hidden;"><h1>歌曲列表<span id="QQclose"><a rel="关闭"> X </a></span></h1><div id="QQlist"></div></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title glitch is-glitching" data-text="小梦岛">小梦岛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">For my vidorra</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-comment">
+
+    <a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>留言版</a>
+
+  </li>
+        <li class="menu-item menu-item-visitor">
+
+    <a href="/visitor/" rel="section"><i class="fa fa-fw fa-globe"></i>访客</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>书单</a>
+
+  </li>
+        <li class="menu-item menu-item-todo">
+
+    <a href="/todo/" rel="section"><i class="fa fa-fw fa-tasks"></i>规划</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+<script>
+document.getElementById("headicon").href="https://avatars.dicebear.com/v2/identicon/bc557e1a.svg";
+</script>
+
+
+
+  
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.royians.cn/2019/10.31.bc557e1a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Morty.ROY">
+      <meta itemprop="description" content="记录生活中的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小梦岛 - ROYIANS个人博客">
+    </span>
+
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Java 线程池
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+                  <small>&gt;</small>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">多线程是Java中比较难的一个东西，因此需要自己去多多摸索。今天就来了解一下多线程中线程池相关的知识。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div id="hexo-blog-encrypt" data-wpm="密码错误" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><div class="input-with-label"><input id="hbePass" type="password" class="input-with-label__input" autofocus="autofocus"><label for="hbePass" class="input-with-label__label">您好, 这里需要密码.<div class="input-with-label__label__corner"></div></label></div></div><script id="hbeData" type="hbeData" data-hmacdigest="80d3765a913b0f4389a0b38a42823ad2361c8d7f2a9517ba78c3d9212cdc8e38">b034293a42a2bcb770633db75e6120429d7cb430bded2b4c0fddf3f28e870edbff49bae79172e3257efabc919d815b0fb2a0ad38faf6c735289d0627703ab04b28287e06cbcdfb3a4b3e3e970e03e147bcd92afbd23aa7a486789db4e9d3f372a3e99bc1da485ae11b2cba97d4bf87694a2914642b1148a2aeef2e7951a6d445081c5f6af3110326043f39978161abdd077bae3c7c18ba4514632685ef6978660f17a94b6990e9bb840623a735e178dd8401fbe5d2292994f46189955120ca3d55753424fcd5edc3639ec405950f8b8c0e0e4f1e052af980027230f72afeed7d3f74bd6e2774bf53e2f818f097cbe8be9fd4657aeda6735fa267c3e024197d85f39fc6721ff807e4fc6d213db55f9f8dc1d948b757891d5dfec9ab23c61d59146a0e958d64d5658de147724ed1debea6240d5db08f2769a237c710b470722c870ec4f4d465f2f6fb324b8e14a7465c5d960483d2f159d64d5472fdf897fb50d4da8c33d781928822a5bf21566561a779529cf62381d4ba9e8421b31306bd1cd4c59a3535304d12fc60178e8bf17777ae469f01b3467dd04ec6efe25d7d5181ba124a3fc134f71b9ff91ae01338812312e4dc1c2bf80351d84ec53457988b51492e8ffc54ef8575c980991d0ad95582e9b6deb6565c8437ab1cc32959ba1a4cda4fe2b9588af129e112bb89f385de6cb7ee04c0c973c3d40b756091fea8e33b2254c0e33dd7b6f95065fb01d74b33451d4994ca728275be380258c46adcb52b5557c1a431489233bcb3d335edd0e662fc4be9089567a3b3568e8f1b1031dffbeb9aaea9f3ac7317ec319596a81c770cb2b244c1f064775385369d32ea97033d423fa21b0b435ec24712b78fe29ec54e7d437e8ec86139696ea26f5f1f233ed480ee3ecd662e488eb5fb6117700398dad11d741d316d439253fd461b21fef8568f13127d283c37f986bb599830730d9a232e82b04f49a31637d04a9140b09fa70c03b596b1147bb821462502ebb7838ba5e8db6e4ba695ecf946c7cb15fb45cf680736ffc8b39eb8f9753a46d049b8154dac360f4c317722fce3ccec5f8787faf1c7658aebf06b370c05438d6741f869216ac42394e61d3872407fceed2206fdb7270b1eeeb3b0a9165f5ecf966433cf5c5d44580f000c6587855eff7826a2f430aab278e124c9ae92acff838c4dc1eba5385965dd07cb33e4e34c9ed519dcd040bed89252790d9fb1106c454a5ce8734fa229cb52594073c68f49a03328d1b0f419e23e9a202ca62ce9848f5a29d470bbeea070e950017b24c5b907243c1c0df1e790ee61662ed0bbf727d96310e699be</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\09.09.6ccfaf30\" rel="bookmark">【基础】Java工程师成神之路第一天</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\11.20.94795185\" rel="bookmark">Java NIO</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2019\11.04.4364ab65\" rel="bookmark">Java 如何跳出forEach</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li>
+    <strong>创建时间：</strong>
+    2019-10-31 09:28:35
+  </li>
+  <li>
+    <strong>修改时间：</strong>
+    2020-02-13 16:43:38
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Morty.ROY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.royians.cn/2019/10.31.bc557e1a/" title="Java 线程池">https://www.royians.cn/2019/10.31.bc557e1a/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/多线程/" rel="tag"># 多线程</a>
+              <a href="/tags/未完成/" rel="tag"># 未完成</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10.12.49324a7a/" rel="next" title="我又搬移博客了">
+                  <i class="fa fa-chevron-left"></i> 我又搬移博客了
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11.01.49627526/" rel="prev" title="测试博客插件">
+                  测试博客插件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池概述"><span class="nav-number">1.</span> <span class="nav-text">线程池概述</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Morty.ROY"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Morty.ROY</p>
+  <div class="site-description" itemprop="description">记录生活中的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ROYIANS" title="GitHub &rarr; https://github.com/ROYIANS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:roy.joshua.zhang@gmail.com" title="E-Mail &rarr; mailto:roy.joshua.zhang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/royians" title="Weibo &rarr; https://weibo.com/royians" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+  </div>
+
+<div class="site-description" style="font-size:8px;" id="QQtitle"></div>
+<br/>
+<div><span id="QQtimer">加载中...</span></div>
+<div id="QQprogress">
+							<div id="QQalready" style="width:0%;">
+							</div>
+						</div>
+<br/>
+<nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a id = "QQgeci">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-font"></i></span>
+          <span class="site-state-item-name">歌词</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQplay">
+        
+          <span class="site-state-item-count"><i id="QQplaybtn" class="fa fa-fw fa-play"></i></span>
+          <span class="site-state-item-name">播放/暂停</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-posts">
+          <a id = "QQliebiao">
+        
+          <span class="site-state-item-count"><i class="fa fa-fw fa-list"></i></span>
+          <span class="site-state-item-name">歌单</span>
+        </a>
+      </div>
+</nav>
+<br/>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div hidden><script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5u129bxr3id&amp;m=2&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0&amp;s=175" async="async"></script></div>
+
+<div hidden id="QQcover" class="QQcover QQisrotate"></div>
+
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ROYIANS</span>
+    <!--2019.11.01修改，增加换行-->
+    <br/>
+    <!-- <span class="post-meta-divider">|</span> -->
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">281k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:16</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-fire"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=4739565&web_id=4739565"></script>
+  </div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
     mermaid.initialize({
       theme: 'neutral',
@@ -8,4 +727,20 @@
       sequence: { actorMargin: 50 }
     });
   }, window.mermaid);
-}</script><script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/js/sw.js?t=1581924508387").then(function(){console.log("ServiceWorker Register Successfully.")})["catch"](function(e){console.error(e)})</script></body></html><!-- rebuild by neat -->
+}
+</script>
+
+
+
+  
+
+  
+
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/sw.js?t=1582193159494')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
