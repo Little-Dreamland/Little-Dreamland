@@ -26,13 +26,13 @@ var precacheUrls = [];
 
   precacheUrls.push('/2019/12.25.zhaopin/');
 
-  precacheUrls.push('/2019/11.01.c4442e98/');
-
-  precacheUrls.push('/2019/11.01.49627526/');
-
-  precacheUrls.push('/2019/10.12.49324a7a/');
+  precacheUrls.push('/2018/10.19.cfaef5f0/');
 
   precacheUrls.push('/2018/10.23.c375ee94/');
+
+  precacheUrls.push('/2019/11.28.f815fc22/');
+
+  precacheUrls.push('/2017/08.22.f815fc22/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
