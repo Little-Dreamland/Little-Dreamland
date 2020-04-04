@@ -1,4 +1,5 @@
 var myDate = new Date();
+var y = myDate.getFullYear();
 var m = myDate.getMonth() + 1;
 var d = myDate.getDate();
 
@@ -12,6 +13,10 @@ if(m===9&&d===18) {
     sosad();
 }
 if(m===9&&d===30) {
+    sosad();
+}
+
+if(m==4&&d==4&&y==2020) {
     sosad();
 }
 
