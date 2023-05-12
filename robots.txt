@@ -1,4 +1,0 @@
-User-agent: * Allow: /
-Disallow: /js/
-Sitemap: https://www.royians.cn/sitemap.xml
-Sitemap: https://www.royians.cn/baidusitemap.xml

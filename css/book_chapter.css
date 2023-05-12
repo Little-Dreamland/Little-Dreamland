@@ -1,0 +1,37 @@
+.book-chapter {
+  /* */
+}
+
+.book-chapter h1 {
+
+  font-size: 1.5rem;
+
+  line-height: 2rem;
+
+  font-weight: 900
+}
+
+.book-chapter h2 {
+
+  font-size: 1.25rem;
+
+  line-height: 1.75rem;
+
+  font-weight: 700
+}
+
+.book-chapter h3 {
+
+  font-size: 1.125rem;
+
+  line-height: 1.75rem;
+
+  font-weight: 700
+}
+
+.book-chapter h4, .book-chapter h5, .book-chapter h6 {
+
+  font-size: 1rem;
+
+  line-height: 1.5rem
+}

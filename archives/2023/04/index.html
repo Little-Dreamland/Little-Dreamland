@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CY7HEN598"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'G-8CY7HEN598');
+    </script>
+    <!-- End Google Analytics -->
+
+
+
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?158db2c4e2a8b5c647ed4ee2cbe236be";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <!-- End Baidu Analytics -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="ROYIANS">
+
+
+    <meta name="subtitle" content="VIDORRA">
+
+
+    <meta name="description" content="记录生活的点点滴滴">
+
+
+    <meta name="keywords" content="小梦岛, ROYIANS, Vidorra, Notion, 博客">
+
+
+<title>
+    归档: 2023/4 |
+    
+    小梦岛</title>
+
+
+
+    <link rel="icon" href="https://img.vidorra.life/images/royians/logo.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+
+<link rel="stylesheet" href="/css/heti/heti.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.1.1/fonts/remixicon.min.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/heti@0.9.4/umd/heti-addon.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.11/dist/twikoo.all.min.js"></script>
+
+
+
+<!--<script src="https://cdn.tailwindcss.com?plugins=typography"></script>-->
+<!--<script>-->
+<!--  tailwind.config = {-->
+<!--    darkMode: "class",-->
+<!--  };-->
+<!--</script>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "var(--roy-theme)",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px var(--roy-theme), 0 0 4px var(--roy-theme)",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "var(--roy-theme)",
+      "border-left-color": "var(--roy-theme)",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("class", isDark ? "ri-moon-fill" : "ri-sun-fill");
+
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      isDark = !isDark;
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("class", isDark ? "ri-moon-fill" : "ri-sun-fill");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      const grainColor = isDark ? 'hsla(0,5%,12%,0.14)' : 'hsla(25, 100%, 96%, 0.1375)'
+      grain(256, "--grain-square-white-opacity-blend", grainColor);
+    }
+
+    $("#toggle-dark").click(toggleDark);
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+        }
+      });
+  });
+</script>
+
+
+
+    <link href="/fonts/LDL/LDL.css" rel="stylesheet">
+
+    <meta name="baidu-site-verification" content="codeva-fCRpJWFFlr" />
+
+<style>:root{--theme-primary-color: #009688;
+--theme-primary-color-100: #1aa194;
+--theme-primary-color-200: #33aba0;
+--theme-primary-color-300: #4db6ac;
+--theme-primary-color-400: #66c0b8;
+--theme-primary-color-500: #80cbc4;
+--theme-primary-color-600: #99d5cf;
+--theme-primary-color-700: #b3e0db;
+--theme-primary-color-800: #cceae7;
+--theme-primary-color-900: #e6f5f3;
+--theme-primary-color-darker-100: #00877a;
+--theme-primary-color-darker-200: #00786d;
+--theme-primary-color-darker-300: #00695f;
+--theme-primary-color-darker-400: #005a52;
+--theme-primary-color-darker-500: #004b44;
+--theme-primary-color-darker-600: #003c36;
+--theme-primary-color-darker-700: #002d29;
+--theme-primary-color-darker-800: #001e1b;
+--theme-primary-color-darker-900: #000f0e;
+--theme-primary-color-darker-1000: #000000;
+--roy-theme: #009688;
+--roy-theme-op: #00968823;
+--roy-theme-deep: #009688dd;
+--roy-theme-none: #00968800;
+--roy-theme-min: #00968810;}</style>
+
+    <style>
+      head::before, head::after,
+      body::before, body::after {
+        display: block;
+        font-size: 52px;
+        color: transparent;
+      }
+
+      head::before, head::after,
+      body::before, body::after {
+        opacity: 0.3;
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 3em;
+        height: 3em;
+        content: ".";
+        mix-blend-mode: screen;
+        animation: 44s -27s move infinite ease-in-out alternate;
+      }
+
+      body::before {
+        text-shadow: 2.0128311999em 0.8184920657em 7px #788A6F,
+        1.4484483914em 1.9265866865em 7px #8F1D22,
+        -0.2788863568em 1.6444618576em 7px #DD7694,
+        1.8695038202em 2.3782456026em 7px #8F3D2C,
+        1.4322118554em -0.3056059791em 7px #615EA8,
+        2.4303394509em -0.4408608996em 7px #ECD9C7,
+        0.6788989967em 0.05536378em 7px #7C191E,
+        2.38161872em 0.3402669223em 7px #928187,
+        0.034257185em -0.2544877323em 7px #b6a014,
+        1.6608692799em 0.4925600976em 7px #C0AD5E,
+        0.1730151895em 2.0094080072em 7px #686A67;
+        animation-duration: 44s;
+        animation-delay: -27s;
+      }
+
+      body::after {
+        text-shadow: 1.4386483947em -0.402649144em 7px var(--roy-theme),
+        2.2081843182em 1.2582179272em 7px var(--theme-primary-color-darker-200),
+        1.6320732175em 1.6670289013em 7px var(--theme-primary-color-darker-100),
+        -0.1317454879em 2.1709996677em 7px var(--theme-primary-color-100),
+        0.3592276135em 1.3685870057em 7px var(--theme-primary-color-200),
+        1.4135514006em 0.798005866em 7px var(--theme-primary-color-300),
+        -0.4801627993em 2.4486225549em 7px var(--theme-primary-color-400),
+        -0.3503513418em -0.314802388em 7px var(--theme-primary-color-500),
+        -0.0726957977em 1.3369296939em 7px var(--theme-primary-color-600),
+        -0.4520564422em 1.5557361239em 7px var(--theme-primary-color-700),
+        1.2941899704em 1.9195998849em 7px var(--theme-primary-color-800);
+        animation-duration: 43s;
+        animation-delay: -32s;
+      }
+
+      head::before {
+        text-shadow: 0.4220771168em 1.8517801084em 7px #CB523E,
+        0.9172794357em 0.2153388505em 7px #354E6B,
+        1.4640242735em 2.2805896609em 7px #CD7372,
+        -0.4009363053em 0.9403382801em 7px #108B96,
+        0.7287277452em 1.8355350889em 7px #EFC4CE,
+        1.3012790506em -0.4966223614em 7px #756C4B,
+        -0.1381503392em 1.2456250455em 7px #903754,
+        1.4095061205em -0.4591812314em 7px #F9D3E3,
+        2.451263797em 0.8564194792em 7px #446A37,
+        1.9345663589em 1.2290960799em 7px #2C2F3B,
+        0.9845350223em 0.8537213194em 7px #BED2BB;
+        animation-duration: 42s;
+        animation-delay: -23s;
+      }
+
+      head::after {
+        text-shadow: 1.4386483947em -0.402649144em 7px var(--roy-theme),
+        2.2081843182em 1.2582179272em 7px var(--theme-primary-color-darker-200),
+        1.6320732175em 1.6670289013em 7px var(--theme-primary-color-darker-100),
+        -0.1317454879em 2.1709996677em 7px var(--theme-primary-color-100),
+        0.3592276135em 1.3685870057em 7px var(--theme-primary-color-200),
+        1.4135514006em 0.798005866em 7px var(--theme-primary-color-300),
+        -0.4801627993em 2.4486225549em 7px var(--theme-primary-color-400),
+        -0.3503513418em -0.314802388em 7px var(--theme-primary-color-500),
+        -0.0726957977em 1.3369296939em 7px var(--theme-primary-color-600),
+        -0.4520564422em 1.5557361239em 7px var(--theme-primary-color-700),
+        1.2941899704em 1.9195998849em 7px var(--theme-primary-color-800);
+        animation-duration: 41s;
+        animation-delay: -19s;
+      }
+
+      @keyframes move {
+        from {
+          transform: rotate(0deg) scale(12) translateX(-20px);
+        }
+        to {
+          transform: rotate(360deg) scale(18) translateX(20px);
+        }
+      }
+    </style>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Noto+Sans+SC:wght@100;300;400;700;900&family=Noto+Serif+SC:wght@200;300;400;700;900&display=swap" rel="stylesheet">
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小梦岛" type="application/atom+xml">
+</head>
+<body class="heti--sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+<header id="blog-header" class="sticky -top-px left-0 w-full px-5 py-3 backdrop-blur-xl
+                backdrop-saturate-150 z-100" style="background: var(--grain-square-white-opacity-blend)">
+    <div class="max-auto">
+        <nav class="flex items-center text-base min-h-[2rem]">
+            <a id="blog-title-href" href="/" class="group ">
+                <h2 class="font-black heti--serif tracking-tighterp text-l p-2 flex items-center whitespace-nowrap w-max"
+                    style="inline-size: max-content;">
+                    小梦岛
+                </h2>
+            </a>
+            <div id="header-title"
+                 class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+                
+            </div>
+            <div class="flex-1"></div>
+            <div class="flex items-center gap-3">
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/books">
+                        
+                        <i class="ri-book-2-fill mr-2"></i>
+                        
+                        <span>书架</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/memos">
+                        
+                        <i class="ri-instagram-fill mr-2"></i>
+                        
+                        <span>说说</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/comments">
+                        
+                        <i class="ri-message-3-fill mr-2"></i>
+                        
+                        <span>留言</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/tags">
+                        
+                        <i class="ri-price-tag-3-fill mr-2"></i>
+                        
+                        <span>标签</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/links">
+                        
+                        <i class="ri-emotion-happy-fill mr-2"></i>
+                        
+                        <span>友链</span>
+                    </a>
+                
+                
+                    <a id="algolia_search" class="no-a-hover group flex items-center space-x-2 transition-colors duration-200 rounded-md p-0.5 pr-2 bg-opacity-50 hover:bg-gray-200 dark:hover:bg-zinc-700">
+                        <i class="ri-search-2-fill rounded pl-1.5"></i>
+                        <span class="hidden sm:inline text-sm">快速搜索</span>
+                        <span class="hidden leading-none sm:block text-gray-400 px-1.5 border border-gray-300 rounded-md">
+                            <span class="sr-only text-xs">Press </span>
+                            <kbd class="font-sans">
+                                <abbr title="Control" class="no-underline text-xs">Ctrl </abbr>
+                            </kbd>
+                            <span class="sr-only text-xs"> and </span>
+                            <kbd class="font-sans text-xs">K</kbd>
+                            <span class="sr-only text-xs"> to search</span>
+                        </span>
+                    </a>
+                
+            </div>
+            <div class="flex items-center justify-center gap-3 ml-3 md:hidden rounded bg-opacity-50 hover:bg-gray-200 dark:hover:bg-zinc-700 px-1.5">
+                <span aria-hidden="true" role="img" id="open-menu">
+                  <i class="ri-menu-4-fill"></i>
+                </span>
+                <span class="hidden" aria-hidden="true" role="img" id="close-menu">
+                  <i class="ri-close-fill"></i>
+                </span>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden md:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+    <div id="menu-content"
+         class="relative z-20 px-6 md:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300"
+         style="background: var(--grain-square-white-opacity-blend)">
+        <ul class="nav flex flex-col md:flex-row text-sm font-medium">
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/books">
+                        
+                            <i class="ri-book-2-fill mr-2"></i>
+                        
+                        <span>书架</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/memos">
+                        
+                            <i class="ri-instagram-fill mr-2"></i>
+                        
+                        <span>说说</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/comments">
+                        
+                            <i class="ri-message-3-fill mr-2"></i>
+                        
+                        <span>留言</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/tags">
+                        
+                            <i class="ri-price-tag-3-fill mr-2"></i>
+                        
+                        <span>标签</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/links">
+                        
+                            <i class="ri-emotion-happy-fill mr-2"></i>
+                        
+                        <span>友链</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+    <div class="mask bg-[#ffffff11] dark:bg-[#00000011] absolute inset-0"></div>
+</div>
+
+<script>
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  function grain(size, name, color) {
+    canvas.width = size;
+    canvas.height = size;
+
+    ctx.fillStyle = color;
+
+    for (let x = 0; x < size; x++) {
+      for (let y = 0; y < size; y++) {
+        if (Math.random() > 0.5) {
+          ctx.fillRect(x, y, 1, 1);
+        }
+      }
+    }
+
+    canvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+
+      document.documentElement.style.setProperty(name, `url(${url})`);
+    });
+  }
+
+  const isDark = document.documentElement.classList.contains("dark");
+  const grainColor = isDark ? 'hsla(0,5%,12%,0.14)' : 'hsla(25, 100%, 96%, 0.1375)'
+  grain(256, "--grain-square-white-opacity-blend", grainColor);
+</script>
+
+<main class="pt-12 px-0 md:px-12">
+    <section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1">
+    
+        <div class="flex flex-col md:h-48 items-center justify-center">
+            <h1 class="site-title heti--serif text-4xl leading-none relative before:absolute before:block
+                        before:w-2 before:h-2 before:top-0 before:-right-2 before:rounded before:border-red-700
+                        before:border-2 before:border-solid"
+                style="font-family: LDL;
+                       font-size: 3.5rem;">
+                小梦岛
+            </h1>
+            <p class="text-gray-500 mt-2">
+                VIDORRA
+            </p>
+        </div>
+    
+    
+    
+    
+    
+        
+        
+        
+        
+        
+            <div class="relative pointer-events-none">
+                <span class="heti--serif text-lg opacity-10 absolute -left-2 md:-left-4">
+                    
+                        2023.04
+                    
+                </span>
+            </div>
+        
+        <div class="grid grid-cols-12 gap-4">
+            <section class="col-span-2 text-gray-400 my-1 text-sm time whitespace-nowrap">
+                <ul class="text-right">
+                    
+                        <li class="leading-relaxed overflow-ellipsis overflow-hidden">
+                            <a href="/books/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" title="折腾记录">
+                                折腾记录
+                            </a>
+                        </li>
+                    
+                    <!--                    -->
+                </ul>
+            </section>
+            <section class="col-span-2 heti--serif text-4xl text-center">
+                24
+            </section>
+            <a href="/posts/2023042401/" class="col-span-8">
+                <header>
+                    <h2 class="text-xl heti--serif">
+                        为个人博客添加 DocSearch（自行抓取网页并建立索引）
+                    </h2>
+                </header>
+                <section class="text-gray-400 my-1 text-sm time">
+                    <p class="text-xs flex flex-wrap items-center whitespace-nowrap overflow-hidden">
+                        
+                        <span class="">ROYIANS</span>
+                        <span class="text-gray px-1">·</span>
+                        <span class='opacity-50 before:opacity-70'>29min</span>
+                        <span class="text-gray px-1">·</span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                教程
+                            </span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                建站
+                            </span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                docsearch
+                            </span>
+                        
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">教程</span>-->
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">建站</span>-->
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">docsearch</span>-->
+                        <!--                        -->
+                    </p>
+                    <p class="line-clamp-4 mt-2 ml-5">
+                        
+                    </p>
+                </section>
+            </a>
+        </div>
+    
+        
+        
+        
+        
+        
+        <div class="grid grid-cols-12 gap-4">
+            <section class="col-span-2 text-gray-400 my-1 text-sm time whitespace-nowrap">
+                <ul class="text-right">
+                    
+                        <li class="leading-relaxed overflow-ellipsis overflow-hidden">
+                            <a href="/books/%E8%AF%97%E6%AD%8C/" title="诗歌收集簿">
+                                诗歌收集簿
+                            </a>
+                        </li>
+                    
+                    <!--                    -->
+                </ul>
+            </section>
+            <section class="col-span-2 heti--serif text-4xl text-center">
+                19
+            </section>
+            <a href="/posts/2023041901/" class="col-span-8">
+                <header>
+                    <h2 class="text-xl heti--serif">
+                        致橡树
+                    </h2>
+                </header>
+                <section class="text-gray-400 my-1 text-sm time">
+                    <p class="text-xs flex flex-wrap items-center whitespace-nowrap overflow-hidden">
+                        
+                        <span class="">舒婷</span>
+                        <span class="text-gray px-1">·</span>
+                        <span class='opacity-50 before:opacity-70'>1min</span>
+                        <span class="text-gray px-1">·</span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                文学
+                            </span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                散文
+                            </span>
+                        
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">文学</span>-->
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">散文</span>-->
+                        <!--                        -->
+                    </p>
+                    <p class="line-clamp-4 mt-2 ml-5">
+                        
+                    </p>
+                </section>
+            </a>
+        </div>
+    
+        
+        
+        
+        
+        
+        <div class="grid grid-cols-12 gap-4">
+            <section class="col-span-2 text-gray-400 my-1 text-sm time whitespace-nowrap">
+                <ul class="text-right">
+                    
+                        <li class="leading-relaxed overflow-ellipsis overflow-hidden">
+                            <a href="/books/%E4%B9%90%E8%B0%B1/" title="乐谱收集簿">
+                                乐谱收集簿
+                            </a>
+                        </li>
+                    
+                    <!--                    -->
+                </ul>
+            </section>
+            <section class="col-span-2 heti--serif text-4xl text-center">
+                18
+            </section>
+            <a href="/posts/2023041801/" class="col-span-8">
+                <header>
+                    <h2 class="text-xl heti--serif">
+                        这世界那么多人-莫文蔚
+                    </h2>
+                </header>
+                <section class="text-gray-400 my-1 text-sm time">
+                    <p class="text-xs flex flex-wrap items-center whitespace-nowrap overflow-hidden">
+                        
+                        <span class="">ROYIANS</span>
+                        <span class="text-gray px-1">·</span>
+                        <span class='opacity-50 before:opacity-70'>1min</span>
+                        <span class="text-gray px-1">·</span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                乐谱
+                            </span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                口琴
+                            </span>
+                        
+                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">
+                                莫文蔚
+                            </span>
+                        
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">乐谱</span>-->
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">口琴</span>-->
+                        <!--                        -->
+                        <!--                            <span class="bg-gray-100 dark:bg-black px-1.5 rounded-sm flex ml-1">莫文蔚</span>-->
+                        <!--                        -->
+                    </p>
+                    <p class="line-clamp-4 mt-2 ml-5">
+                        
+                    </p>
+                </section>
+            </a>
+        </div>
+    
+        
+
+</section>
+
+
+</main>
+<footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+    <!-- social links -->
+    
+        <div class="flex items-center gap-3 py-3">
+            
+                <a class="text-lg flex" title="Github" target="_blank" rel="noopener" href="https://github.com/ROYIANS">
+                    <i style="text-shadow: none" class="ri-github-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="weibo" target="_blank" rel="noopener" href="https://weibo.com/u/6319184855">
+                    <i style="text-shadow: none" class="ri-weibo-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/32267413">
+                    <i style="text-shadow: none" class="ri-bilibili-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="netease-cloud-music" target="_blank" rel="noopener" href="https://y.music.163.com/m/user?id=356590959&amp;dlt=0846&amp;app_version=8.9.10">
+                    <i style="text-shadow: none" class="ri-netease-cloud-music-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="wechat" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzU4NDc1NDIzNA==&amp;scene=124#wechat_redirect">
+                    <i style="text-shadow: none" class="ri-wechat-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="telegram" target="_blank" rel="noopener" href="https://t.me/s/littleDreamlandPlus">
+                    <i style="text-shadow: none" class="ri-telegram-line"></i>
+                </a>
+            
+        </div>
+    
+    <!-- busuanzi -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- Busuanzi Analytics -->
+    <div class="flex items-center gap-2">
+        <span>访客数</span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>访问量</span>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    <!-- End Busuanzi Analytics -->
+
+
+    <!-- copyright -->
+    <div class="flex items-center gap-2">
+        <span>© 2023</span>
+        <i class="ri-hashtag"></i>
+        <span>ROYIANS</span>
+    </div>
+    <!-- powered by -->
+    <div class="flex items-center gap-2">
+        <span>Powered by</span>
+        <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+        <span>&</span>
+        <a href="https://github.com/ROYIANS/hexo-theme-dreamlandbook" target="_blank" rel="noopener noreferrer">DreamlandBook</a>
+    </div>
+
+</footer>
+
+<div class="fixed right-4 bottom-10 z-100 grid grid-cols-1 gap-y-2 justify-center items-center font-normal text-sm text-center">
+    <span title="跳转顶部" class="opacity-0 p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center" id="go-top">
+      <i class="ri-arrow-up-line"></i>
+    </span>
+    
+    <span id="translateLink" class="p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center">
+      繁
+    </span>
+    
+    <span title="切换主题" id="toggle-dark" class="p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center">
+      <i class="" id="theme-icon"></i>
+    </span>
+</div>
+
+    <div id="docsearch" class="hidden"></div>
+    
+<link rel="stylesheet" href="/css/doc_search.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.3.3/dist/umd/index.min.js"></script>
+
+
+    <script>
+      (() => {
+        docsearch(Object.assign({
+          appId: 'X0WWAAXUJA',
+          apiKey: 'e50c4e67b7ae1df93ab02fae368bc9af',
+          indexName: 'LittleDreamland',
+          container: '#docsearch',
+          placeholder: '快速搜索...',
+          transformItems: (items) => {
+            const mappedItems = items.map((item, index) => {
+              // We transform the absolute URL into a relative URL to
+              // leverage Next's preloading.
+              const a = document.createElement('a')
+              a.href = item.url
+
+              const hash = a.hash === '#article-title' ? '' : a.hash
+
+              if (item.hierarchy?.lvl0 && !item.hierarchy?.lvl1) {
+                item.hierarchy.lvl1 = '点击进入文章阅读 - ' + item.hierarchy.lvl0
+                item.type = 'lvl1'
+              }
+
+              if (item.hierarchy?.lvl0) {
+                item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+              }
+
+              if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                item._highlightResult.hierarchy.lvl0.value =
+                  item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
+              }
+
+              return {
+                ...item,
+                url: `${a.pathname}${hash}`,
+                __is_result: true,
+                __is_parent: (item.type === 'lvl1' && items.length > 1 && index === 0),
+                __is_child: (
+                  item.type !== 'lvl1' &&
+                  items.length > 1 &&
+                  items[0].type === 'lvl1' &&
+                  index !== 0),
+                __is_first: index === 1,
+                __is_last: (index === items.length - 1 && index !== 0),
+              }
+            })
+            return mappedItems;
+          },
+          hitComponent: ({ hit, children }) => {
+            const className = `${hit.__is_result ? 'DocSearch-Hit--Result ': ''}` +
+                              `${hit.__is_parent ? 'DocSearch-Hit--Parent ': ''}` +
+                              `${hit.__is_first ? 'DocSearch-Hit--FirstChild ': ''}` +
+                              `${hit.__is_last ? 'DocSearch-Hit--LastChild ': ''}` +
+                              `${hit.__is_child ? 'DocSearch-Hit--Child ': ''}`
+            return {
+              $$typeof: children.$$typeof,
+              constructor: undefined,
+              key: Math.floor(Math.random() * 10000),
+              type: 'a',
+              props: {
+                children: children,
+                class: className,
+                className: className,
+                href: hit.url
+              },
+              ref: undefined,
+              __v: null
+            }
+          }
+        }))
+
+
+        const searchClickFn = () => {
+          document.querySelector('#algolia_search').addEventListener('click', () => {
+            document.querySelector('.DocSearch-Button').click()
+          })
+        }
+
+        searchClickFn()
+      })()
+    </script>
+
+
+
+
+<script src="/js/main.js"></script>
+
+
+    
+<script src="/js/tw_cn.js"></script>
+
+
+
+
+
+
+<script>
+  var GLOBAL_CONFIG = {
+    root: '/',
+    isHome: false,
+    isPage: false,
+    isPost: false,
+    logo: 'https://img.vidorra.life/images/royians/logo.png',
+    algolia: {"appId":"X0WWAAXUJA","apiKey":"e50c4e67b7ae1df93ab02fae368bc9af","indexName":"LittleDreamland","hits":{"per_page":6},"languages":{"input_placeholder":"search.algolia_search.input_placeholder","hits_empty":"search.algolia_search.hits_empty","hits_stats":"search.algolia_search.hits_stats"}},
+    translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+    noticeOutDate: {"limitDay":500,"message":"距离上次更新已过去 ${days} 天，文章中的内容可能已经过时。"},
+    comment: false,
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前'
+    },
+    copyright: {"limitCount":50,"languages":{"author":"作者: ROYIANS","link":"链接: ","source":"来源: 小梦岛","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+    copy: {
+      success: '复制成功',
+      error: '复制错误',
+      noSupport: '浏览器不支持'
+    }
+  }
+</script>
+
+</body>
+
+</html>

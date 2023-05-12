@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CY7HEN598"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'G-8CY7HEN598');
+    </script>
+    <!-- End Google Analytics -->
+
+
+
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?158db2c4e2a8b5c647ed4ee2cbe236be";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <!-- End Baidu Analytics -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="ROYIANS">
+
+
+    <meta name="subtitle" content="VIDORRA">
+
+
+    <meta name="description" content="记录生活的点点滴滴">
+
+
+    <meta name="keywords" content="小梦岛, ROYIANS, Vidorra, Notion, 博客">
+
+
+<title>
+    解决 ChunkLoadError Loading chunk xx failed 报错 |
+    
+    小梦岛</title>
+
+
+
+    <link rel="icon" href="https://img.vidorra.life/images/royians/logo.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+
+<link rel="stylesheet" href="/css/heti/heti.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.1.1/fonts/remixicon.min.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/heti@0.9.4/umd/heti-addon.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.11/dist/twikoo.all.min.js"></script>
+
+
+
+<!--<script src="https://cdn.tailwindcss.com?plugins=typography"></script>-->
+<!--<script>-->
+<!--  tailwind.config = {-->
+<!--    darkMode: "class",-->
+<!--  };-->
+<!--</script>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "var(--roy-theme)",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px var(--roy-theme), 0 0 4px var(--roy-theme)",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "var(--roy-theme)",
+      "border-left-color": "var(--roy-theme)",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("class", isDark ? "ri-moon-fill" : "ri-sun-fill");
+
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      isDark = !isDark;
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("class", isDark ? "ri-moon-fill" : "ri-sun-fill");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      const grainColor = isDark ? 'hsla(0,5%,12%,0.14)' : 'hsla(25, 100%, 96%, 0.1375)'
+      grain(256, "--grain-square-white-opacity-blend", grainColor);
+    }
+
+    $("#toggle-dark").click(toggleDark);
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+        }
+      });
+  });
+</script>
+
+
+
+    <link href="/fonts/LDL/LDL.css" rel="stylesheet">
+
+    <meta name="baidu-site-verification" content="codeva-fCRpJWFFlr" />
+
+<style>:root{--theme-primary-color: #009688;
+--theme-primary-color-100: #1aa194;
+--theme-primary-color-200: #33aba0;
+--theme-primary-color-300: #4db6ac;
+--theme-primary-color-400: #66c0b8;
+--theme-primary-color-500: #80cbc4;
+--theme-primary-color-600: #99d5cf;
+--theme-primary-color-700: #b3e0db;
+--theme-primary-color-800: #cceae7;
+--theme-primary-color-900: #e6f5f3;
+--theme-primary-color-darker-100: #00877a;
+--theme-primary-color-darker-200: #00786d;
+--theme-primary-color-darker-300: #00695f;
+--theme-primary-color-darker-400: #005a52;
+--theme-primary-color-darker-500: #004b44;
+--theme-primary-color-darker-600: #003c36;
+--theme-primary-color-darker-700: #002d29;
+--theme-primary-color-darker-800: #001e1b;
+--theme-primary-color-darker-900: #000f0e;
+--theme-primary-color-darker-1000: #000000;
+--roy-theme: #009688;
+--roy-theme-op: #00968823;
+--roy-theme-deep: #009688dd;
+--roy-theme-none: #00968800;
+--roy-theme-min: #00968810;}</style>
+
+    <style>
+      head::before, head::after,
+      body::before, body::after {
+        display: block;
+        font-size: 52px;
+        color: transparent;
+      }
+
+      head::before, head::after,
+      body::before, body::after {
+        opacity: 0.3;
+        pointer-events: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 3em;
+        height: 3em;
+        content: ".";
+        mix-blend-mode: screen;
+        animation: 44s -27s move infinite ease-in-out alternate;
+      }
+
+      body::before {
+        text-shadow: 2.0128311999em 0.8184920657em 7px #E1C199,
+        1.4484483914em 1.9265866865em 7px #F091A0,
+        -0.2788863568em 1.6444618576em 7px #BEC2BC,
+        1.8695038202em 2.3782456026em 7px #DFD6B8,
+        1.4322118554em -0.3056059791em 7px #81A380,
+        2.4303394509em -0.4408608996em 7px #5A4B3B,
+        0.6788989967em 0.05536378em 7px #ECD9C7,
+        2.38161872em 0.3402669223em 7px #D3CCD6,
+        0.034257185em -0.2544877323em 7px #6B798E,
+        1.6608692799em 0.4925600976em 7px #6B5458,
+        0.1730151895em 2.0094080072em 7px #662B1F;
+        animation-duration: 44s;
+        animation-delay: -27s;
+      }
+
+      body::after {
+        text-shadow: 1.4386483947em -0.402649144em 7px var(--roy-theme),
+        2.2081843182em 1.2582179272em 7px var(--theme-primary-color-darker-200),
+        1.6320732175em 1.6670289013em 7px var(--theme-primary-color-darker-100),
+        -0.1317454879em 2.1709996677em 7px var(--theme-primary-color-100),
+        0.3592276135em 1.3685870057em 7px var(--theme-primary-color-200),
+        1.4135514006em 0.798005866em 7px var(--theme-primary-color-300),
+        -0.4801627993em 2.4486225549em 7px var(--theme-primary-color-400),
+        -0.3503513418em -0.314802388em 7px var(--theme-primary-color-500),
+        -0.0726957977em 1.3369296939em 7px var(--theme-primary-color-600),
+        -0.4520564422em 1.5557361239em 7px var(--theme-primary-color-700),
+        1.2941899704em 1.9195998849em 7px var(--theme-primary-color-800);
+        animation-duration: 43s;
+        animation-delay: -32s;
+      }
+
+      head::before {
+        text-shadow: 0.4220771168em 1.8517801084em 7px #D23918,
+        0.9172794357em 0.2153388505em 7px #C25160,
+        1.4640242735em 2.2805896609em 7px #32788A,
+        -0.4009363053em 0.9403382801em 7px #A46244,
+        0.7287277452em 1.8355350889em 7px #A8B092,
+        1.3012790506em -0.4966223614em 7px #C8B5B3,
+        -0.1381503392em 1.2456250455em 7px #CE93BF,
+        1.4095061205em -0.4591812314em 7px #A6559D,
+        2.451263797em 0.8564194792em 7px #D23918,
+        1.9345663589em 1.2290960799em 7px #F0C2A2,
+        0.9845350223em 0.8537213194em 7px #CD7372;
+        animation-duration: 42s;
+        animation-delay: -23s;
+      }
+
+      head::after {
+        text-shadow: 1.4386483947em -0.402649144em 7px var(--roy-theme),
+        2.2081843182em 1.2582179272em 7px var(--theme-primary-color-darker-200),
+        1.6320732175em 1.6670289013em 7px var(--theme-primary-color-darker-100),
+        -0.1317454879em 2.1709996677em 7px var(--theme-primary-color-100),
+        0.3592276135em 1.3685870057em 7px var(--theme-primary-color-200),
+        1.4135514006em 0.798005866em 7px var(--theme-primary-color-300),
+        -0.4801627993em 2.4486225549em 7px var(--theme-primary-color-400),
+        -0.3503513418em -0.314802388em 7px var(--theme-primary-color-500),
+        -0.0726957977em 1.3369296939em 7px var(--theme-primary-color-600),
+        -0.4520564422em 1.5557361239em 7px var(--theme-primary-color-700),
+        1.2941899704em 1.9195998849em 7px var(--theme-primary-color-800);
+        animation-duration: 41s;
+        animation-delay: -19s;
+      }
+
+      @keyframes move {
+        from {
+          transform: rotate(0deg) scale(12) translateX(-20px);
+        }
+        to {
+          transform: rotate(360deg) scale(18) translateX(20px);
+        }
+      }
+    </style>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Noto+Sans+SC:wght@100;300;400;700;900&family=Noto+Serif+SC:wght@200;300;400;700;900&display=swap" rel="stylesheet">
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小梦岛" type="application/atom+xml">
+</head>
+<body class="heti--sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+<header id="blog-header" class="sticky -top-px left-0 w-full px-5 py-3 backdrop-blur-xl
+                backdrop-saturate-150 z-100" style="background: var(--grain-square-white-opacity-blend)">
+    <div class="max-auto">
+        <nav class="flex items-center text-base min-h-[2rem]">
+            <a id="blog-title-href" href="/" class="group ">
+                <h2 class="font-black heti--serif tracking-tighterp text-l p-2 flex items-center whitespace-nowrap w-max"
+                    style="inline-size: max-content;">
+                    小梦岛
+                </h2>
+            </a>
+            <div id="header-title"
+                 class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+                解决 ChunkLoadError Loading chunk xx failed 报错
+            </div>
+            <div class="flex-1"></div>
+            <div class="flex items-center gap-3">
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/books">
+                        
+                        <i class="ri-book-2-fill mr-2"></i>
+                        
+                        <span>书架</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/memos">
+                        
+                        <i class="ri-instagram-fill mr-2"></i>
+                        
+                        <span>说说</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/comments">
+                        
+                        <i class="ri-message-3-fill mr-2"></i>
+                        
+                        <span>留言</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/tags">
+                        
+                        <i class="ri-price-tag-3-fill mr-2"></i>
+                        
+                        <span>标签</span>
+                    </a>
+                
+                    <a class="no-a-hover hidden md:flex text-sm py-0.5 px-2 hover:bg-opacity-20 hover:bg-gray-300 dark:hover:bg-opacity-20 dark:hover:bg-zinc-600" href="/links">
+                        
+                        <i class="ri-emotion-happy-fill mr-2"></i>
+                        
+                        <span>友链</span>
+                    </a>
+                
+                
+                    <a id="algolia_search" class="no-a-hover group flex items-center space-x-2 transition-colors duration-200 rounded-md p-0.5 pr-2 bg-opacity-50 hover:bg-gray-200 dark:hover:bg-zinc-700">
+                        <i class="ri-search-2-fill rounded pl-1.5"></i>
+                        <span class="hidden sm:inline text-sm">快速搜索</span>
+                        <span class="hidden leading-none sm:block text-gray-400 px-1.5 border border-gray-300 rounded-md">
+                            <span class="sr-only text-xs">Press </span>
+                            <kbd class="font-sans">
+                                <abbr title="Control" class="no-underline text-xs">Ctrl </abbr>
+                            </kbd>
+                            <span class="sr-only text-xs"> and </span>
+                            <kbd class="font-sans text-xs">K</kbd>
+                            <span class="sr-only text-xs"> to search</span>
+                        </span>
+                    </a>
+                
+            </div>
+            <div class="flex items-center justify-center gap-3 ml-3 md:hidden rounded bg-opacity-50 hover:bg-gray-200 dark:hover:bg-zinc-700 px-1.5">
+                <span aria-hidden="true" role="img" id="open-menu">
+                  <i class="ri-menu-4-fill"></i>
+                </span>
+                <span class="hidden" aria-hidden="true" role="img" id="close-menu">
+                  <i class="ri-close-fill"></i>
+                </span>
+            </div>
+        </nav>
+    </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden md:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+    <div id="menu-content"
+         class="relative z-20 px-6 md:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300"
+         style="background: var(--grain-square-white-opacity-blend)">
+        <ul class="nav flex flex-col md:flex-row text-sm font-medium">
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/books">
+                        
+                            <i class="ri-book-2-fill mr-2"></i>
+                        
+                        <span>书架</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/memos">
+                        
+                            <i class="ri-instagram-fill mr-2"></i>
+                        
+                        <span>说说</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/comments">
+                        
+                            <i class="ri-message-3-fill mr-2"></i>
+                        
+                        <span>留言</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/tags">
+                        
+                            <i class="ri-price-tag-3-fill mr-2"></i>
+                        
+                        <span>标签</span>
+                    </a>
+                </li>
+            
+                <li class="nav-portfolio md:mx-2 border-b md:border-0 border-black/5 last:border-0 hover:text-main">
+                    <a class="flex h-12 md:h-auto items-center" href="/links">
+                        
+                            <i class="ri-emotion-happy-fill mr-2"></i>
+                        
+                        <span>友链</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+    <div class="mask bg-[#ffffff11] dark:bg-[#00000011] absolute inset-0"></div>
+</div>
+
+<script>
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  function grain(size, name, color) {
+    canvas.width = size;
+    canvas.height = size;
+
+    ctx.fillStyle = color;
+
+    for (let x = 0; x < size; x++) {
+      for (let y = 0; y < size; y++) {
+        if (Math.random() > 0.5) {
+          ctx.fillRect(x, y, 1, 1);
+        }
+      }
+    }
+
+    canvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+
+      document.documentElement.style.setProperty(name, `url(${url})`);
+    });
+  }
+
+  const isDark = document.documentElement.classList.contains("dark");
+  const grainColor = isDark ? 'hsla(0,5%,12%,0.14)' : 'hsla(25, 100%, 96%, 0.1375)'
+  grain(256, "--grain-square-white-opacity-blend", grainColor);
+</script>
+
+<main class="pt-12 px-0 md:px-12">
+    <!-- css -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.3/dist/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+    <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block"
+     style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+    <!-- header -->
+    <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+        <div class="pt-4 md:pt-6">
+            <h1 id="article-title" class="heti--serif text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+                <span>解决 ChunkLoadError Loading chunk xx failed 报错</span>
+            </h1>
+            <div class="grid grid-cols-9 gap-2 text-xs">
+                <div class="col-span-3 flex flex-col justify-center md:flex-row">
+                    <span title="View all posts by ROYIANS" rel="author" class="font-bold">
+                        ROYIANS
+                    </span>
+                    <span class="hidden px-2 md:block">/</span>
+                    <span>
+                        <span title="09:58" rel="bookmark">
+                            <time datetime="2023-05-09T09:58:01+08:00">2023-05-09</time>
+                        </span>
+                    </span>
+                </div>
+                <div class="col-span-2 flex flex-col justify-center md:flex-row">
+                    <span>文章热度</span>
+                    <span class="hidden pr-2 md:block"></span>
+                    <span>
+                        <i class="ri-fire-fill"></i>
+                        <span id="busuanzi_value_page_pv">
+                            <i class="ri-loader-4-line animate-spin inline-block"></i>
+                        </span>
+                        <span>℃</span>
+                    </span>
+                </div>
+                <div class="col-span-2 flex flex-col justify-center md:flex-row">
+                    <span>本文共计</span>
+                    <span class="hidden pr-2 md:block"></span>
+                    <span>
+                        <i class="ri-text"></i>
+                        453 字
+                    </span>
+                </div>
+                <div class="col-span-2 flex flex-col justify-center md:flex-row">
+                    <span>预计阅读</span>
+                    <span class="hidden pr-2 md:block"></span>
+                    <span>
+                        <i class="ri-book-open-fill"></i>
+                        1 分钟
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- content -->
+    <article
+            class="heti text-lg post-content mt-10 prose dark:prose-invert post-content heti--serif ">
+        <h2 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h2><p>年前我开发了一个小工程：<a target="_blank" rel="noopener" href="https://royians.github.io/print-template-designer/">打印模板设计器</a>，开发过程中其实遇到了很多问题，我想现在可以有一点时间记录一些问题，供以后参考。</p>
+<p>问题是在我已经发包以后出现的，因为我要在父工程引入我这个打印模板设计器，因此需要按照lib库的形式，也就是npm包引进父工程，接着问题就出现了：当我打开父工程页面的时候，我发现左侧的面板里都是空白的（下图框选部分），按常理来说是有组件内容的！</p>
+<p><img src="https://royians.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fee72a089-c654-40e5-b38b-f1ecb8325b2c%2FUntitled.png?id=0867e9f5-9ba2-4a4b-8249-7e9121a37701&table=block&spaceId=b25f0245-21a9-49f6-af5a-33c2f791d93e&width=2000&userId=&cache=v2"></p>
+<p>接着打开控制台，就发现如下报错：<code>SyntaxError: Unexpected character &#39;&lt;&#39;</code> 跟断点发现是找不到一个chunk文件的位置，import的时候就报错了。如果这个路径不存在，就会重定向到 <code>/</code> ,所以报了这个错。</p>
+<p>于是我到网络上寻求帮助，最后发现这篇文章：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8a4d627e4bec">[VUE报错] npm的lib库打包模式,引用时 ChunkLoadError 加载分包失败</a></p>
+<p>按照博主的解释:</p>
+<blockquote>
+<p>因为使用了懒加载, webpack编译时, 转译分包引用路径为 “基于网页根目录”, 而我们目标是 node_modules&#x2F;<projectName>&#x2F;lib&#x2F; 下的分包.<br>所以, 我们在网页根目录的js目录下自然找不到对应懒加载分包.</p>
+</blockquote>
+<p>最后按照博主的解决方法，我选择合并分包，也就是在 vue.config.js 中进行如下配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">configureWebpack</span>: &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">      <span class="keyword">new</span> webpack.<span class="property">optimize</span>.<span class="title class_">LimitChunkCountPlugin</span>(&#123;</span><br><span class="line">        <span class="comment">// 限制只打一个包，不分Chunk</span></span><br><span class="line">        <span class="attr">maxChunks</span>: <span class="number">1</span></span><br><span class="line">      &#125;)</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>然后发包测试，问题解决！</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7152516872330543141">【Webpack】异步加载(懒加载)原理 - 掘金 (juejin.cn)</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7016890750193369101">【魔法注释】路由懒加载+webpackChunkName - 掘金 (juejin.cn)</a></li>
+<li><a target="_blank" rel="noopener" href="https://webpack.js.org/guides/lazy-loading/">Lazy Loading | webpack</a></li>
+</ul>
+
+    </article>
+    <!-- prev and next -->
+    <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+        <div>
+            
+                <a href="/posts/2023010901/"
+                   class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+                    <i class="ri-arrow-left-s-line"></i>
+                    CSS @media 优先级问题
+                </a>
+            
+        </div>
+        <div>
+            
+                <a href="/posts/2023010401/"
+                   class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+                    解决浏览器端 globalThis is not defined 报错
+                    <i class="ri-arrow-right-s-line"></i>
+                </a>
+            
+        </div>
+    </div>
+    <!-- tag -->
+    
+        
+            <div class="flex flex-col mt-8 justify-between md:flex-row-reverse md:items-center gap-4 w-full">
+                <div></div>
+                <div class="flex flex-wrap items-center gap-2 overflow-scroll scrollbar-hide">
+                    
+                        
+                        <a href="/tags/JavaScript/">
+                            <div class="flex items-center text-xs py-1 px-2  rounded-full whitespace-nowrap"
+                                 style="background: #EFC4CE; color: #343333">
+                                JavaScript
+                            </div>
+                        </a>
+                    
+                        
+                        <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                            <div class="flex items-center text-xs py-1 px-2  rounded-full whitespace-nowrap"
+                                 style="background: #A76283; color: #fff">
+                                前端
+                            </div>
+                        </a>
+                    
+                        
+                        <a href="/tags/Vue-js/">
+                            <div class="flex items-center text-xs py-1 px-2  rounded-full whitespace-nowrap"
+                                 style="background: #6B7D73; color: #fff">
+                                Vue.js
+                            </div>
+                        </a>
+                    
+                        
+                        <a href="/tags/webpack/">
+                            <div class="flex items-center text-xs py-1 px-2  rounded-full whitespace-nowrap"
+                                 style="background: #C9CFC1; color: #fff">
+                                webpack
+                            </div>
+                        </a>
+                    
+                        
+                        <a href="/tags/%E9%9A%8F%E8%AE%B0/">
+                            <div class="flex items-center text-xs py-1 px-2  rounded-full whitespace-nowrap"
+                                 style="background: #CE8892; color: #fff">
+                                随记
+                            </div>
+                        </a>
+                    
+                </div>
+            </div>
+        
+        <div class="relative z-10 w-full p-4 my-4 overflow-hidden bg-gray-300 rounded-xl dark:bg-zinc-950">
+            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons"
+                 class="w-56 overflow-hidden absolute -right-11 -top-6 text-11xl text-gray-200 dark:text-gray-700 z-0"
+                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                <path fill="currentColor"
+                      d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path>
+            </svg>
+            <header class="z-10 relative">
+                <p class="line-clamp-1 font-semibold">解决 ChunkLoadError Loading chunk xx failed 报错</p>
+                <a href="https://blog.vidorra.life/posts/2023010501/">
+                    <p class="text-sm text-true-gray-400 line-clamp-1">https://blog.vidorra.life/posts/2023010501/</p>
+                </a>
+                <p class="text-sm text-true-gray-400 line-clamp-1">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+            </header>
+            <nav class="flex flex-row mt-4 z-10 relative">
+                <div class="mr-4">
+                    <p class="text-xs line-clamp-1 text-true-gray-600">作者</p>
+                    <p class="md:text-sm text-xs line-clamp-1">ROYIANS</p>
+                </div>
+                <div class="mr-4">
+                    <p class="text-xs line-clamp-1 text-true-gray-600">发布于</p>
+                    <p class="md:text-sm text-xs line-clamp-1">
+                        <time datetime="Thu Jan 05 2023 00:00:00 GMT+0800">2023-01-05</time>
+                    </p>
+                </div>
+                <div class="mr-4">
+                    <p class="text-xs line-clamp-1 text-true-gray-600">更新于</p>
+                    <p class="md:text-sm text-xs line-clamp-1">
+                        <time datetime="Tue May 09 2023 09:58:01 GMT+0800">2023-05-09</time>
+                    </p>
+                </div>
+                <div class="mr-4">
+                    <p class="text-xs line-clamp-1 text-true-gray-600">许可协议</p>
+                    <p class="md:text-sm text-xs line-clamp-1 inline-flex">
+                        <a class="mr-1" rel="noopener noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons"
+                                 class="w-4" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path fill="currentColor"
+                                      d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path>
+                            </svg>
+                        </a>
+                        <a class="mr-1" rel="noopener noreferrer" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons-by"
+                                 class="w-4" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path fill="currentColor"
+                                      d="M314.9 194.4v101.4h-28.3v120.5h-77.1V295.9h-28.3V194.4c0-4.4 1.6-8.2 4.6-11.3 3.1-3.1 6.9-4.7 11.3-4.7H299c4.1 0 7.8 1.6 11.1 4.7 3.1 3.2 4.8 6.9 4.8 11.3zm-101.5-63.7c0-23.3 11.5-35 34.5-35s34.5 11.7 34.5 35c0 23-11.5 34.5-34.5 34.5s-34.5-11.5-34.5-34.5zM247.6 8C389.4 8 496 118.1 496 256c0 147.1-118.5 248-248.4 248C113.6 504 0 394.5 0 256 0 123.1 104.7 8 247.6 8zm.8 44.7C130.2 52.7 44.7 150.6 44.7 256c0 109.8 91.2 202.8 203.7 202.8 103.2 0 202.8-81.1 202.8-202.8.1-113.8-90.2-203.3-202.8-203.3z"></path>
+                            </svg>
+                        </a>
+                        <a rel="noopener noreferrer" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons-nc"
+                                 class="w-4" role="img"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path fill="currentColor"
+                                      d="M247.6 8C387.4 8 496 115.9 496 256c0 147.2-118.5 248-248.4 248C113.1 504 0 393.2 0 256 0 123.1 104.7 8 247.6 8zM55.8 189.1c-7.4 20.4-11.1 42.7-11.1 66.9 0 110.9 92.1 202.4 203.7 202.4 122.4 0 177.2-101.8 178.5-104.1l-93.4-41.6c-7.7 37.1-41.2 53-68.2 55.4v38.1h-28.8V368c-27.5-.3-52.6-10.2-75.3-29.7l34.1-34.5c31.7 29.4 86.4 31.8 86.4-2.2 0-6.2-2.2-11.2-6.6-15.1-14.2-6-1.8-.1-219.3-97.4zM248.4 52.3c-38.4 0-112.4 8.7-170.5 93l94.8 42.5c10-31.3 40.4-42.9 63.8-44.3v-38.1h28.8v38.1c22.7 1.2 43.4 8.9 62 23L295 199.7c-42.7-29.9-83.5-8-70 11.1 53.4 24.1 43.8 19.8 93 41.6l127.1 56.7c4.1-17.4 6.2-35.1 6.2-53.1 0-57-19.8-105-59.3-143.9-39.3-39.9-87.2-59.8-143.6-59.8z"></path>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+            </nav>
+        </div>
+    
+    <!-- comment -->
+    
+        <div id="comment" class="article-comments mt-12"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"enable":true,"envId":"https://comment.little-dream.land","visitor":true},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    //
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+    }
+</script>
+
+    
+    <!-- 标点挤压 -->
+    <script>
+      // const heti = new Heti('.heti');
+      // heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
+    </script>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+<script>
+  var CODE_MAX_HEIGHT = 500;
+  var containers = [];
+  // 展开
+  $('body').on('click', '.js_unfold_code_btn', function () {
+    $(this).closest('.js_highlight_container').addClass('on');
+    $(this).css('display', 'none')
+    $(this).next().css('display', 'flex')
+  });
+  // 收起
+  $('body').on('click', '.js_retract_code_btn', function () {
+    var $container = $(this).parent().parent().removeClass('on');
+    $(this).css('display', 'none')
+    $(this).prev().css('display', 'flex')
+    var winTop = $(window).scrollTop();
+    var offsetTop = $container.offset().top;
+    $(this).css('top', 0);
+    if (winTop > offsetTop) {
+      // 设置滚动条位置
+      $('body, html').animate({
+        scrollTop: $container.offset().top - CODE_MAX_HEIGHT
+      }, 600);
+    }
+  });
+
+  // 添加隐藏容器
+  function addCodeWrap($node) {
+    var $container = $node.wrap(
+      '<div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div>').closest(
+      '.js_highlight_container');
+    // 底部 "展开代码" 与 侧边栏 "收起代码"
+    var $btn = $(
+      `
+    <div class="highlight-footer">
+      <a class="js_unfold_code_btn show-btn" href="javascript:;">展开代码<i class="ri-skip-down-line"></i></a>
+      <a class="js_retract_code_btn hide-btn" style="display: none" href="javascript:;"><i class="ri-skip-up-line"></i></a>
+    </div>
+  `
+    );
+    $container.append($btn);
+    return $container;
+  };
+
+  function codeUnfold() {
+    $('.highlight').each(function () {
+      // 防止重复渲染
+      if (this.__render__ === true) {
+        return true;
+      }
+      this.__render__ = true;
+      var $this = $(this);
+      var height = $(this).outerHeight();
+      if (height > CODE_MAX_HEIGHT) {
+        // 添加展开&收起容器
+        var $container = addCodeWrap($this, height);
+        containers.push({
+          $container,
+          height,
+          $hide: $container.find('.js_retract_code_btn'),
+          hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+        });
+      }
+    });
+  };
+
+  $(document).ready(() => {
+    codeUnfold();
+  })
+
+</script>
+
+<style>
+  .highlight-container {
+    position: relative;
+    background-color: transparent;
+  }
+
+  .highlight-container.on .hide-btn {
+    display: flex;
+  }
+
+  .highlight-container.on .highlight-wrap {
+    max-height: none;
+  }
+
+  .highlight-container .highlight-wrap {
+    overflow: hidden;
+    max-height: 500px;
+  }
+
+  .dark .highlight-container .highlight-footer {
+    background: var(--theme-primary-color-darker-400);
+  }
+
+  .highlight-container .highlight-footer {
+    background: var(--theme-primary-color);
+    position: sticky;
+    margin: 0 0.5em;
+    width: calc(100% - 1em);
+    bottom: 0;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .highlight-container .show-btn, .highlight-container .hide-btn {
+    font-size: 0.8rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .highlight-container .show-btn:hover, .highlight-container .hide-btn:hover {
+    text-decoration: none;
+  }
+
+  .highlight-container .fa-angle-up,
+  .highlight-container .fa-angle-down {
+    font-style: normal;
+    color: #fff;
+  }
+
+  .highlight-container .fa-angle-up:before {
+    content: "\f106";
+  }
+
+  .highlight-container .fa-angle-down:before {
+    content: "\f107";
+    margin-left: 0.5em;
+  }
+
+  .highlight-container .js_unfold_code_btn,
+  .highlight-container .js_retract_code_btn {
+    width: 100%;
+    height: 100%;
+    border-bottom: none !important;
+  }
+
+  .highlight-container .js_unfold_code_btn i,
+  .highlight-container .js_retract_code_btn i {
+    font-style: normal;
+  }
+
+  .highlight-container .js_unfold_code_btn:hover,
+  .highlight-container .js_retract_code_btn:hover {
+    border-bottom-color: transparent !important;
+  }
+
+  .highlight-container + blockquote {
+    margin-top: 0.5em;
+  }
+</style>
+
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+
+    </script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      $(document).ready(() => {
+        const maraidConfig = {
+          theme: "default",
+          logLevel: 3,
+          flowchart: { curve: "linear" },
+          gantt: { axisFormat: "%m/%d/%Y" },
+          sequence: { actorMargin: 50 },
+        };
+        mermaid.initialize(maraidConfig);
+      });
+    </script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.3/dist/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  function doFancyBox(element) {
+    element.each(function (i) {
+      $(this).find('img').not('.no_fancy').each(function () {
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function () {
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      // options
+    })
+  }
+  $(document).ready(() => {
+    doFancyBox($('.post-content'))
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.post-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.post-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3',
+      // For headings inside relative or absolute positioned containers within content.
+      hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+</main>
+<footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+    <!-- social links -->
+    
+        <div class="flex items-center gap-3 py-3">
+            
+                <a class="text-lg flex" title="Github" target="_blank" rel="noopener" href="https://github.com/ROYIANS">
+                    <i style="text-shadow: none" class="ri-github-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="weibo" target="_blank" rel="noopener" href="https://weibo.com/u/6319184855">
+                    <i style="text-shadow: none" class="ri-weibo-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/32267413">
+                    <i style="text-shadow: none" class="ri-bilibili-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="netease-cloud-music" target="_blank" rel="noopener" href="https://y.music.163.com/m/user?id=356590959&amp;dlt=0846&amp;app_version=8.9.10">
+                    <i style="text-shadow: none" class="ri-netease-cloud-music-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="wechat" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=MzU4NDc1NDIzNA==&amp;scene=124#wechat_redirect">
+                    <i style="text-shadow: none" class="ri-wechat-line"></i>
+                </a>
+            
+                <a class="text-lg flex" title="telegram" target="_blank" rel="noopener" href="https://t.me/s/littleDreamlandPlus">
+                    <i style="text-shadow: none" class="ri-telegram-line"></i>
+                </a>
+            
+        </div>
+    
+    <!-- busuanzi -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- Busuanzi Analytics -->
+    <div class="flex items-center gap-2">
+        <span>访客数</span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>访问量</span>
+        <span id="busuanzi_value_site_pv"></span>
+    </div>
+    <!-- End Busuanzi Analytics -->
+
+
+    <!-- copyright -->
+    <div class="flex items-center gap-2">
+        <span>© 2023</span>
+        <i class="ri-hashtag"></i>
+        <span>ROYIANS</span>
+    </div>
+    <!-- powered by -->
+    <div class="flex items-center gap-2">
+        <span>Powered by</span>
+        <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+        <span>&</span>
+        <a href="https://github.com/ROYIANS/hexo-theme-dreamlandbook" target="_blank" rel="noopener noreferrer">DreamlandBook</a>
+    </div>
+
+</footer>
+
+<div class="fixed right-4 bottom-10 z-100 grid grid-cols-1 gap-y-2 justify-center items-center font-normal text-sm text-center">
+    <span title="跳转顶部" class="opacity-0 p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center" id="go-top">
+      <i class="ri-arrow-up-line"></i>
+    </span>
+    
+    <span id="translateLink" class="p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center">
+      繁
+    </span>
+    
+    <span title="切换主题" id="toggle-dark" class="p-4 bg-gray-100 dark:bg-black w-5 h-5 rounded-sm cursor-pointer flex justify-center items-center">
+      <i class="" id="theme-icon"></i>
+    </span>
+</div>
+
+    <div id="docsearch" class="hidden"></div>
+    
+<link rel="stylesheet" href="/css/doc_search.css">
+
+    
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3.3.3/dist/umd/index.min.js"></script>
+
+
+    <script>
+      (() => {
+        docsearch(Object.assign({
+          appId: 'X0WWAAXUJA',
+          apiKey: 'e50c4e67b7ae1df93ab02fae368bc9af',
+          indexName: 'LittleDreamland',
+          container: '#docsearch',
+          placeholder: '快速搜索...',
+          transformItems: (items) => {
+            const mappedItems = items.map((item, index) => {
+              // We transform the absolute URL into a relative URL to
+              // leverage Next's preloading.
+              const a = document.createElement('a')
+              a.href = item.url
+
+              const hash = a.hash === '#article-title' ? '' : a.hash
+
+              if (item.hierarchy?.lvl0 && !item.hierarchy?.lvl1) {
+                item.hierarchy.lvl1 = '点击进入文章阅读 - ' + item.hierarchy.lvl0
+                item.type = 'lvl1'
+              }
+
+              if (item.hierarchy?.lvl0) {
+                item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+              }
+
+              if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                item._highlightResult.hierarchy.lvl0.value =
+                  item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
+              }
+
+              return {
+                ...item,
+                url: `${a.pathname}${hash}`,
+                __is_result: true,
+                __is_parent: (item.type === 'lvl1' && items.length > 1 && index === 0),
+                __is_child: (
+                  item.type !== 'lvl1' &&
+                  items.length > 1 &&
+                  items[0].type === 'lvl1' &&
+                  index !== 0),
+                __is_first: index === 1,
+                __is_last: (index === items.length - 1 && index !== 0),
+              }
+            })
+            return mappedItems;
+          },
+          hitComponent: ({ hit, children }) => {
+            const className = `${hit.__is_result ? 'DocSearch-Hit--Result ': ''}` +
+                              `${hit.__is_parent ? 'DocSearch-Hit--Parent ': ''}` +
+                              `${hit.__is_first ? 'DocSearch-Hit--FirstChild ': ''}` +
+                              `${hit.__is_last ? 'DocSearch-Hit--LastChild ': ''}` +
+                              `${hit.__is_child ? 'DocSearch-Hit--Child ': ''}`
+            return {
+              $$typeof: children.$$typeof,
+              constructor: undefined,
+              key: Math.floor(Math.random() * 10000),
+              type: 'a',
+              props: {
+                children: children,
+                class: className,
+                className: className,
+                href: hit.url
+              },
+              ref: undefined,
+              __v: null
+            }
+          }
+        }))
+
+
+        const searchClickFn = () => {
+          document.querySelector('#algolia_search').addEventListener('click', () => {
+            document.querySelector('.DocSearch-Button').click()
+          })
+        }
+
+        searchClickFn()
+      })()
+    </script>
+
+
+
+
+<script src="/js/main.js"></script>
+
+
+    
+<script src="/js/tw_cn.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.7/tianli_gpt.css">
+<script>
+  let tianliGPT_postSelector = '.post-content';
+  let tianliGPT_key = 'semb5AhNssX2qdKJZQek';
+</script>
+<script src="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.7/tianli_gpt.js"></script>
+
+<style>
+  :root {
+    --heo-theme: var(--roy-theme)!important;
+    --heo-theme-op: var(--roy-theme-op)!important;
+    --heo-theme-op-deep: var(--roy-theme-deep)!important;
+    --heo-theme-none: var(--roy-theme-none)!important;
+  }
+
+  .dark {
+    --heo-blue: #0084FF!important;
+    --heo-red: #FF3842!important;
+    --heo-pink: #d44040!important;
+    --heo-green: #3e9f50!important;
+    --heo-yellow: #ffc93e!important;
+    --heo-yellow-op: #ffc93e30!important;
+    --heo-orange: #ff953e!important;
+    --heo-fontcolor: #F7F7FA!important;
+    --heo-background: #18171d!important;
+    --heo-reverse: #fff!important;
+    --heo-maskbg: rgba(0, 0, 0, 0.6)!important;
+    --heo-maskbgdeep: rgba(0, 0, 0, 0.85)!important;
+    --heo-hovertext: #0A84FF!important;
+    --heo-ahoverbg: #fff!important;
+    --heo-lighttext: var(--heo-theme)!important;
+    --heo-secondtext: #a1a2b8!important;
+    --heo-scrollbar: rgba(200, 200, 223, 0.4)!important;
+    --heo-card-btn-bg: #30343f!important;
+    --heo-post-blockquote-bg: #000!important;
+    --heo-post-tabs-bg: #121212!important;
+    --heo-secondbg: #30343f!important;
+    --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4)!important;
+    --heo-card-bg: #1d1e22!important;
+    --heo-card-bg-op: var(--heo-white-op)!important;
+    --heo-card-bg-none: #1d1b2600!important;
+    --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0.0)!important;
+    --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0.0)!important;
+    --heo-card-border: #3d3d3f!important;
+    --heo-shadow-border: 0 8px 16px -4px #00000050!important;
+    --style-border: 1px solid var(--heo-card-border)!important;
+    --style-border-always: 1px solid var(--heo-card-border)!important;
+    --style-border-hover: 1px solid var(--heo-theme)!important;
+    --style-border-hover-always: 1px solid var(--heo-theme)!important;
+    --style-border-dashed: 1px dashed var(--heo-theme-op)!important;
+    --style-border-forever: 2px solid var(--heo-lighttext)!important;
+  }
+</style>
+
+
+
+
+
+<script>
+  var GLOBAL_CONFIG = {
+    root: '/',
+    isHome: false,
+    isPage: false,
+    isPost: true,
+    logo: 'https://img.vidorra.life/images/royians/logo.png',
+    algolia: {"appId":"X0WWAAXUJA","apiKey":"e50c4e67b7ae1df93ab02fae368bc9af","indexName":"LittleDreamland","hits":{"per_page":6},"languages":{"input_placeholder":"search.algolia_search.input_placeholder","hits_empty":"search.algolia_search.hits_empty","hits_stats":"search.algolia_search.hits_stats"}},
+    translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+    noticeOutDate: {"limitDay":500,"message":"距离上次更新已过去 ${days} 天，文章中的内容可能已经过时。"},
+    comment: true,
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前'
+    },
+    copyright: {"limitCount":50,"languages":{"author":"作者: ROYIANS","link":"链接: ","source":"来源: 小梦岛","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+    copy: {
+      success: '复制成功',
+      error: '复制错误',
+      noSupport: '浏览器不支持'
+    }
+  }
+</script>
+
+</body>
+
+</html>

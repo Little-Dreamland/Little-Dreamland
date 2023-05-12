@@ -1,0 +1,103 @@
+.toast {
+  visibility: hidden;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+  margin: auto;
+  height: 2.5rem;
+  width: 2.5rem;
+  white-space: nowrap;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  bottom: 30px;
+}
+
+.toast-message {
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  padding: 0px;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.toast-icon {
+  float: left;
+  box-sizing: border-box;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0.5rem;
+}
+
+.toast-image {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes expand {
+  from {
+    min-width: 50px;
+  }
+  to {
+    min-width: 350px;
+  }
+}
+
+@keyframes stay {
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 350px;
+  }
+}
+
+@keyframes shrink {
+  from {
+    min-width: 350px;
+  }
+  to {
+    min-width: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
+}

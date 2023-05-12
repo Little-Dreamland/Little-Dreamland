@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "LDL";
+    src: url("LDL.eot"); /* IE9 */
+    src: url("LDL.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+
+    url("LDL.woff") format("woff"), /* chrome、firefox */
+    url("LDL.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+
+    url("LDL.svg#LDL") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
