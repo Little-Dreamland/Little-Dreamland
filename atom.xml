@@ -6,7 +6,7 @@
   <link href="https://blog.vidorra.life/atom.xml" rel="self"/>
   
   <link href="https://blog.vidorra.life/"/>
-  <updated>2023-05-09T09:19:35.895Z</updated>
+  <updated>2023-06-18T04:10:27.717Z</updated>
   <id>https://blog.vidorra.life/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>因为遇见你-王源</title>
+    <link href="https://blog.vidorra.life/posts/2023061801/"/>
+    <id>https://blog.vidorra.life/posts/2023061801/</id>
+    <published>2023-06-17T16:00:00.000Z</published>
+    <updated>2023-06-18T04:10:27.717Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以下曲谱来源于图片内所示信息。如有侵权，请评论区联系删除&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="乐谱" scheme="https://blog.vidorra.life/tags/%E4%B9%90%E8%B0%B1/"/>
+    
+    <category term="王源" scheme="https://blog.vidorra.life/tags/%E7%8E%8B%E6%BA%90/"/>
+    
+    <category term="钢琴" scheme="https://blog.vidorra.life/tags/%E9%92%A2%E7%90%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Aria Sul G</title>
+    <link href="https://blog.vidorra.life/posts/b6cd312c/"/>
+    <id>https://blog.vidorra.life/posts/b6cd312c/</id>
+    <published>2023-05-24T16:00:00.000Z</published>
+    <updated>2023-05-25T11:11:59.777Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;《G弦上的咏叹调（Aria Sul G）》，又名为《G弦之歌》，此曲为巴赫（Johann Sebastian Bach）《第三号管弦乐组曲》（Orchestral Suites No’s 1 and 3 #09] Overture No. 3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个方法解决重组件渲染慢的问题</title>
+    <link href="https://blog.vidorra.life/posts/c41124d/"/>
+    <id>https://blog.vidorra.life/posts/c41124d/</id>
+    <published>2023-05-24T16:00:00.000Z</published>
+    <updated>2023-05-25T10:36:38.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在使用Vue3重构项目，其中，同事写的左侧菜单组件，打开的时候总是要卡顿一下，然后再展示菜单。分析了下原因，大概是因为菜单太多，层级也比较深。导致渲染效率比较低。&lt;/p&gt;
+&lt;p&gt;菜单多我们是没有办法解决的，但是用户体验还是要尽可能地优化。我突然想到了最近在短视频平台上学</summary>
+        
+      
+    
+    
+    
+    
+    <category term="JavaScript" scheme="https://blog.vidorra.life/tags/JavaScript/"/>
+    
+    <category term="Vue3" scheme="https://blog.vidorra.life/tags/Vue3/"/>
+    
+  </entry>
   
   <entry>
     <title>Suite for Jazz Orchestra No. 2 (Shostakovich)</title>
@@ -423,72 +501,6 @@
     <category term="Foo" scheme="https://blog.vidorra.life/tags/Foo/"/>
     
     <category term="Bar" scheme="https://blog.vidorra.life/tags/Bar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>体验MultCloud实现云盘互转</title>
-    <link href="https://blog.vidorra.life/posts/2018011001/"/>
-    <id>https://blog.vidorra.life/posts/2018011001/</id>
-    <published>2018-01-09T16:00:00.000Z</published>
-    <updated>2023-05-06T08:49:08.769Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;你是否需要把一个云盘中的东西转移到另一个云盘？却又不想下载文件？MultCloud可以帮你！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;今天，我来带领大家认识一款一个账号管理众多多云盘的在线服务：MultCloud。 官网地址：&lt;a</summary>
-        
-      
-    
-    
-    
-    
-    <category term="教程" scheme="https://blog.vidorra.life/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>酷安文化衫设计</title>
-    <link href="https://blog.vidorra.life/posts/2017082201/"/>
-    <id>https://blog.vidorra.life/posts/2017082201/</id>
-    <published>2017-08-21T16:00:00.000Z</published>
-    <updated>2023-05-09T01:58:01.806Z</updated>
-    
-    
-    <summary type="html">最近在酷安参加了文化衫设计比赛，经过激烈的投票，昨天结果出来了，我的设计拿了二等奖</summary>
-    
-    
-    
-    
-    <category term="随设" scheme="https://blog.vidorra.life/tags/%E9%9A%8F%E8%AE%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Images</title>
-    <link href="https://blog.vidorra.life/posts/e7b3bb5c/"/>
-    <id>https://blog.vidorra.life/posts/e7b3bb5c/</id>
-    <published>2013-12-26T14:46:49.000Z</published>
-    <updated>2023-05-11T02:18:19.590Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;This is a image test post.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/wallpaper-2572384.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/wallpaper-2311325.jpg&quot;</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
